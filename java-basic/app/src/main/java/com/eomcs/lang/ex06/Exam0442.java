@@ -8,6 +8,7 @@ public class Exam0442 {
 
     // 증가치 조정
     for (int i = 0; i < names.length; i += 2) {
+      // System.out.print(i);
       System.out.println(names[i]);
     }
 
