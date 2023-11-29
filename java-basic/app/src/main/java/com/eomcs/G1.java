@@ -1,4 +1,4 @@
 package com.eomcs;
 
-public class G1 { }
-class G2 { }
+public class G1 {}
+class G2 {}

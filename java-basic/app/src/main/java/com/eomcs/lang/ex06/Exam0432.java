@@ -6,8 +6,8 @@ public class Exam0432 {
   public static void main(String[] args) {
     // break 라벨명;
     loop1: {
-      for (int i = 1; i <= 10; i++) { // 1~10까지 반복(i)
-        for (int j = 1; j <= i; j++) { // 1~i까지 반복(j)
+      for (int i = 1; i <= 10; i++) {
+        for (int j = 1; j <= i; j++) {
           System.out.print(j + " ");
           if (j == 5)
             break loop1; // 라벨로 지정한 문장을 나간다.

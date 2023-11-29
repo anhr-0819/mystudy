@@ -12,9 +12,6 @@ public class Exam0461 {
     list.add(true);
     list.add(365);
 
-    // 제네릭 적용 예시
-    // ArrayList<String> list = new ArrayList<>();
-
     // for 문에 컬렉션도 적용할 수 있다.
     // for (변수 선언 : 컬렉션객체) 문장;
     for (Object value : list)
