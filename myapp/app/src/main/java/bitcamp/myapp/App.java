@@ -12,45 +12,21 @@ public class App {
   static final String ANSI_CLEAR = "\033[0m";
   static final String ANSI_BOLD_RED = "\033[1;31m";
   static final String ANSI_RED = "\033[0;31m";
-  static final String APP_TITLE = ANSI_BOLD_RED + "[과제관리 시스템]" + ANSI_CLEAR;
+  static final String APP_TITLE = "[과제관리 시스템]";
   static final String[] MENUS = {
       "1. 과제",
       "2. 게시글",
       "3. 도움말",
-      ANSI_RED + "4. 종료" + ANSI_CLEAR
+      "4. 종료"
   };
-
-  public static void main(String[] args) {
-    printMenu();
-    java.util.Scanner keyIn = new java.util.Scanner(System.in);
-
-    loop:
-    while (true) {
-      String input = prompt(keyIn);
-      switch (input) {
-        case "1":
-          System.out.println("과제입니다.");
-          break;
-        case "2":
-          System.out.println("게시글입니다.");
-          break;
-        case "3":
-          System.out.println("도움말입니다.");
-          break;
-        case "4":
-          System.out.println("종료합니다.");
-          break loop;
-        case "menu":
-          // 코드를 기능 단위로 묶어 메서드로 정의하면
-          // 메서드의 이름을 통해 해당 기능을 쉽게 유추할 수 있어 유지보수에 좋다.
-          printMenu();
-          break;
-        default:
-          System.out.println("메뉴 번호가 옳지 않습니다.");
-      }
-    }
-    keyIn.close();
-  }
+  static final String[] HOMEWORK_MENU = {
+      "[" + ANSI_RED + "과제" + ANSI_CLEAR + "]",
+      "1. 등록",
+      "2. 조회",
+      "3. 변경",
+      "4. 삭제",
+      "0. 이전",
+  };
 
   static void printMenu() {
     // ANSI 코드와 App 제목, 메뉴를 저장한 변수를 메서드 안에 두는 대신에
@@ -67,8 +43,70 @@ public class App {
     }
   }
 
-  static String prompt(Scanner keyIn) { // 사용자에게 프롬프트를 띄우고 사용자 입력값을 리턴
-    System.out.print("> ");
+  static void printHomeWorkMenu() {
+    for (String inputNum : HOMEWORK_MENU) {
+      System.out.println(inputNum);
+    }
+  }
+
+  static String prompt(Scanner keyIn, String title) { // 사용자에게 프롬프트를 띄우고 사용자 입력값을 리턴
+    System.out.print(title);
     return keyIn.nextLine();
+  }
+
+  //static void setHomeworkMenu() {}
+
+  public static void main(String[] args) {
+    printMenu();
+    java.util.Scanner keyIn = new java.util.Scanner(System.in);
+
+    mainLoop:
+    while (true) {
+      String input = prompt(keyIn, "메인> ");
+      switch (input) {
+        case "1":
+          printHomeWorkMenu();
+          subLoop:
+          while (true) {
+            String inputHomeWorkMenu = prompt(keyIn, "메인/과제> ");
+            switch (inputHomeWorkMenu) {
+              case "1":
+                System.out.println("과제 등록입니다.");
+                break;
+              case "2":
+                System.out.println("과제 조회입니다.");
+                break;
+              case "3":
+                System.out.println("과제 변경입니다.");
+                break;
+              case "4":
+                System.out.println("과제 삭제입니다.");
+                break;
+              case "0":
+                break subLoop;
+              default:
+                System.out.println("메뉴 번호가 옳지 않습니다.");
+            }
+          }
+          break;
+        case "2":
+          System.out.println("게시글입니다.");
+          break;
+        case "3":
+          System.out.println("도움말입니다.");
+          break;
+        case "4":
+          System.out.println("종료합니다.");
+          break mainLoop;
+        case "menu":
+          // 코드를 기능 단위로 묶어 메서드로 정의하면
+          // 메서드의 이름을 통해 해당 기능을 쉽게 유추할 수 있어 유지보수에 좋다.
+          printMenu();
+          break;
+        default:
+          System.out.println("메뉴 번호가 옳지 않습니다.");
+      }
+    }
+    keyIn.close();
   }
 }
