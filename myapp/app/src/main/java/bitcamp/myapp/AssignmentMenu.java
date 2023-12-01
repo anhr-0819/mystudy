@@ -17,7 +17,7 @@ public class AssignmentMenu {
     printMenu();
 
     while (true) {
-      String input = prompt.input("메인/과제", keyIn);
+      String input = prompt.input("메인/과제");
 
       switch (input) {
         case "1":

@@ -4,8 +4,14 @@ import java.util.Scanner;
 
 public class prompt {
 
-  static String input(String title, Scanner keyIn) {
+  static Scanner keyIn = new java.util.Scanner(System.in);
+
+  static String input(String title) {
     System.out.printf("%s> ", title);
     return keyIn.nextLine();
+  }
+
+  static void close() {
+    keyIn.close();
   }
 }
