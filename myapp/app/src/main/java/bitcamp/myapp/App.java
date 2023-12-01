@@ -1,19 +1,15 @@
 package bitcamp.myapp;
 
-import java.util.Scanner;
-
 public class App {
 
   public static void main(String[] args) {
-
-    //printMainMenu();
     MainMenu.printMenu();
 
     java.util.Scanner keyIn = new java.util.Scanner(System.in);
 
     loop:
     while (true) {
-      String input = prompt("메인", keyIn);
+      String input = prompt.input("메인", keyIn);
 
       switch (input) {
         case "1":
@@ -37,14 +33,6 @@ public class App {
           System.out.println("메뉴 번호가 옳지 않습니다.");
       }
     }
-
     keyIn.close();
   }
-
-  static String prompt(String title, Scanner keyIn) {
-    System.out.printf("%s> ", title);
-    return keyIn.nextLine();
-  }
-
-
 }

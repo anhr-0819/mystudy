@@ -16,7 +16,7 @@ public class BoardMenu {
   static void execute(Scanner keyIn) {
     printMenu();
     while (true) {
-      String input = App.prompt("메인/게시글", keyIn);
+      String input = prompt.input("메인/게시글", keyIn);
 
       switch (input) {
         case "1":
