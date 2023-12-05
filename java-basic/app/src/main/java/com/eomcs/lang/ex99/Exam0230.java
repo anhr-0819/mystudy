@@ -1,14 +1,14 @@
 package com.eomcs.lang.ex99;
 
-// # 키보드 입력 받기 - int, float, boolean 값 읽기
+//# 키보드 입력 받기 - int, float, boolean 값 읽기
 //
 public class Exam0230 {
-  public static void main(String[] args) {
+  public static void main(String[] args) { 
     java.util.Scanner keyScan = new java.util.Scanner(System.in);
 
     System.out.print("int: ");
-    2
-    nt i = keyScan.nextInt();
+    int i = keyScan.nextInt();
+
     // nextInt()는 한 개의 토큰(token)을 읽을 때가지 기다린다.
     // 한 개의 token을 읽으면 4바이트 정수 값으로 바꾼 다음에 리턴한다.
     // 토큰(token)?
@@ -29,5 +29,18 @@ public class Exam0230 {
     System.out.printf("%d, %f, %b\n", i, f, b);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
