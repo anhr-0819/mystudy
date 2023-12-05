@@ -21,7 +21,7 @@ public class MainMenu {
     }
   }
 
-  static void execute() {
+  void execute() {
     printMenu();
 
     while (true) {
@@ -29,10 +29,12 @@ public class MainMenu {
 
       switch (input) {
         case "1":
-          AssignmentMenu.execute();
+          AssignmentMenu assign = new AssignmentMenu();
+          assign.execute();
           break;
         case "2":
-          BoardMenu.execute();
+          BoardMenu board = new BoardMenu();
+          board.execute();
           break;
         case "3":
           System.out.println("도움말입니다.");
