@@ -25,14 +25,14 @@ public class MainMenu {
     printMenu();
 
     while (true) {
-      String input = prompt.input("메인");
+      String input = Prompt.input("메인> ");
 
       switch (input) {
         case "1":
-          AssignmentMenu.execute(prompt.keyIn);
+          AssignmentMenu.execute();
           break;
         case "2":
-          BoardMenu.execute(prompt.keyIn);
+          BoardMenu.execute();
           break;
         case "3":
           System.out.println("도움말입니다.");

@@ -2,12 +2,12 @@ package bitcamp.myapp;
 
 import java.util.Scanner;
 
-public class prompt {
+public class Prompt {
 
   static Scanner keyIn = new java.util.Scanner(System.in);
 
-  static String input(String title) {
-    System.out.printf("%s> ", title);
+  static String input(String title, Object... args) {
+    System.out.printf(String.format(title, args));
     return keyIn.nextLine();
   }
 

@@ -1,8 +1,10 @@
 package bitcamp.myapp;
 
-import java.util.Scanner;
-
 public class AssignmentMenu {
+
+  static String title;
+  static String content;
+  static String deadline;
 
   static void printMenu() {
     System.out.println("[과제]");
@@ -13,24 +15,24 @@ public class AssignmentMenu {
     System.out.println("0. 이전");
   }
 
-  static void execute(Scanner keyIn) {
+  static void execute() {
     printMenu();
 
     while (true) {
-      String input = prompt.input("메인/과제");
+      String input = Prompt.input("메인/과제> ");
 
       switch (input) {
         case "1":
-          System.out.println("등록입니다.");
+          add();
           break;
         case "2":
-          System.out.println("조회입니다.");
+          view();
           break;
         case "3":
-          System.out.println("변경입니다.");
+          modify();
           break;
         case "4":
-          System.out.println("삭제입니다.");
+          delete();
           break;
         case "0":
           return;
@@ -42,4 +44,36 @@ public class AssignmentMenu {
       }
     }
   }
+
+  static void add() {
+    System.out.println("과제 등록:");
+    title = Prompt.input("과제명? ");
+    content = Prompt.input("내용? ");
+    deadline = Prompt.input("제출 마감일? ");
+  }
+
+  static void view() {
+    System.out.println("과제 조회:");
+    System.out.printf("과제명: %s\n", title);
+    System.out.printf("내용: %s\n", content);
+    System.out.printf("제출 마감일: %s\n", deadline);
+  }
+
+  static void modify() {
+    System.out.println("과제 변경:");
+    title = Prompt.input("과제명(%s)? ", title);
+    content = Prompt.input("내용(%s)? ", content);
+    deadline = Prompt.input("제출 마감일(%s)? ", deadline);
+  }
+
+  static void delete() {
+    System.out.println("과제 삭제:");
+    title = "";
+    content = "";
+    deadline = "";
+  }
 }
+
+// java.lang 패키지에 있는 클래스를 쓸땐 import 안해도됨
+// ex) java.lang.String
+// 그 외 다른 모든 패키지에 있는 클래스는 패키지명을 적거나 import 해야함
