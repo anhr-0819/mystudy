@@ -21,7 +21,7 @@ public class MainMenu {
     }
   }
 
-  void execute() {
+  static void execute() {
     printMenu();
 
     while (true) {
@@ -29,12 +29,10 @@ public class MainMenu {
 
       switch (input) {
         case "1":
-          AssignmentMenu assign = new AssignmentMenu();
-          assign.execute();
+          AssignmentMenu.execute();
           break;
         case "2":
-          BoardMenu board = new BoardMenu();
-          board.execute();
+          BoardMenu.execute();
           break;
         case "3":
           System.out.println("도움말입니다.");
@@ -43,7 +41,7 @@ public class MainMenu {
           System.out.println("종료합니다.");
           return;
         case "menu":
-          MainMenu.printMenu();
+          printMenu();
           break;
         default:
           System.out.println("메뉴 번호가 옳지 않습니다.");

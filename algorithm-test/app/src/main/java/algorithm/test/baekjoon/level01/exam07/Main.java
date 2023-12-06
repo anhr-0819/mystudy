@@ -7,7 +7,7 @@ public class Main {
     Scanner scan = new Scanner(System.in);
     String input = scan.nextLine();
 
-      System.out.println(input + "??!")
+    System.out.println(input + "??!");
     scan.close();
   }
 }
