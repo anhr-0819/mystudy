@@ -2,7 +2,7 @@ package bitcamp.myapp;
 
 public class AssignmentMenu {
 
-  static Assignment[] assignments = new Assignment[3]; // 레퍼런스 배열 생성
+  static Assignment[] assignments = new Assignment[3];
   static int length = 0;
 
   static void printMenu() {
@@ -55,9 +55,9 @@ public class AssignmentMenu {
       //System.out.println("과제를 더이상 등록할 수 없습니다.");
       int oldSize = assignments.length;
       int newSize = oldSize + (oldSize / 2);
-      Assignment[] arr = new Assignment[newSize];
 
-      //이전 배열에 들어 있는 값을 새 배열에 복사
+      // 이전 배열에 들어 있는 값을 새 배열에 복사
+      Assignment[] arr = new Assignment[newSize];
       for (int i = 0; i < oldSize; i++) {
         arr[i] = assignments[i];
       }
@@ -71,18 +71,16 @@ public class AssignmentMenu {
     assignment.content = Prompt.input("내용? ");
     assignment.deadline = Prompt.input("제출 마감일? ");
 
-    // 새 과제를 등록할때마다 인스턴스를 생성하고 static assignment배열에 저장
-    // static assignment배열에 저장(단,배열 유효범위를 벗어나면 에러발생)
     assignments[length] = assignment;
     length++;
-
   }
 
   static void list() {
     System.out.println("과제 목록:");
     System.out.printf("%-20s\t%s\n", "과제", "제출마감일");
+
     for (int i = 0; i < length; i++) {
-      Assignment assignment = assignments[i]; // 기존 코드를 수정하지 않기 위해
+      Assignment assignment = assignments[i];
       System.out.printf("%-20s\t%s\n", assignment.title, assignment.deadline);
     }
   }
@@ -95,11 +93,11 @@ public class AssignmentMenu {
       System.out.println("과제 번호가 유효하지 않습니다.");
       return;
     }
-    Assignment assignment = assignments[index];
-    System.out.printf("과제명: %s\n ", assignment.title);
-    System.out.printf("내용: %s\n ", assignment.content);
-    System.out.printf("제출 마감일: %s\n ", assignment.deadline);
 
+    Assignment assignment = assignments[index];
+    System.out.printf("과제명: %s\n", assignment.title);
+    System.out.printf("내용: %s\n", assignment.content);
+    System.out.printf("제출 마감일: %s\n", assignment.deadline);
   }
 
   static void modify() {
@@ -110,11 +108,11 @@ public class AssignmentMenu {
       System.out.println("과제 번호가 유효하지 않습니다.");
       return;
     }
+
     Assignment assignment = assignments[index];
     assignment.title = Prompt.input("과제명(%s)? ", assignment.title);
     assignment.content = Prompt.input("내용(%s)? ", assignment.content);
     assignment.deadline = Prompt.input("제출 마감일(%s)? ", assignment.deadline);
-
   }
 
   static void delete() {
@@ -125,13 +123,11 @@ public class AssignmentMenu {
       System.out.println("과제 번호가 유효하지 않습니다.");
       return;
     }
+
     for (int i = index; i < (length - 1); i++) {
       assignments[i] = assignments[i + 1]; // 다음 레퍼런스의 값을 삭제하려는 현재 레퍼런스로 이동
-      length--;
-      assignments[length] = null; // 배열 마지막 값 초기화
     }
-//    assignment.title = "";
-//    assignment.content = "";
-//    assignment.deadline = "";
+    length--;
+    assignments[length] = null;
   }
 }

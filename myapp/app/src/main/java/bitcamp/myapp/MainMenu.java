@@ -36,11 +36,10 @@ public class MainMenu {
           BoardMenu.execute();
           break;
         case "3":
-          MemberMenu.execute();
-          break;
+          MemberMenu.excute();
         case "4":
           System.out.println("도움말입니다.");
-          return;
+          break;
         case "0":
           System.out.println("종료합니다.");
           return;

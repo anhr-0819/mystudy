@@ -4,7 +4,6 @@ public class BoardMenu {
 
   static Board[] boards = new Board[3];
   static int length = 0;
-  // 배열에 담긴 데이터의 수 카운팅
 
   static void printMenu() {
     System.out.println("[게시글]");
@@ -52,22 +51,17 @@ public class BoardMenu {
     System.out.println("게시글 등록:");
 
     if (length == boards.length) {
-      // 등록수가 배열 범위를 초과하면 배열을 새로 생성
       int oldSize = boards.length;
       int newSize = oldSize + (oldSize >> 1);
-      // int newSize = oldSize + (oldSize / 2);
-      Board[] arr = new Board[newSize];
 
-      // 새 배열에 값 복사
+      Board[] arr = new Board[newSize];
       for (int i = 0; i < oldSize; i++) {
         arr[i] = boards[i];
       }
 
-      // 새 배열을 가리키도록 배열 레퍼런스 변경
       boards = arr;
     }
 
-    // 객체 생성 후 새로 등록할 데이터 입력 받기
     Board board = new Board();
     board.title = Prompt.input("제목? ");
     board.content = Prompt.input("내용? ");
@@ -75,17 +69,15 @@ public class BoardMenu {
     board.createdDate = Prompt.input("작성일? ");
 
     boards[length++] = board;
-//    boards[length] = board;
-//    length++;
   }
 
   static void list() {
     System.out.println("게시글 목록:");
     System.out.printf("%-20s\t%10s\t%s\n", "Title", "Writer", "Date");
+
     for (int i = 0; i < length; i++) {
       Board board = boards[i];
-      System.out.printf("%-20s\t%10s\t%s\n", board.title, board.writer, board.content);
-      System.out.println("--------------------------------");
+      System.out.printf("%-20s\t%10s\t%s\n", board.title, board.writer, board.createdDate);
     }
   }
 
@@ -97,6 +89,7 @@ public class BoardMenu {
       System.out.println("게시글 번호가 유효하지 않습니다.");
       return;
     }
+
     Board board = boards[index];
     System.out.printf("제목: %s\n", board.title);
     System.out.printf("내용: %s\n", board.content);
@@ -112,6 +105,7 @@ public class BoardMenu {
       System.out.println("게시글 번호가 유효하지 않습니다.");
       return;
     }
+
     Board board = boards[index];
     board.title = Prompt.input("제목(%s)? ", board.title);
     board.content = Prompt.input("내용(%s)? ", board.content);
@@ -127,6 +121,7 @@ public class BoardMenu {
       System.out.println("게시글 번호가 유효하지 않습니다.");
       return;
     }
+
     for (int i = index; i < (length - 1); i++) {
       boards[i] = boards[i + 1];
     }
