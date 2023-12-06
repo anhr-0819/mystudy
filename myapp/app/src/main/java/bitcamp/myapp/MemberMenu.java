@@ -60,8 +60,7 @@ public class MemberMenu {
     member.pw = Prompt.input("암호? ");
     member.joinDate = Prompt.input("가입일? ");
 
-    members[length] = member;
-    length++;
+    members[length++] = member;
   }
 
   static void list() {
@@ -102,8 +101,7 @@ public class MemberMenu {
     }
     for (int i = index; i < (length - 1); i++) {
       members[i] = members[i + 1];
-      length--;
-      members[length] = null;
     }
+    members[--length] = null;
   }
 }
