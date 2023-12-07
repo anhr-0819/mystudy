@@ -1,28 +1,22 @@
-package bitcamp.myapp.menu;
+package bitcamp.myapp.Menu;
 
 import bitcamp.myapp.vo.Board;
 import bitcamp.util.Prompt;
 
 public class BoardMenu {
 
-  // 의존 객체(Dependency Object ==> dependency);
-  // - 클래스가 작업을 수행할 때 사용하는 객체
-  Prompt prompt;
-
   String title;
   Board[] boards = new Board[3];
-  int length = 0;
+  int length;
+  Prompt prompt;
 
-  // BoardMenu 인스턴스를 생성할 때 반드시 게시판 제목을 설정하도록 강요한다.
-  // 생성자란(constructor)?
-  // => 인스턴스를 사용하기 전에 유효한 상태로 설정하는 작업을 수행하는 메서드
   public BoardMenu(String title, Prompt prompt) {
     this.title = title;
     this.prompt = prompt;
   }
 
   void printMenu() {
-    System.out.printf("[%s]\n", this.title);
+    System.out.printf("[%s]\n", title);
     System.out.println("1. 등록");
     System.out.println("2. 조회");
     System.out.println("3. 변경");
@@ -64,7 +58,7 @@ public class BoardMenu {
   }
 
   void add() {
-    System.out.println("게시글 등록:");
+    System.out.printf("%s 등록:\n", title);
 
     if (this.length == this.boards.length) {
       int oldSize = this.boards.length;
@@ -87,8 +81,8 @@ public class BoardMenu {
     this.boards[this.length++] = board;
   }
 
-  void list() { // 논스태틱 메서드 == 인스턴스 메서드
-    System.out.println("게시글 목록:");
+  void list() {
+    System.out.printf("%s 목록:\n", title);
     System.out.printf("%-20s\t%10s\t%s\n", "Title", "Writer", "Date");
 
     for (int i = 0; i < this.length; i++) {
@@ -98,11 +92,11 @@ public class BoardMenu {
   }
 
   void view() {
-    System.out.println("게시글 조회:");
+    System.out.printf("%s 조회:\n", title);
 
     int index = this.prompt.inputInt("번호? ");
     if (index < 0 || index >= this.length) {
-      System.out.println("게시글 번호가 유효하지 않습니다.");
+      System.out.printf("%s 번호가 유효하지 않습니다.\n", title);
       return;
     }
 
@@ -114,11 +108,11 @@ public class BoardMenu {
   }
 
   void modify() {
-    System.out.println("게시글 변경:");
+    System.out.printf("%s 변경\n", title);
 
     int index = this.prompt.inputInt("번호? ");
     if (index < 0 || index >= this.length) {
-      System.out.println("게시글 번호가 유효하지 않습니다.");
+      System.out.printf("%s 번호가 유효하지 않습니다.\n", title);
       return;
     }
 
@@ -130,11 +124,11 @@ public class BoardMenu {
   }
 
   void delete() {
-    System.out.println("게시글 삭제:");
+    System.out.printf("%s 삭제\n", title);
 
     int index = this.prompt.inputInt("번호? ");
     if (index < 0 || index >= this.length) {
-      System.out.println("게시글 번호가 유효하지 않습니다.");
+      System.out.printf("%s 번호가 유효하지 않습니다.\n", title);
       return;
     }
 
