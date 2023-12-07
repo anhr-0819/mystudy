@@ -13,9 +13,9 @@ public class Main {
     c = scan.nextInt();
 
     System.out.println((a + b) % c);
-    System.out.println((a % c) + (b % c) % c);
+    System.out.println(((a % c) + (b % c)) % c);
     System.out.println((a * b) % c);
-    System.out.println((a % c) * (b % c) % c);
+    System.out.println(((a % c) * (b % c)) % c);
     scan.close();
   }
 }

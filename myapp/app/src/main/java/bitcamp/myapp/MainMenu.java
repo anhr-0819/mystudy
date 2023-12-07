@@ -10,7 +10,8 @@ public class MainMenu {
       "1. 과제",
       "2. 게시글",
       "3. 회원",
-      "4. 도움말",
+      "4. 가입인사",
+      "5. 도움말",
       ANSI_RED + "0. 종료" + ANSI_CLEAR
   };
 
@@ -23,22 +24,33 @@ public class MainMenu {
   }
 
   static void execute() {
+
+    Prompt prompt = new Prompt(System.in);
+
+    BoardMenu boardMenu = new BoardMenu("게시판", prompt);
+    BoardMenu greetingMenu = new BoardMenu("가입인사", prompt);
+    AssignmentMenu assignmentMenu = new AssignmentMenu("과제", prompt);
+    MemberMenu memberMenu = new MemberMenu("회원", prompt);
+
     printMenu();
 
     while (true) {
-      String input = Prompt.input("메인> ");
+      String input = prompt.input("메인> ");
 
       switch (input) {
         case "1":
-          AssignmentMenu.execute();
+          assignmentMenu.execute();
           break;
         case "2":
-          BoardMenu.execute();
+          boardMenu.execute();
           break;
         case "3":
-          MemberMenu.execute();
+          memberMenu.execute();
           break;
         case "4":
+          greetingMenu.execute();
+          break;
+        case "5":
           System.out.println("도움말입니다.");
           break;
         case "0":
