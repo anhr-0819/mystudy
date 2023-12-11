@@ -1,5 +1,6 @@
 package bitcamp.myapp.Menu;
 
+import bitcamp.menu.Menu;
 import bitcamp.util.AnsiEscape;
 import bitcamp.util.Prompt;
 
@@ -45,8 +46,12 @@ public class MainMenu implements Menu {
     }
   }
 
-  public void execute() {
-    Prompt prompt = new Prompt(System.in);
+  @Override
+  public String getTitle() {
+    return null;
+  }
+
+  public void execute(Prompt prompt) {
 
     Menu assignmentMenu = new AssignmentMenu("과제", prompt);
     Menu boardMenu = new BoardMenu("게시판", prompt);
@@ -61,19 +66,19 @@ public class MainMenu implements Menu {
 
       switch (input) {
         case "1":
-          assignmentMenu.execute();
+          assignmentMenu.execute(prompt);
           break;
         case "2":
-          boardMenu.execute();
+          boardMenu.execute(prompt);
           break;
         case "3":
-          memberMenu.execute();
+          memberMenu.execute(prompt);
           break;
         case "4":
-          greetingBoardMenu.execute();
+          greetingBoardMenu.execute(prompt);
           break;
         case "5":
-          helpMenu.execute();
+          helpMenu.execute(prompt);
           break;
         case "0":
           System.out.println("종료합니다.");

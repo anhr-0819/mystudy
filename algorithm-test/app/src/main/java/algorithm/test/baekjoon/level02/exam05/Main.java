@@ -12,12 +12,17 @@ public class Main {
     int h = scan.nextInt();
     int m = scan.nextInt();
 
+
     scan.close();
 
   }
 
-  static void hourCarculate(int h) {}
+  static int hourCarculate(int h) {
+    return 0;
+  }
 
-  static void minitCarculate(int m) {}
+  static int minuteCarculate(int m) {
+    return 0;
+  }
 
 }
