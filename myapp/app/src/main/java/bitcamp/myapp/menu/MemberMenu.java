@@ -3,13 +3,19 @@ package bitcamp.myapp.Menu;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.Prompt;
 
-public class MemberMenu {
+public class MemberMenu implements Menu {
 
   String title;
   Member[] members = new Member[3];
   int length;
+
+  // 의존 객체(Dependency Object ==> dependency);
+  // - 클래스가 작업을 수행할 때 사용하는 객체
   Prompt prompt;
 
+  // BoardMenu 인스턴스를 생성할 때 반드시 게시판 제목을 설정하도록 강요한다.
+  // 생성자란(constructor)?
+  // => 인스턴스를 사용하기 전에 유효한 상태로 설정하는 작업을 수행하는 메서드
   public MemberMenu(String title, Prompt prompt) {
     this.title = title;
     this.prompt = prompt;
@@ -25,7 +31,7 @@ public class MemberMenu {
     System.out.println("0. 이전");
   }
 
-  void execute() {
+  public void execute() {
     this.printMenu();
     while (true) {
       String input = prompt.input("메인/%s> ", this.title);
