@@ -1,7 +1,9 @@
 package bitcamp.myapp.handler.member;
 
+import bitcamp.menu.Menu;
 import bitcamp.menu.MenuHandler;
 import bitcamp.myapp.vo.Member;
+import bitcamp.util.AnsiEscape;
 import bitcamp.util.Prompt;
 
 public class MemberAddHandler implements MenuHandler {
@@ -15,11 +17,11 @@ public class MemberAddHandler implements MenuHandler {
   }
 
   @Override
-  public void action() {
-    System.out.println("회원 등록:");
+  public void action(Menu menu) {
+    System.out.printf(AnsiEscape.ANSI_BOLD + "[%s]\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
 
     if (this.memberRepository.length == this.memberRepository.members.length) {
-      int oldSize = this.memberRepository.length;
+      int oldSize = this.memberRepository.members.length;
       int newSize = oldSize + (oldSize >> 1);
 
       Member[] arr = new Member[newSize];

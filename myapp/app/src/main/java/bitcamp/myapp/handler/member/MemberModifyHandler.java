@@ -1,13 +1,15 @@
 package bitcamp.myapp.handler.member;
 
+import bitcamp.menu.Menu;
 import bitcamp.menu.MenuHandler;
 import bitcamp.myapp.vo.Member;
+import bitcamp.util.AnsiEscape;
 import bitcamp.util.Prompt;
 
 public class MemberModifyHandler implements MenuHandler {
 
-  MemberRepository memberRepository;
   Prompt prompt;
+  MemberRepository memberRepository;
 
   public MemberModifyHandler(MemberRepository memberRepository, Prompt prompt) {
     this.memberRepository = memberRepository;
@@ -15,8 +17,8 @@ public class MemberModifyHandler implements MenuHandler {
   }
 
   @Override
-  public void action() {
-    System.out.println("회원 변경:");
+  public void action(Menu menu) {
+    System.out.printf(AnsiEscape.ANSI_BOLD + "[%s]\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
 
     int index = this.prompt.inputInt("번호? ");
     if (index < 0 || index >= this.memberRepository.length) {
