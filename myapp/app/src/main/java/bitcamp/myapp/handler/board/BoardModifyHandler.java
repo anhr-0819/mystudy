@@ -15,7 +15,6 @@ public class BoardModifyHandler implements MenuHandler {
   public BoardModifyHandler(BoardRepository boardRepository, Prompt prompt) {
     this.boardRepository = boardRepository;
     this.prompt = prompt;
-
   }
 
   @Override

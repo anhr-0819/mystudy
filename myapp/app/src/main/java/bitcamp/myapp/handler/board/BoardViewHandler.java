@@ -12,14 +12,9 @@ public class BoardViewHandler implements MenuHandler {
   BoardRepository boardRepository;
   Prompt prompt;
 
-  public BoardViewHandler(BoardRepository boardRepository) {
-    this.boardRepository = boardRepository;
-  }
-
   public BoardViewHandler(BoardRepository boardRepository, Prompt prompt) {
     this.boardRepository = boardRepository;
     this.prompt = prompt;
-
   }
 
   @Override

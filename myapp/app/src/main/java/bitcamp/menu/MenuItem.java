@@ -11,8 +11,6 @@ public class MenuItem implements Menu {
 
   String title;
   MenuHandler menuHandler;
-  // MenuHandler 규칙에 따른 객체라면 어떤 객체든 주소를 받을 수 있다.
-  // Low Copuling
 
   public MenuItem(String title) {
     this.title = title;

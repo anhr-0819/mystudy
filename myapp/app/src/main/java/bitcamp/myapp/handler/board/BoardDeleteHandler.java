@@ -14,11 +14,11 @@ public class BoardDeleteHandler implements MenuHandler {
   public BoardDeleteHandler(BoardRepository boardRepository, Prompt prompt) {
     this.boardRepository = boardRepository;
     this.prompt = prompt;
-
   }
 
   @Override
   public void action() {
+    System.out.println("게시글 삭제:");
 
     int index = this.prompt.inputInt("번호? ");
     if (index < 0 || index >= this.boardRepository.length) {
