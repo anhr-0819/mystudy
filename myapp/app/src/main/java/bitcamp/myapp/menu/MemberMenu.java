@@ -1,4 +1,4 @@
-package bitcamp.myapp.Menu;
+package bitcamp.myapp.menu;
 
 import bitcamp.menu.Menu;
 import bitcamp.myapp.vo.Member;
@@ -6,17 +6,14 @@ import bitcamp.util.Prompt;
 
 public class MemberMenu implements Menu {
 
-  String title;
-  Member[] members = new Member[3];
-  int length;
-
   // 의존 객체(Dependency Object ==> dependency);
   // - 클래스가 작업을 수행할 때 사용하는 객체
   Prompt prompt;
 
-  // BoardMenu 인스턴스를 생성할 때 반드시 게시판 제목을 설정하도록 강요한다.
-  // 생성자란(constructor)?
-  // => 인스턴스를 사용하기 전에 유효한 상태로 설정하는 작업을 수행하는 메서드
+  String title;
+  Member[] members = new Member[3];
+  int length = 0;
+
   public MemberMenu(String title, Prompt prompt) {
     this.title = title;
     this.prompt = prompt;
@@ -40,7 +37,7 @@ public class MemberMenu implements Menu {
   public void execute(Prompt prompt) {
     this.printMenu();
     while (true) {
-      String input = prompt.input("메인/%s> ", this.title);
+      String input = this.prompt.input("메인/%s> ", this.title);
 
       switch (input) {
         case "1":
@@ -70,7 +67,7 @@ public class MemberMenu implements Menu {
   }
 
   void add() {
-    System.out.printf("%s 등록:\n", title);
+    System.out.println("회원 등록:");
 
     if (this.length == this.members.length) {
       int oldSize = this.members.length;
@@ -85,62 +82,61 @@ public class MemberMenu implements Menu {
     }
 
     Member member = new Member();
-    member.name = prompt.input("이름? ");
-    member.email = prompt.input("이메일? ");
-    member.password = prompt.input("암호? ");
-    member.createdDate = prompt.input("가입일? ");
+    member.email = this.prompt.input("이메일? ");
+    member.name = this.prompt.input("이름? ");
+    member.password = this.prompt.input("암호? ");
+    member.createdDate = this.prompt.input("가입일? ");
 
     this.members[this.length++] = member;
   }
 
   void list() {
-    System.out.printf("%s 목록:\n", title);
-    System.out.printf("%-20s\t%10s\t%s\n", "Name", "Email", "Created Date");
+    System.out.println("회원 목록:");
+    System.out.printf("%-10s\t%30s\t%s\n", "이름", "이메일", "가입일");
 
     for (int i = 0; i < this.length; i++) {
       Member member = this.members[i];
-      System.out.printf("%-20s\t%10s\t%s\n", member.name, member.email, member.createdDate);
+      System.out.printf("%-10s\t%30s\t%s\n", member.name, member.email, member.createdDate);
     }
   }
 
   void view() {
-    System.out.printf("%s 조회:\n", title);
+    System.out.println("회원 조회:");
 
-    int index = prompt.inputInt("번호? ");
+    int index = this.prompt.inputInt("번호? ");
     if (index < 0 || index >= this.length) {
-      System.out.printf("%s 번호가 유효하지 않습니다.\n", title);
+      System.out.println("회원 번호가 유효하지 않습니다.");
       return;
     }
 
     Member member = this.members[index];
-    System.out.printf("이름: %s\n", member.name);
     System.out.printf("이메일: %s\n", member.email);
-    System.out.printf("암호: %s\n", member.password);
+    System.out.printf("이름: %s\n", member.name);
     System.out.printf("가입일: %s\n", member.createdDate);
   }
 
   void modify() {
-    System.out.printf("%s 변경:\n", title);
+    System.out.println("회원 변경:");
 
-    int index = prompt.inputInt("번호? ");
+    int index = this.prompt.inputInt("번호? ");
     if (index < 0 || index >= this.length) {
-      System.out.printf("%s 번호가 유효하지 않습니다.\n", title);
+      System.out.println("회원 번호가 유효하지 않습니다.");
       return;
     }
 
     Member member = this.members[index];
-    member.name = prompt.input("제목(%s)? ", member.name);
-    member.email = prompt.input("내용(%s)? ", member.email);
-    member.password = prompt.input("작성자(%s)? ", member.password);
-    member.createdDate = prompt.input("작성일(%s)? ", member.createdDate);
+    member.email = this.prompt.input("이메일(%s)? ", member.email);
+    member.name = this.prompt.input("이름(%s)? ", member.name);
+    member.password = this.prompt.input("새 암호? ");
+    member.createdDate = this.prompt.input("가입일(%s)? ", member.createdDate);
   }
 
   void delete() {
-    System.out.printf("%s 삭제:\n", title);
+    System.out.println("회원 삭제:");
 
-    int index = prompt.inputInt("번호? ");
+    int index = this.prompt.inputInt("번호? ");
     if (index < 0 || index >= this.length) {
-      System.out.printf("%s 번호가 유효하지 않습니다.\n", title);
+      System.out.println("회원 번호가 유효하지 않습니다.");
       return;
     }
 
