@@ -4,8 +4,10 @@ import bitcamp.menu.MenuGroup;
 import bitcamp.menu.MenuHandler;
 import bitcamp.menu.MenuItem;
 import bitcamp.myapp.menu.BoardAddHandler;
-import bitcamp.myapp.menu.BoardListHandler;
+import bitcamp.myapp.menu.BoardDeleteHandler;
+import bitcamp.myapp.menu.BoardModifyHandler;
 import bitcamp.myapp.menu.BoardRepository;
+import bitcamp.myapp.menu.BoardViewHandler;
 import bitcamp.util.Prompt;
 
 public class App {
@@ -37,10 +39,18 @@ public class App {
     // 게시글 등록을 처리하는 메뉴를 게시글 메뉴에 추가한다.
     boardMenu.add(boardAddMenu);
 
-    //boardMenu.add(new MenuItem("조회", new BoardViewHandler()));
+    boardMenu.add(new MenuItem("조회", new BoardViewHandler(boardRepository, prompt)));
+    // 조회라는 타이틀을 가진 메뉴 생성한다( 작업을 수행할 때 사용할 객체를 함께 넘김 )
+
+//    BoardModifyHandler handler = new BoardModifyHandler(boardRepository, prompt);
+//    // 변경작업을 할 때 배열정보와 프롬프트 정보가 필요함
+//    MenuItem menuItem = new MenuItem("변경",handler);
+//    boardMenu.add(menuItem);
+    boardMenu.add(new MenuItem("변경", new BoardModifyHandler(boardRepository, prompt)));
+    boardMenu.add(new MenuItem("삭제", new BoardDeleteHandler(boardRepository, prompt)));
+
     //boardMenu.add(new MenuItem("변경", new BoardModifyHandler()));
-    //boardMenu.add(new MenuItem("삭제", new BoardDeleteHandler()));
-    boardMenu.add(new MenuItem("목록", new BoardListHandler(boardRepository)));
+    // boardMenu.add(new MenuItem("목록", new BoardListHandler(boardRepository)));
     mainMenu.add(boardMenu);
 
     MenuGroup memberMenu = new MenuGroup("회원");
@@ -64,5 +74,7 @@ public class App {
     mainMenu.execute(prompt);
 
     prompt.close();
+
+
   }
 }
