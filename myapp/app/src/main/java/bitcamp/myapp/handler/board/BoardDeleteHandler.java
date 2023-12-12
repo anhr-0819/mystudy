@@ -21,16 +21,11 @@ public class BoardDeleteHandler implements MenuHandler {
   @Override
   public void action(Menu menu) {
     System.out.printf(AnsiEscape.ANSI_BOLD + "[%s]\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
-
     int index = this.prompt.inputInt("번호? ");
-    if (index < 0 || index >= this.boardRepository.length) {
-      System.out.println("게시글 번호가 유효하지 않습니다.");
-      return;
-    }
+    boardRepository.remove(index);
 
-    for (int i = index; i < (this.boardRepository.length - 1); i++) {
-      this.boardRepository.boards[i] = this.boardRepository.boards[i + 1];
+    if (this.boardRepository.remove(index) == null) {
+      System.out.println("게시글 번호가 유효하지 않습니다.");
     }
-    this.boardRepository.boards[--this.boardRepository.length] = null;
   }
 }
