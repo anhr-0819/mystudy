@@ -20,8 +20,6 @@ public class MemberDeleteHandler implements MenuHandler {
     System.out.printf(AnsiEscape.ANSI_BOLD + "[%s]\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
 
     int index = this.prompt.inputInt("번호? ");
-    this.memberRepository.remove(index);
-
     if (this.memberRepository.remove(index) == null) {
       System.out.println("회원 번호가 유효하지 않습니다.");
     }

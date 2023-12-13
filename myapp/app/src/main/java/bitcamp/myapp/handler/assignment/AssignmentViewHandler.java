@@ -22,9 +22,7 @@ public class AssignmentViewHandler implements MenuHandler {
     System.out.printf(AnsiEscape.ANSI_BOLD + "[%s]\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
 
     int index = this.prompt.inputInt("번호? ");
-
     Assignment assignment = this.assignmentRepository.get(index);
-
     if (assignment == null) {
       System.out.println("과제 번호가 유효하지 않습니다.");
       return;

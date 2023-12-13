@@ -30,9 +30,6 @@ public class BoardAddHandler implements MenuHandler {
     board.writer = this.prompt.input("작성자? ");
     board.createdDate = this.prompt.input("작성일? ");
 
-    // 목록에 객체를 추가시키는 코드를 BoardRepository가 감췄다.(캡슐화 했다)
-    // 대신 목록에 객체를 추가시킬 수 있도록 메서드를 제공하고 있다.
-    // 따라서 다음과 같이 BoardRepository가 제공하는 메서드를 사용하여 게시글 객체를 추가하라.
-    this.objectRepository.add(board);
+    objectRepository.add(board);
   }
 }

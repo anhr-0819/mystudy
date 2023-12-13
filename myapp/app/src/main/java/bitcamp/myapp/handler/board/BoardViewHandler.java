@@ -26,8 +26,6 @@ public class BoardViewHandler implements MenuHandler {
 
     int index = this.prompt.inputInt("번호? ");
     Board board = (Board) this.objectRepository.get(index);
-
-    objectRepository.get(index);
     if (board == null) {
       System.out.println("게시글 번호가 유효하지 않습니다.");
       return;

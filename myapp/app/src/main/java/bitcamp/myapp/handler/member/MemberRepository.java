@@ -4,8 +4,8 @@ import bitcamp.myapp.vo.Member;
 
 public class MemberRepository {
 
-  private Member[] members = new Member[3];
-  private int length = 0;
+  Member[] members = new Member[3];
+  int length = 0;
 
   public void add(Member member) {
     if (this.length == this.members.length) {
@@ -19,6 +19,7 @@ public class MemberRepository {
 
       this.members = arr;
     }
+
     this.members[this.length++] = member;
   }
 
@@ -28,10 +29,12 @@ public class MemberRepository {
     }
 
     Member deleted = this.members[index];
+
     for (int i = index; i < (this.length - 1); i++) {
       this.members[i] = this.members[i + 1];
     }
     this.members[--this.length] = null;
+
     return deleted;
   }
 
@@ -54,8 +57,10 @@ public class MemberRepository {
     if (index < 0 || index >= this.length) {
       return null;
     }
+
     Member old = this.members[index];
     this.members[index] = member;
+
     return old;
   }
 }

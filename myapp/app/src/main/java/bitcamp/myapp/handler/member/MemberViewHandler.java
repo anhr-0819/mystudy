@@ -22,7 +22,6 @@ public class MemberViewHandler implements MenuHandler {
 
     int index = this.prompt.inputInt("번호? ");
     Member member = this.memberRepository.get(index);
-
     if (member == null) {
       System.out.println("회원 번호가 유효하지 않습니다.");
       return;

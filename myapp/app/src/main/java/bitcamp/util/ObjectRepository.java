@@ -3,7 +3,6 @@ package bitcamp.util;
 public class ObjectRepository {
 
   private Object[] objects = new Object[3];
-  // 오브젝트 레퍼런스는 어떤 주소든 담을 수 있다.
   private int length = 0;
 
   public void add(Object object) {
@@ -18,6 +17,7 @@ public class ObjectRepository {
 
       this.objects = arr;
     }
+
     this.objects[this.length++] = object;
   }
 
@@ -38,7 +38,7 @@ public class ObjectRepository {
 
   public Object[] toArray() {
     Object[] arr = new Object[this.length];
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < this.length; i++) {
       arr[i] = this.objects[i];
     }
     return arr;
@@ -55,6 +55,7 @@ public class ObjectRepository {
     if (index < 0 || index >= this.length) {
       return null;
     }
+
     Object old = this.objects[index];
     this.objects[index] = object;
 

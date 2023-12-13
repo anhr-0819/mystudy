@@ -30,7 +30,6 @@ public class App {
     //new MainMenu(prompt).execute();
 
     ObjectRepository boardRepository = new ObjectRepository();
-    // boardRepository를 저장하는 ObjectRepository
     AssignmentRepository assignmentRepository = new AssignmentRepository();
     MemberRepository memberRepository = new MemberRepository();
     ObjectRepository greetingRepository = new ObjectRepository();
