@@ -7,7 +7,6 @@ import bitcamp.myapp.handler.assignment.AssignmentAddHandler;
 import bitcamp.myapp.handler.assignment.AssignmentDeleteHandler;
 import bitcamp.myapp.handler.assignment.AssignmentListHandler;
 import bitcamp.myapp.handler.assignment.AssignmentModifyHandler;
-import bitcamp.myapp.handler.assignment.AssignmentRepository;
 import bitcamp.myapp.handler.assignment.AssignmentViewHandler;
 import bitcamp.myapp.handler.board.BoardAddHandler;
 import bitcamp.myapp.handler.board.BoardDeleteHandler;
@@ -18,8 +17,10 @@ import bitcamp.myapp.handler.member.MemberAddHandler;
 import bitcamp.myapp.handler.member.MemberDeleteHandler;
 import bitcamp.myapp.handler.member.MemberListHandler;
 import bitcamp.myapp.handler.member.MemberModifyHandler;
-import bitcamp.myapp.handler.member.MemberRepository;
 import bitcamp.myapp.handler.member.MemberViewHandler;
+import bitcamp.myapp.vo.Assignment;
+import bitcamp.myapp.vo.Board;
+import bitcamp.myapp.vo.Member;
 import bitcamp.util.ObjectRepository;
 import bitcamp.util.Prompt;
 
@@ -29,10 +30,10 @@ public class App {
     Prompt prompt = new Prompt(System.in);
     //new MainMenu(prompt).execute();
 
-    ObjectRepository boardRepository = new ObjectRepository();
-    AssignmentRepository assignmentRepository = new AssignmentRepository();
-    MemberRepository memberRepository = new MemberRepository();
-    ObjectRepository greetingRepository = new ObjectRepository();
+    ObjectRepository<Board> boardRepository = new ObjectRepository<>();
+    ObjectRepository<Assignment> assignmentRepository = new ObjectRepository<>();
+    ObjectRepository<Member> memberRepository = new ObjectRepository<>();
+    ObjectRepository<Board> greetingRepository = new ObjectRepository<>();
 
     MenuGroup mainMenu = new MenuGroup("메인");
 

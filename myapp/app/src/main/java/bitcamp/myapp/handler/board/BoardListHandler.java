@@ -11,9 +11,9 @@ import bitcamp.util.ObjectRepository;
 //
 public class BoardListHandler implements MenuHandler {
 
-  ObjectRepository objectRepository;
+  ObjectRepository<Board> objectRepository;
 
-  public BoardListHandler(ObjectRepository objectRepository) {
+  public BoardListHandler(ObjectRepository<Board> objectRepository) {
     this.objectRepository = objectRepository;
   }
 
@@ -23,9 +23,14 @@ public class BoardListHandler implements MenuHandler {
 
     System.out.printf("%-20s\t%10s\t%s\n", "Title", "Writer", "Date");
 
-    for (Object object : objectRepository.toArray()) {
-      Board board = (Board) object;
-      System.out.printf("%-20s\t%10s\t%s\n", board.title, board.writer, board.createdDate);
+    Board[] boards = new Board[this.objectRepository.size()];
+    this.objectRepository.toArray(boards);
+
+    for (Board board : boards) {
+      System.out.printf("%-20s\t%10s\t%s\n",
+          board.title,
+          board.writer,
+          board.createdDate);
     }
   }
 }

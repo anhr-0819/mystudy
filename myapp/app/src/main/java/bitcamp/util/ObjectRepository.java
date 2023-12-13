@@ -1,11 +1,13 @@
 package bitcamp.util;
 
-public class ObjectRepository {
+public class ObjectRepository<E> {
 
+  // 수퍼 클래스의 레퍼런스는 서브 클래스의 인스턴스 주소를 담을 수 있다.
+  // 따라서 Object 레퍼런스는 Member, Board, Assignment 등 어떤 객채의 주소라도 담을 수 있다.
   private Object[] objects = new Object[3];
   private int length = 0;
 
-  public void add(Object object) {
+  public void add(E object) {
     if (this.length == this.objects.length) {
       int oldSize = this.objects.length;
       int newSize = oldSize + (oldSize >> 1);
@@ -21,7 +23,7 @@ public class ObjectRepository {
     this.objects[this.length++] = object;
   }
 
-  public Object remove(int index) {
+  public E remove(int index) {
     if (index < 0 || index >= this.length) {
       return null;
     }
@@ -33,7 +35,7 @@ public class ObjectRepository {
     }
     this.objects[--this.length] = null;
 
-    return deleted;
+    return (E) deleted;
   }
 
   public Object[] toArray() {
@@ -44,14 +46,20 @@ public class ObjectRepository {
     return arr;
   }
 
-  public Object get(int index) {
+  public void toArray(E[] arr) {
+    for (int i = 0; i < this.length; i++) {
+      arr[i] = (E) this.objects[i];
+    }
+  }
+
+  public E get(int index) {
     if (index < 0 || index >= this.length) {
       return null;
     }
-    return this.objects[index];
+    return (E) this.objects[index];
   }
 
-  public Object set(int index, Object object) {
+  public E set(int index, E object) {
     if (index < 0 || index >= this.length) {
       return null;
     }
@@ -59,6 +67,10 @@ public class ObjectRepository {
     Object old = this.objects[index];
     this.objects[index] = object;
 
-    return old;
+    return (E) old;
+  }
+
+  public int size() {
+    return this.length;
   }
 }
