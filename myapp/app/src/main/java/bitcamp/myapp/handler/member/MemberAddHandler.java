@@ -28,5 +28,6 @@ public class MemberAddHandler implements MenuHandler {
     member.createdDate = this.prompt.input("가입일? ");
 
     this.objectRepository.add(member);
+
   }
 }
