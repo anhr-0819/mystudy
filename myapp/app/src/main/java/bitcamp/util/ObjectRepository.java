@@ -34,6 +34,14 @@ public class ObjectRepository<E> {
 
   }
 
+  public Object[] toArray() {
+    Object[] arr = new Object[this.length];
+    for (int i = 0; i < this.length; i++) {
+      arr[i] = this.objects[i];
+    }
+    return arr;
+  }
+
   public E[] toArray(E[] arr) {
     if (arr.length >= this.length) {
       System.arraycopy(this.objects, 0, arr, 0, this.length);
