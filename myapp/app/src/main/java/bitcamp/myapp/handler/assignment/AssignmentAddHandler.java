@@ -26,6 +26,7 @@ public class AssignmentAddHandler implements MenuHandler {
     assignment.title = this.prompt.input("과제명? ");
     assignment.content = this.prompt.input("내용? ");
     assignment.deadline = this.prompt.input("제출 마감일? ");
+
     this.objectRepository.add(assignment);
   }
 }

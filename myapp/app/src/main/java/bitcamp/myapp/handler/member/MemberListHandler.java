@@ -20,7 +20,10 @@ public class MemberListHandler implements MenuHandler {
 
     System.out.printf("%-10s\t%30s\t%s\n", "이름", "이메일", "가입일");
 
-    for (Member member : this.objectRepository.toArray(new Member[0])) {
+    Member[] members = new Member[this.objectRepository.size()];
+    this.objectRepository.toArray(members);
+
+    for (Member member : members) {
       System.out.printf("%-10s\t%30s\t%s\n", member.name, member.email, member.createdDate);
     }
   }

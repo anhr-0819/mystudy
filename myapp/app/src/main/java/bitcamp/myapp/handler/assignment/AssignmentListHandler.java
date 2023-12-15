@@ -20,12 +20,10 @@ public class AssignmentListHandler implements MenuHandler {
     System.out.printf(AnsiEscape.ANSI_BOLD + "[%s]\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
     System.out.printf("%-20s\t%s\n", "과제", "제출마감일");
 
-//    for (Assignment assignment : (Assignment[]) this.objectRepository.toArray()) {
-//      System.out.printf("%-20s\t%s\n", assignment.title, assignment.deadline);
-//    }
+    Assignment[] assignments = new Assignment[this.objectRepository.size()];
+    this.objectRepository.toArray(assignments);
 
-//    Assignment[] assignments = new Assignment[this.objectRepository.size()];
-    for (Assignment assignment : this.objectRepository.toArray(new Assignment[0])) {
+    for (Assignment assignment : assignments) {
       System.out.printf("%-20s\t%s\n", assignment.title, assignment.deadline);
     }
   }
