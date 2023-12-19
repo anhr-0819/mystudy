@@ -12,6 +12,11 @@ public class Main {
     int h = scan.nextInt();
     int m = scan.nextInt();
 
+    if (m >= 45) {
+      System.out.printf("%d %d", h, m - 45);
+    }
+    int restult;
+
 
     scan.close();
 
@@ -22,6 +27,9 @@ public class Main {
   }
 
   static int minuteCarculate(int m) {
+    if (m >= 45) {
+      return m - 45;
+    }
     return 0;
   }
 
