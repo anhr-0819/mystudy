@@ -12,7 +12,6 @@ public class MemberModifyHandler extends AbstractMenuHandler {
   public MemberModifyHandler(ArrayList<Member> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
-    this.prompt = prompt;
   }
 
   @Override

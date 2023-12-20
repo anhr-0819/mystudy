@@ -2,9 +2,9 @@ package bitcamp.myapp.vo;
 
 public class Assignment {
 
-  public String deadline;
   private String title;
   private String content;
+  private String deadline;
 
   public String getTitle() {
     return title;
@@ -29,5 +29,4 @@ public class Assignment {
   public void setDeadline(String deadline) {
     this.deadline = deadline;
   }
-
 }

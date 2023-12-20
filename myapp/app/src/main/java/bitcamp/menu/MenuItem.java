@@ -9,17 +9,11 @@ import bitcamp.util.Prompt;
 //
 public class MenuItem extends AbstractMenu {
 
-  private MenuHandler menuHandler;
+  MenuHandler menuHandler;
 
   public MenuItem(String title) {
     super(title);
   }
-  // 모든 생성자는 반드시 수퍼 클래스의 기본 생성자를 호출하게 되어있다.
-  // super(); <- 컴파일러가 자동 삽입.
-  //  public MenuItem(String title) {
-  //    super();
-  //    this.title = title;
-  //  }
 
   public MenuItem(String title, MenuHandler menuHandler) {
     this(title);

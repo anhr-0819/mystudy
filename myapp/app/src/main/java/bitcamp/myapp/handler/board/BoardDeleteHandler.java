@@ -12,7 +12,6 @@ public class BoardDeleteHandler extends AbstractMenuHandler {
   public BoardDeleteHandler(ArrayList<Board> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
-    this.prompt = prompt;
   }
 
   @Override

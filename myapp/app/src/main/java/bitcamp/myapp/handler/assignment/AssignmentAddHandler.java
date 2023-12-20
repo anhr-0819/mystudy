@@ -13,16 +13,14 @@ public class AssignmentAddHandler extends AbstractMenuHandler {
   public AssignmentAddHandler(ArrayList<Assignment> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
-    this.prompt = prompt;
   }
 
   @Override
   protected void action() {
-
     Assignment assignment = new Assignment();
     assignment.setTitle(this.prompt.input("과제명? "));
     assignment.setContent(this.prompt.input("내용? "));
-    assignment.deadline = this.prompt.input("제출 마감일? ");
+    assignment.setDeadline(this.prompt.input("제출 마감일? "));
 
     this.objectRepository.add(assignment);
   }

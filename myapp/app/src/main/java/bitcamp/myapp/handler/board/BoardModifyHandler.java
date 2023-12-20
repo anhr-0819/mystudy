@@ -15,7 +15,6 @@ public class BoardModifyHandler extends AbstractMenuHandler {
   public BoardModifyHandler(ArrayList<Board> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
-    this.prompt = prompt;
   }
 
   @Override

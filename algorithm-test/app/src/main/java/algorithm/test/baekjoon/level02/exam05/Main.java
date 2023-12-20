@@ -14,23 +14,24 @@ public class Main {
 
     if (m >= 45) {
       System.out.printf("%d %d", h, m - 45);
+    } else {
+      if (h == 0) {
+        System.out.printf("%d %d", 23, 60 - (45 - m));
+        return;
+      }
+      System.out.printf("%d %d", h - 1, 60 - (45 - m));
     }
-    int restult;
-
-
     scan.close();
-
   }
-
-  static int hourCarculate(int h) {
-    return 0;
-  }
-
-  static int minuteCarculate(int m) {
-    if (m >= 45) {
-      return m - 45;
-    }
-    return 0;
-  }
+  // static int hourCarculate(int h) {
+  // return 0;
+  // }
+  //
+  // static int minuteCarculate(int m) {
+  // if (m >= 45) {
+  // return m - 45;
+  // }
+  // return 0;
+  // }
 
 }

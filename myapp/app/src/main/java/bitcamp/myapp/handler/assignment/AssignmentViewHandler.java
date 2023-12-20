@@ -13,7 +13,6 @@ public class AssignmentViewHandler extends AbstractMenuHandler {
   public AssignmentViewHandler(ArrayList<Assignment> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
-    this.prompt = prompt;
   }
 
   @Override
@@ -26,7 +25,7 @@ public class AssignmentViewHandler extends AbstractMenuHandler {
     }
     System.out.printf("과제명: %s\n", assignment.getTitle());
     System.out.printf("내용: %s\n", assignment.getContent());
-    System.out.printf("제출 마감일: %s\n", assignment.deadline);
+    System.out.printf("제출 마감일: %s\n", assignment.getDeadline());
   }
 
 }

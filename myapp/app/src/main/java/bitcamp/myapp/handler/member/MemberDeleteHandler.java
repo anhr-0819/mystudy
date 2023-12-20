@@ -12,7 +12,6 @@ public class MemberDeleteHandler extends AbstractMenuHandler {
   public MemberDeleteHandler(ArrayList<Member> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
-    this.prompt = prompt;
   }
 
   @Override

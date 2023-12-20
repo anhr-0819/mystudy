@@ -9,11 +9,11 @@ public abstract class AbstractMenu implements Menu {
   }
 
   @Override
-  public String getTitle() { // Menu라는 사용 규칙에 해당되기 때문에 오버라이드
+  public String getTitle() {
     return title;
   }
 
-  public void setTitle(String title) { // 임의로 추가했기 때문에 세터는 오버라이드 X
+  public void setTitle(String title) {
     this.title = title;
   }
 }

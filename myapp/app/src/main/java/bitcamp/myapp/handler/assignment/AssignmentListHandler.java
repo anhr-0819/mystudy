@@ -9,7 +9,6 @@ public class AssignmentListHandler extends AbstractMenuHandler {
 
   private ArrayList<Assignment> objectRepository;
 
-
   public AssignmentListHandler(ArrayList<Assignment> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
@@ -23,7 +22,7 @@ public class AssignmentListHandler extends AbstractMenuHandler {
     this.objectRepository.toArray(assignments);
 
     for (Assignment assignment : assignments) {
-      System.out.printf("%-20s\t%s\n", assignment.getTitle(), assignment.deadline);
+      System.out.printf("%-20s\t%s\n", assignment.getTitle(), assignment.getDeadline());
     }
   }
 }

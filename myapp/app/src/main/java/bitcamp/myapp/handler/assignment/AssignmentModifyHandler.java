@@ -13,12 +13,10 @@ public class AssignmentModifyHandler extends AbstractMenuHandler {
   public AssignmentModifyHandler(ArrayList<Assignment> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
-    this.prompt = prompt;
   }
 
   @Override
   protected void action() {
-
     int index = this.prompt.inputInt("번호? ");
     Assignment old = this.objectRepository.get(index);
     if (old == null) {
@@ -29,7 +27,7 @@ public class AssignmentModifyHandler extends AbstractMenuHandler {
     Assignment assignment = new Assignment();
     assignment.setTitle(this.prompt.input("과제명(%s)? ", old.getTitle()));
     assignment.setContent(this.prompt.input("내용(%s)? ", old.getContent()));
-    assignment.deadline = this.prompt.input("제출 마감일(%s)? ", old.deadline);
+    assignment.setDeadline(this.prompt.input("제출 마감일(%s)? ", old.getDeadline()));
 
     this.objectRepository.set(index, assignment);
   }

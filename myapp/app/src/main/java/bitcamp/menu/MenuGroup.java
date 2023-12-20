@@ -6,13 +6,11 @@ import bitcamp.util.Prompt;
 // - 다른 Menu 객체를 포함한다.
 public class MenuGroup extends AbstractMenu {
 
-  private Menu[] menus = new Menu[10];
-  private int menuSize;
+  Menu[] menus = new Menu[10];
+  int menuSize;
 
   public MenuGroup(String title) {
     super(title);
-    // 추상 클래스는 기본 생성자가 없으므로, 수퍼 클래스에 어떤 생성자를 호출해야 하는지 직접 명시해야 한다.
-    // 명시하지 않으면 컴파일러는 기본 생성자를 호출하는 코드를 자동으로 삽입한다.
   }
 
   @Override // 인터페이스나 수퍼 클래스의 메서드를 정의하겠다고 컴파일러에게 알린다.
