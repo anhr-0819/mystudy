@@ -23,15 +23,5 @@ public class Main {
     }
     scan.close();
   }
-  // static int hourCarculate(int h) {
-  // return 0;
-  // }
-  //
-  // static int minuteCarculate(int m) {
-  // if (m >= 45) {
-  // return m - 45;
-  // }
-  // return 0;
-  // }
 
 }
