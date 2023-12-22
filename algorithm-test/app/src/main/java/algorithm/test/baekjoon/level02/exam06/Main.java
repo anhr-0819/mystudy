@@ -11,17 +11,32 @@ public class Main {
 
     int h = scan.nextInt();
     int m = scan.nextInt();
-    int cookingTime = scan.nextInt();
+    int t = scan.nextInt();
 
-    if (m + cookingTime >= 60) {
-      if (h + ((m + cookingTime) / 60) > 23) {
-        System.out.printf("%d %d", ((m + cookingTime) / 60) - 1, (m + cookingTime) % 60);
+    if (m + t >= 60) {
+      if (h + ((m + t) / 60) > 23) {
+        System.out.printf("%d %d", ((m + t) / 60) - 1, (m + t) % 60);
       } else {
-        System.out.printf("%d %d", h + ((m + cookingTime) / 60), (m + cookingTime) % 60);
+        System.out.printf("%d %d", h + ((m + t) / 60), (m + t) % 60);
       }
     } else {
-      System.out.printf("%d %d", h, m + cookingTime);
+      System.out.printf("%d %d", h, m + t);
     }
     scan.close();
+
+    // int sh = 0;
+    // int sm = 0;
+    //
+    // if (m + t >= 60) {
+    // sh = h + ((m + t) / 60);
+    // if (sh >= 24) {
+    // sh = sh - 24;
+    // }
+    // sm = (m + t) % 60;
+    // } else {
+    // sh = h;
+    // sm = m + t;
+    // }
+    // System.out.printf("%d %d", sh, sm);
   }
 }
