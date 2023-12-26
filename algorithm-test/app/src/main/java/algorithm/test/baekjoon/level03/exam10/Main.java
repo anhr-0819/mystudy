@@ -1,4 +1,4 @@
-package algorithm.test.baekjoon.level03.exam09;
+package algorithm.test.baekjoon.level03.exam10;
 
 import java.util.Scanner;
 
@@ -10,7 +10,10 @@ public class Main {
 
     int n = scan.nextInt();
     for (int i = 1; i <= n; i++) {
-      for (int j = 0; j < i; j++) {
+      for (int j = 0; j < n - i; j++) {
+        sb.append(" ");
+      }
+      for (int k = 0; k < i; k++) {
         sb.append("*");
       }
       sb.append("\n");
