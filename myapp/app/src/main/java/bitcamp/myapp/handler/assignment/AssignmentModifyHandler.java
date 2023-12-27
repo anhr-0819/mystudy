@@ -9,7 +9,6 @@ public class AssignmentModifyHandler extends AbstractMenuHandler {
 
   private ArrayList<Assignment> objectRepository;
 
-
   public AssignmentModifyHandler(ArrayList<Assignment> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
@@ -35,10 +34,11 @@ public class AssignmentModifyHandler extends AbstractMenuHandler {
 
     } catch (IllegalArgumentException e) {
       System.out.println("과제 변경 오류!");
-      System.out.println("다시 시도하세요.");
-      
+      System.out.println("다시 시도 하세요.");
+
     } catch (Exception e) {
       System.out.println("실행 오류!");
     }
+
   }
 }

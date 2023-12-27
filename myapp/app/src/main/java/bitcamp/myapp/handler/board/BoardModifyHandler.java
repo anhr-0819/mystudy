@@ -21,7 +21,6 @@ public class BoardModifyHandler extends AbstractMenuHandler {
   protected void action() {
     int index = this.prompt.inputInt("번호? ");
     Board oldBoard = this.objectRepository.get(index);
-
     Board board = new Board();
     board.setTitle(this.prompt.input("제목(%s)? ", oldBoard.getTitle()));
     board.setContent(this.prompt.input("내용(%s)? ", oldBoard.getContent()));

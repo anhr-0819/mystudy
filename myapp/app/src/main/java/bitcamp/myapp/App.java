@@ -28,7 +28,6 @@ public class App {
 
   public static void main(String[] args) throws Exception {
     Prompt prompt = new Prompt(System.in);
-    //new MainMenu(prompt).execute();
 
     ArrayList<Board> boardRepository = new ArrayList<>();
     ArrayList<Assignment> assignmentRepository = new ArrayList<>();
@@ -74,7 +73,7 @@ public class App {
     mainMenu.add(new MenuItem("도움말", new HelpHandler(prompt)));
 
     // 프로그램을 실행하다가 어느 지점에서 예외가 발생하면 해당 위치에서 적절한 조치를 취할 것이다.
-    // 다만 그에 벗어나서 조치되지 않은 예외가 보고 되는 경우를 대비해
+    // 다만 그에 벗어나서 조치가 되지 않은 예외가 보고 되는 경우를 대비해
     // 마지막 보루인 main()에서는 예외를 처리해야 한다.
     // main()에서 마저 처리하지 않는다면 JVM에게 보고될 것이고,
     // JVM은 개발자나 알아 볼 메시지를 출력하고 종료할 것이다.

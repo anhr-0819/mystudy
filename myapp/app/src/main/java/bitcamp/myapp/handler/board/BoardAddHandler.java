@@ -20,6 +20,8 @@ public class BoardAddHandler extends AbstractMenuHandler {
 
   @Override
   protected void action() {
+    // MenuHandler 인터페이스에 선언된 메서드 대신
+    // AbstractMenuHandler 클래스에 추가된 action() 추상 메서드를 구현한다.
     Board board = new Board();
     board.setTitle(this.prompt.input("제목? "));
     board.setContent(this.prompt.input("내용? "));
@@ -27,10 +29,5 @@ public class BoardAddHandler extends AbstractMenuHandler {
     board.setCreatedDate(new Date());
 
     objectRepository.add(board);
-
-    // 레퍼런스를 선언하는 시점에 지정된 타입이 아닌 값을 넣으려고 하면
-    // 컴파일 오류가 발생한다.
-    // 즉 특정 타입만 사용하도록 제한할 수 있는 문법이 제네릭(generic) 이다.
-//    objectRepository.add(new String("Hello"));
   }
 }
