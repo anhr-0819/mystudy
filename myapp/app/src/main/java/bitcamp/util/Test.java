@@ -9,9 +9,15 @@ public class Test {
     list.add("ccc"); // aaa, bbb, ccc,
     list.add("ddd"); // aaa, bbb, ccc, ddd,
 
-    System.out.println(list.remove("xxx"));
-    System.out.println(list.remove("ccc"));
-    System.out.println(list.remove("ddd"));
+    System.out.println(list.remove("xxx")); // aaa, bbb, ccc, ddd,
+    System.out.println(list.remove("ccc")); // aaa, bbb, ddd,
+    System.out.println(list.remove("ddd")); // aaa, bbb,
+    System.out.println(list.remove("aaa")); // bbb,
+    System.out.println(list.remove("bbb")); //
+    list.add("xxx"); // xxx,
+    list.add("yyy"); // xxx, yyy,
+    list.add("zzz"); // xxx, yyy, zzz,
+
 //    list.remove(2); // aaa, bbb, ddd,
 //    list.remove(2); // aaa, bbb,
 //    list.remove(0); // bbb,

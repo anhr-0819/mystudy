@@ -29,7 +29,7 @@ public class LinkedList<E> {
   public Object[] toArray() {
     Object[] arr = new Object[size];
     int index = 0;
-    Node node = first;
+    Node<E> node = first;
     while (node != null) {
       arr[index++] = node.value;
       node = node.next;
@@ -131,7 +131,7 @@ public class LinkedList<E> {
     return old;
   }
 
-  public Boolean remove(E value) {
+  public boolean remove(E value) {
     Node prevNode = null;
     Node node = first;
 
@@ -148,7 +148,7 @@ public class LinkedList<E> {
     }
 
     if (node == first) {
-      first = node.next;
+      first = first.next;
       if (first == null) {
         last = null;
       }
@@ -156,6 +156,8 @@ public class LinkedList<E> {
     } else {
       prevNode.next = node.next;
     }
+
+    size--;
     return true;
   }
 
@@ -164,4 +166,5 @@ public class LinkedList<E> {
     E value;
     Node<E> next;
   }
+
 }

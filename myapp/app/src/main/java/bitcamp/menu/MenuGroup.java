@@ -35,6 +35,7 @@ public class MenuGroup extends AbstractMenu {
         }
 
         this.menus.get(menuNo - 1).execute(prompt);
+
       } catch (Exception e) {
         System.out.println("메뉴가 옳지 않습니다!");
       }
