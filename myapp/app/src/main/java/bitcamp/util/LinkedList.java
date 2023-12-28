@@ -1,14 +1,16 @@
 package bitcamp.util;
 
-public class LinkedList<E> {
+import java.util.Arrays;
+
+public class LinkedList<E> extends AbstractList<E> {
 
   private Node<E> first;
   private Node<E> last;
-  private int size;
-
-  public int size() {
-    return size;
-  }
+//  private int size;
+//
+//  public int size() {
+//    return size;
+//  } // 수퍼 클래스(AbstractList)에서 상속 받기 때문에 필요 없음
 
   public void add(E value) {
     Node<E> node = new Node<>();
@@ -103,14 +105,14 @@ public class LinkedList<E> {
       throw new IndexOutOfBoundsException("무효한 인덱스입니다.");
     }
 
-    E old = null;
+    Node<E> deleted = null;
 
     if (size == 1) {
-      old = first.value;
+      deleted = first; // 삭제할 노드 보관
       first = last = null;
 
     } else if (index == 0) {
-      old = first.value;
+      deleted = first; // 삭제할 노드 보관
       first = first.next;
 
     } else {
@@ -119,7 +121,7 @@ public class LinkedList<E> {
       while (++cursor < index) {
         currNode = currNode.next;
       }
-      old = currNode.next.value;
+      deleted = currNode.next; // 삭제할 노드 보관
       currNode.next = currNode.next.next;
 
       if (index == (size - 1)) {
@@ -128,6 +130,10 @@ public class LinkedList<E> {
     }
 
     size--;
+    E old = deleted.value;
+    deleted.value = null; // 가비지가 되기 전에 다른 객체를 참조하던 것을 제거한다.
+    deleted.next = null; // 가비지가 되기 전에 다른 객체를 참조하던 것을 제거한다.
+
     return old;
   }
 
@@ -159,6 +165,25 @@ public class LinkedList<E> {
 
     size--;
     return true;
+  }
+
+  public E[] toArray(E[] arr) {
+    E[] values = arr;
+    // 파라미터로 넘어온 변수를 새 배열에 담는다.
+    // - 실무에서는 파라미터 변수를 파이널로 만든다 <= 내부에서 다른 용도로 쓰지 못하게 하기 위해
+
+    if (values.length < size) {
+      // 새 배열을 생성한다.
+      values = Arrays.copyOf(arr, size); // 오리지날 배열의 새 길이
+    }
+    int i = 0;
+    Node<E> node = first;
+
+    while (node != null) {
+      values[i++] = node.value;
+      node = node.next; // 다음 노드로 노드를 교체한다. => 노트 끝에 도달하면  null 이됨
+    }
+    return values;
   }
 
   private static class Node<E> {
