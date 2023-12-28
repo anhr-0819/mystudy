@@ -1,4 +1,4 @@
-package algorithm.test.baekjoon.level04.exam05;
+package algorithm.test.baekjoon.level04.exam06;
 
 import java.util.Scanner;
 
@@ -8,18 +8,22 @@ public class Main {
     Scanner scan = new Scanner(System.in);
     StringBuilder sb = new StringBuilder();
     int n = scan.nextInt();
-    int[] arr = new int[n];
-
     int m = scan.nextInt();
 
-    for (int m1 = 0; m1 < m; m1++) {
+    int[] arr = new int[n];
+
+    for (int i = 0; i < n; i++) {
+      arr[i] = i + 1;
+    }
+
+    for (int m2 = 0; m2 < m; m2++) {
       int i = scan.nextInt() - 1;
       int j = scan.nextInt() - 1;
-      int k = scan.nextInt();
+      int temp;
 
-      for (; i <= j; i++) {
-        arr[i] = k;
-      }
+      temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
     }
 
     for (int value : arr) {
@@ -28,4 +32,5 @@ public class Main {
     System.out.print(sb);
     scan.close();
   }
+
 }
