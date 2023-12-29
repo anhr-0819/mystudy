@@ -4,7 +4,7 @@ import bitcamp.util.Stack;
 
 public abstract class AbstractMenu implements Menu {
 
-  protected Stack<String> breadcrumb; // 여러 메뉴 그룹이 공유해야 함
+  protected Stack<String> breadcrumb;
   String title;
 
   public AbstractMenu(String title, Stack<String> breadcrumb) {

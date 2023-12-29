@@ -10,7 +10,6 @@ public class ArrayList<E> extends AbstractList<E> {
     if (this.size == this.objects.length) {
       int oldSize = this.objects.length;
       int newSize = oldSize + (oldSize >> 1);
-
       this.objects = Arrays.copyOf(this.objects, newSize);
     }
 
@@ -33,13 +32,12 @@ public class ArrayList<E> extends AbstractList<E> {
 
   public boolean remove(E value) {
     for (int i = 0; i < this.size; i++) {
-      // 파라미터로 받은 객체 주소와 일치하는게 있는지 찾기
       if (this.objects[i].equals(value)) {
         this.remove(i);
         return true;
       }
     }
-    return false; // 반복문이 종료될 때까지 찾지 못하면 false 리턴
+    return false;
   }
 
   public Object[] toArray() {
@@ -52,7 +50,7 @@ public class ArrayList<E> extends AbstractList<E> {
       return arr;
     }
     return (E[]) Arrays.copyOf(this.objects, this.size, arr.getClass());
-  } // 주어진 타입의 배열을 넘기면 주어진 타입의 배열로 리턴
+  }
 
   public E get(int index) {
     if (index < 0 || index >= this.size) {
@@ -72,7 +70,122 @@ public class ArrayList<E> extends AbstractList<E> {
     return (E) old;
   }
 
-//  public int size() {
-//    return this.size;
-//  } => 상속 받았기 때문에 작성할 필요 없음.
+// 1) 외부에서 구현한 패키지 멤버 클래스를 사용한 경우
+//  @Override
+//  public Iterator<E> iterator() {
+//    return new ArrayListIterator<>(this);
+//  }
+
+//  // 2) 스태틱 중첩 클래스를 사용한 경우
+//  @Override
+//  public Iterator<E> iterator() {
+//    return new IteratorImpl<>(this);
+//  }
+//
+//  private static class IteratorImpl<E> implements Iterator<E> {
+//
+//    ArrayList<E> list;
+//    int cursor;
+//
+//    public IteratorImpl(ArrayList<E> list) {
+//      this.list = list;
+//    }
+//
+//    @Override
+//    public boolean hasNext() {
+//      return cursor >= 0 && cursor < list.size();
+//    }
+//
+//    @Override
+//    public E next() {
+//      return list.get(cursor++);
+//    }
+//  }
+
+//  // 3) 논스태틱 중첩 클래스를 사용한 경우
+//  // 바깥 클래스의 인스턴스 주소를 두는 코드가 자동으로 추가된다.
+//
+//  @Override
+//  public Iterator<E> iterator() {
+//    return new IteratorImpl<>();
+//  }
+//
+//  private class IteratorImpl<E> implements Iterator<E> {
+//
+//    int cursor;
+//
+//    @Override
+//    public boolean hasNext() {
+//      return cursor >= 0 && cursor < ArrayList.this.size();
+//    }
+//
+//    @Override
+//    public E next() {
+//      return (E) ArrayList.this.get(cursor++);
+//    }
+//  }
+
+//  // 4) 로컬 클래스를 사용한 경우
+//  @Override
+//  public Iterator<E> iterator() {
+//
+//    // 로컬 클래스는 이 메서드 안에서만 사용할 수 있다.
+//    class IteratorImpl<E> implements Iterator<E> {
+//
+//      // 로컬 클래스도 non-static nested 클래스처럼
+//      // 바깥 클래스의 인스턴스 주소를 저장하는 코드가 자동으로 추가된다.
+//      int cursor;
+//
+//      @Override
+//      public boolean hasNext() {
+//        return cursor >= 0 && cursor < ArrayList.this.size();
+//      }
+//
+//      @Override
+//      public E next() {
+//        return (E) ArrayList.this.get(cursor++);
+//      }
+//    }
+//
+//    return new IteratorImpl<>();
+//  }
+
+//  // 5) 익명 클래스를 사용한 경우
+//  @Override
+//  public Iterator<E> iterator() {
+//    // 익명 클래스는 이름이 없기 때문에 정의하는 즉시 인스턴스를 생성해야 한다.
+//    Iterator<E> obj = new Iterator<E>() {
+//      int cursor;
+//
+//      @Override
+//      public boolean hasNext() {
+//        return cursor >= 0 && cursor < ArrayList.this.size();
+//      }
+//
+//      @Override
+//      public E next() {
+//        return (E) ArrayList.this.get(cursor++);
+//      }
+//    };
+//    return obj;
+//  }
+
+  // 6) 익명 클래스를 사용한 경우 - 더 간결하게 표현하기
+  @Override
+  public Iterator<E> iterator() {
+    return new Iterator<E>() {
+      int cursor;
+
+      @Override
+      public boolean hasNext() {
+        return cursor >= 0 && cursor < ArrayList.this.size();
+      }
+
+      @Override
+      public E next() {
+        return (E) ArrayList.this.get(cursor++);
+      }
+    };
+  }
+
 }

@@ -35,7 +35,6 @@ public class Test {
 //    list.add(7, new String("ppp")); // xxx, mmm, aaa, ttt, bbb, ccc, ddd, ppp, yyy,
 
     String[] arr = list.toArray(new String[0]);
-    // 리스트에 들어있는 값을 담지못하기 때문에 내부에서 Arrays.copyOf를 이용해 새 배열을 생성해서 주소를 리턴
     for (String value : arr) {
       System.out.printf("%s, ", value);
     }

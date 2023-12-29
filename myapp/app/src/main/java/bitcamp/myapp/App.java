@@ -20,7 +20,6 @@ import bitcamp.myapp.handler.member.MemberViewHandler;
 import bitcamp.myapp.vo.Assignment;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Member;
-import bitcamp.util.ArrayList;
 import bitcamp.util.LinkedList;
 import bitcamp.util.List;
 import bitcamp.util.Prompt;
@@ -30,10 +29,10 @@ public class App {
   public static void main(String[] args) throws Exception {
     Prompt prompt = new Prompt(System.in);
 
-    List<Board> boardRepository = new LinkedList<>(); // 삽입, 삭제가 자주 일어나므로 LinkedList로
-    List<Assignment> assignmentRepository = new LinkedList<>(); // 삽입, 삭제가 자주 일어나므로 LinkedList로
-    List<Member> memberRepository = new ArrayList<>(); // 삽입, 삭제가 자주 일어나지 않으므로 ArrayList로
-    List<Board> greetingRepository = new ArrayList<>(); // 삽입, 삭제가 자주 일어나지 않으므로 ArrayList로
+    List<Board> boardRepository = new LinkedList<>();
+    List<Assignment> assignmentRepository = new LinkedList<>();
+    List<Member> memberRepository = new ArrayList<>();
+    List<Board> greetingRepository = new ArrayList<>();
 
     MenuGroup mainMenu = MenuGroup.getInstance("메인");
 

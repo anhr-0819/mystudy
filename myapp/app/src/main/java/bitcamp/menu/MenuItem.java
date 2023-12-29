@@ -17,7 +17,7 @@ public class MenuItem extends AbstractMenu {
   }
 
   public MenuItem(String title, Stack<String> breadcrumb, MenuHandler menuHandler) {
-    super(title, breadcrumb);
+    this(title, breadcrumb);
     this.menuHandler = menuHandler;
   }
 
