@@ -2,9 +2,13 @@
 package com.eomcs.oop.ex11.c;
 
 class G {
+  // G this$0;
+  // X(G obj) {
+  // this$0 = obj;
+  // }
   int v1 = 1;
   int v2 = 2;
-  int v3 = 3; 
+  int v3 = 3;
 
   class X {
     int v1 = 10;
@@ -12,9 +16,10 @@ class G {
 
     void m1(int v1) {
 
-      // 중첩 클래스의 메서드에서 필드를 사용하기 
+      // 중첩 클래스의 메서드에서 필드를 사용하기
       System.out.println("G 객체:");
-      System.out.printf("G.this.v1 = %d\n", G.this.v1);
+      System.out.printf("G.this.v1 = %d\n", G.this.v1); // System.out.printf("G.this.v1 = %d\n",
+                                                        // this$0.v1);
       System.out.printf("G.this.v2 = %d\n", G.this.v2);
       System.out.printf("G.this.v3 = %d\n", G.this.v3);
 
@@ -35,6 +40,7 @@ class G {
     }
   }
 }
+
 
 public class Exam0610 {
 
