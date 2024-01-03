@@ -1,20 +1,19 @@
 package algorithm.test.baekjoon.level05.exam11;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.InputStreamReader;
 
 public class Main {
 
   public static void main(String[] args) throws IOException {
-    Scanner scan = new Scanner(System.in);
-    // BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringBuilder sb = new StringBuilder();
-    // String[] arr = new String[3];
-    scan.useDelimiter("\\.");
-    int y = scan.nextInt();
-    int m = scan.nextInt();
-    int d = scan.nextInt();
-    scan.close();
-    System.out.printf("%d-%d-%d", m, d, y);
+    String str = "";
+    while ((str = br.readLine()) != null && !str.isEmpty()) {
+      sb.append(str).append("\n");
+    }
+    br.close();
+    System.out.print(sb);
   }
 }
