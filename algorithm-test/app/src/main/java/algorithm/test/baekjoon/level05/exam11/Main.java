@@ -9,13 +9,12 @@ public class Main {
     Scanner scan = new Scanner(System.in);
     // BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringBuilder sb = new StringBuilder();
-    String[] s = scan.nextLine().split(".");
-
-    for (String str : s) {
-      System.out.print(s);
-    }
+    // String[] arr = new String[3];
+    scan.useDelimiter("\\.");
+    int y = scan.nextInt();
+    int m = scan.nextInt();
+    int d = scan.nextInt();
     scan.close();
-
-    System.out.print(sb);
+    System.out.printf("%d-%d-%d", m, d, y);
   }
 }

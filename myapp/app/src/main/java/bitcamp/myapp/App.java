@@ -21,6 +21,8 @@ import bitcamp.myapp.vo.Assignment;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.Prompt;
+import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -38,6 +40,7 @@ public class App {
 
   App() {
     prepareMenu();
+    loadAssignment();
   }
 
   public static void main(String[] args) throws Exception {
@@ -90,6 +93,33 @@ public class App {
       } catch (Exception e) {
         System.out.println("예외 발생!");
       }
+    }
+    saveAssignment();
+  }
+
+  void loadAssignment() { // 생성자 호출시 로딩
+
+  }
+
+  // 리스트에 들어있는 데이터를 파일에 저장
+  void saveAssignment() { // 실행 종료시 저장
+    try (FileOutputStream out = new FileOutputStream("assignment.data")) {
+      for (Assignment assignment : assignmentRepository) {
+        // assignment 객체에서 값을 꺼내 바이트 배열로 만든 다음에 출력한다.
+        String title = assignment.getTitle();
+        byte[] bytes = title.getBytes(StandardCharsets.UTF_8);
+        out.write(bytes); // 타이틀 출력
+
+        String content = assignment.getContent();
+        bytes = content.getBytes(StandardCharsets.UTF_8);
+        out.write(bytes); // 내용 출력
+
+        String deadline = assignment.getDeadline().toString();
+        bytes = deadline.getBytes(StandardCharsets.UTF_8);
+        out.write(bytes); // 마감일 출력
+      }
+    } catch (Exception e) {
+      System.out.println("과제 데이터 저장 중 오류 발생!");
     }
   }
 }
