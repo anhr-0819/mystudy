@@ -25,7 +25,7 @@ public class DataOutputStream extends FileOutputStream {
     }
   }
 
-  public void writeLong(int value) throws IOException {
+  public void writeLong(long value) throws IOException {
     write((int) (value >> 56));
     write((int) (value >> 48));
     write((int) (value >> 40));

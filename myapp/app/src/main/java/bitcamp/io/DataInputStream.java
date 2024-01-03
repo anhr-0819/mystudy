@@ -38,9 +38,9 @@ public class DataInputStream extends FileInputStream {
   }
 
   public String readUTF() throws IOException {
-    int len = read() << 8 | read();
-    byte[] bytes = new byte[60000];
-    read(bytes, 0, len);
-    return new String(bytes, 0, len, StandardCharsets.UTF_8);
+    int len = read() << 8 | read(); // 읽어올 길이
+    byte[] bytes = new byte[60000]; // 버퍼 준비
+    read(bytes, 0, len); // 0~len 까지 읽어서 버퍼에 저장
+    return new String(bytes, 0, len, StandardCharsets.UTF_8); // 버퍼에 저장된 바이트 코드로 스트링 객체를 만들어 리턴
   }
 }
