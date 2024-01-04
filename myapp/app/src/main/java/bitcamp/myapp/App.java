@@ -2,8 +2,6 @@ package bitcamp.myapp;
 
 import bitcamp.io.BufferedDataInputStream;
 import bitcamp.io.BufferedDataOutputStream;
-import bitcamp.io.DataInputStream;
-import bitcamp.io.DataOutputStream;
 import bitcamp.menu.MenuGroup;
 import bitcamp.myapp.handler.HelpHandler;
 import bitcamp.myapp.handler.assignment.AssignmentAddHandler;
@@ -106,7 +104,7 @@ public class App {
   void loadAssignment() {
     try (BufferedDataInputStream in = new BufferedDataInputStream("assignment.data")) {
 
-      long start = System.currentTimeMillis();
+//      long start = System.currentTimeMillis();
       int size = in.readInt();
 
       for (int i = 0; i < size; i++) {
@@ -116,8 +114,8 @@ public class App {
         assignment.setDeadline(Date.valueOf(in.readUTF()));
         assignmentRepository.add(assignment);
       }
-      long end = System.currentTimeMillis();
-      System.out.printf("걸린 시간: %d\n", end - start);
+//      long end = System.currentTimeMillis();
+//      System.out.printf("걸린 시간: %d\n", end - start);
 
     } catch (Exception e) {
       System.out.println("과제 데이터 로딩 중 오류 발생!");
@@ -127,8 +125,7 @@ public class App {
 
   void saveAssignment() {
     try (BufferedDataOutputStream out = new BufferedDataOutputStream("assignment.data")) {
-
-      long start = System.currentTimeMillis();
+//      long start = System.currentTimeMillis();
       out.writeInt(assignmentRepository.size());
 
       for (Assignment assignment : assignmentRepository) {
@@ -136,13 +133,9 @@ public class App {
         out.writeUTF(assignment.getContent());
         out.writeUTF(assignment.getDeadline().toString());
       }
-      // => writeUTF() 를 호출해도, 버퍼가 차지 않으면 출력하지 않는다.
-      // 버퍼를 쓸 때 조심해야할 점
-      //  - 마지막 끝나는 시점에서 나머지 데이터를 출력하도록 해야한다.
-      //  - close() // 출력 스트림을 닫기 전에 버퍼에 남아 있는 데이터를 파일로 출력하는 메서드를 호출하도록함.
 
-      long end = System.currentTimeMillis();
-      System.out.printf("걸린시간 : %d\n", end - start);
+//      long end = System.currentTimeMillis();
+//      System.out.printf("걸린 시간: %d\n", end - start);
 
     } catch (Exception e) {
       System.out.println("과제 데이터 저장 중 오류 발생!");
@@ -151,7 +144,7 @@ public class App {
   }
 
   void loadMember() {
-    try (DataInputStream in = new DataInputStream("member.data")) {
+    try (BufferedDataInputStream in = new BufferedDataInputStream("member.data")) {
       int size = in.readShort();
 
       for (int i = 0; i < size; i++) {
@@ -169,7 +162,7 @@ public class App {
   }
 
   void saveMember() {
-    try (DataOutputStream out = new DataOutputStream("member.data")) {
+    try (BufferedDataOutputStream out = new BufferedDataOutputStream("member.data")) {
 
       out.writeShort(memberRepository.size());
 
@@ -187,7 +180,7 @@ public class App {
   }
 
   void loadBoard() {
-    try (DataInputStream in = new DataInputStream("board.data")) {
+    try (BufferedDataInputStream in = new BufferedDataInputStream("board.data")) {
       int size = in.readShort();
 
       for (int i = 0; i < size; i++) {
@@ -205,7 +198,7 @@ public class App {
   }
 
   void saveBoard() {
-    try (DataOutputStream out = new DataOutputStream("board.data")) {
+    try (BufferedDataOutputStream out = new BufferedDataOutputStream("board.data")) {
 
       out.writeShort(boardRepository.size());
 
@@ -223,7 +216,7 @@ public class App {
   }
 
   void loadGreeting() {
-    try (DataInputStream in = new DataInputStream("greeting.data")) {
+    try (BufferedDataInputStream in = new BufferedDataInputStream("greeting.data")) {
       int size = in.readShort();
 
       for (int i = 0; i < size; i++) {
@@ -241,7 +234,7 @@ public class App {
   }
 
   void saveGreeting() {
-    try (DataOutputStream out = new DataOutputStream("greeting.data")) {
+    try (BufferedDataOutputStream out = new BufferedDataOutputStream("greeting.data")) {
 
       out.writeShort(greetingRepository.size());
 

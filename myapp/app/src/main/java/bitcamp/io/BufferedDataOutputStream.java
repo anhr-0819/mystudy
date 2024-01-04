@@ -8,7 +8,6 @@ public class BufferedDataOutputStream extends DataOutputStream {
   int size;
   private byte[] buffer = new byte[8192];
 
-
   public BufferedDataOutputStream(String name) throws FileNotFoundException {
     super(name);
   }
@@ -18,10 +17,8 @@ public class BufferedDataOutputStream extends DataOutputStream {
     if (size == buffer.length) {
       // 버퍼가 모두 찼다면, 즉시 버퍼에 저장된 데이터를 파일로 출력한다.
       flush();
-      //      super.write(buffer);
-      //      size = 0;
     }
-    buffer[size++] = (byte) b; // 맨 끝에 byte 크기로 잘라서 담고, size 변수를 증가 시킨다
+    buffer[size++] = (byte) b;
   }
 
   @Override
