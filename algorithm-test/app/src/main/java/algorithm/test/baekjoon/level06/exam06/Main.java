@@ -30,6 +30,7 @@ public class Main {
           i = i + 2;
           continue;
         }
+        s = "";
       }
       if (i < arr.length - 1) {
         s = arr[i] + arr[i + 1];
@@ -38,13 +39,12 @@ public class Main {
           i = i + 1;
           continue;
         }
+        s = "";
       }
       if (s.equals("")) {
         s = arr[i];
         count++;
-        System.out.println("s = " + s);
       }
-      System.out.println(" i = " + i + " count = " + count + " /");
     }
     System.out.println(count);
   }

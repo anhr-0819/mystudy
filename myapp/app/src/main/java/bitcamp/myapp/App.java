@@ -21,6 +21,8 @@ import bitcamp.myapp.vo.Assignment;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.Prompt;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
@@ -104,7 +106,8 @@ public class App {
   }
 
   void loadAssignment() {
-    try (DataInputStream in = new DataInputStream(new FileInputStream("assignment.data"))) {
+    try (DataInputStream in = new DataInputStream(
+        new BufferedInputStream(new FileInputStream("assignment.data")))) {
 
       long start = System.currentTimeMillis();
       int size = in.readInt();
@@ -126,11 +129,10 @@ public class App {
   }
 
   void saveAssignment() {
-    try (DataOutputStream out = new DataOutputStream(new FileOutputStream("assignment.data"))) {
-      // DataOutputStream <= Decoretor 와 연결된 컴포넌트. 단독으로 사용할 수 없다.
-      // FileOutputStream 객체를 생성하여 DataOutputStream과 연결하여 사용.
-      // FileOutputStream out0 = new FileOutputStream("assignment.data");
-      // DataOutputStream out = new DataOutputStream(out0)
+    try (DataOutputStream out = new DataOutputStream(
+        new BufferedOutputStream(new FileOutputStream("assignment.data")))) {
+      // DataOutputStream <= *FilterInputStream(Decoretor)을 확장한 클래스(구상 데코레이터). 단독으로 사용할 수 없다.
+      // *FilterInputStream(Decoretor) <= 추상 데코레이터
 
       long start = System.currentTimeMillis();
       out.writeInt(assignmentRepository.size());
@@ -151,7 +153,8 @@ public class App {
   }
 
   void loadMember() {
-    try (DataInputStream in = new DataInputStream(new FileInputStream("member.data"))) {
+    try (DataInputStream in = new DataInputStream(
+        new BufferedInputStream(new FileInputStream("member.data")))) {
       int size = in.readShort();
 
       for (int i = 0; i < size; i++) {
@@ -169,7 +172,8 @@ public class App {
   }
 
   void saveMember() {
-    try (DataOutputStream out = new DataOutputStream(new FileOutputStream("member.data"))) {
+    try (DataOutputStream out = new DataOutputStream(
+        new BufferedOutputStream(new FileOutputStream("member.data")))) {
 
       out.writeShort(memberRepository.size());
 
@@ -187,7 +191,8 @@ public class App {
   }
 
   void loadBoard() {
-    try (DataInputStream in = new DataInputStream(new FileInputStream("board.data"))) {
+    try (DataInputStream in = new DataInputStream(
+        new BufferedInputStream(new FileInputStream("board.data")))) {
       int size = in.readShort();
 
       for (int i = 0; i < size; i++) {
@@ -205,7 +210,8 @@ public class App {
   }
 
   void saveBoard() {
-    try (DataOutputStream out = new DataOutputStream(new FileOutputStream("board.data"))) {
+    try (DataOutputStream out = new DataOutputStream(
+        new BufferedOutputStream(new FileOutputStream("board.data")))) {
 
       out.writeShort(boardRepository.size());
 
@@ -223,7 +229,8 @@ public class App {
   }
 
   void loadGreeting() {
-    try (DataInputStream in = new DataInputStream(new FileInputStream("greeting.data"))) {
+    try (DataInputStream in = new DataInputStream(
+        new BufferedInputStream(new FileInputStream("greeting.data")))) {
       int size = in.readShort();
 
       for (int i = 0; i < size; i++) {
@@ -241,7 +248,8 @@ public class App {
   }
 
   void saveGreeting() {
-    try (DataOutputStream out = new DataOutputStream(new FileOutputStream("greeting.data"))) {
+    try (DataOutputStream out = new DataOutputStream(
+        new BufferedOutputStream(new FileOutputStream("greeting.data")))) {
 
       out.writeShort(greetingRepository.size());
 
