@@ -16,8 +16,8 @@ public class Assignment implements Serializable, CsvString {
     String[] values = csv.split(","); // "aaa,aaaa,2023-01-01" ==> {"aaa","aaaa","2023-01-01"}
     Assignment obj = new Assignment();
     obj.setTitle(values[0]);
-    obj.setTitle(values[1]);
-    obj.setTitle(values[2]);
+    obj.setContent(values[1]);
+    obj.setDeadline((Date.valueOf(values[2])));
     return obj;
   }
 

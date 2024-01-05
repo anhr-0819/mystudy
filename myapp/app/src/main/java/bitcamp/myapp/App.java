@@ -125,7 +125,7 @@ public class App {
     ArrayList<E> list = new ArrayList<>();
     try (Scanner in = new Scanner(new FileReader(filepath))) {
       // 1) 클래스 정보를 가지고 팩토리 메서드를 알아낸다
-      Method factoryMethod = clazz.getMethod("createFormCsv", String.class);
+      Method factoryMethod = clazz.getMethod("createFromCsv", String.class);
       while (true) {
         // 2) 팩토리 메서드에 csv 문자열을 전달하고 객체를 리턴 받는다.
         E obj = (E) factoryMethod.invoke(null, in.nextLine()); // static 메서드는 인스턴스가 필요없으므로 null을 넘김
@@ -133,12 +133,12 @@ public class App {
         list.add(obj);
       }
     } catch (NoSuchElementException e) { // 더이상 로딩할 데이터가 없으면
-      return list;
+      System.out.printf("%s 파일 로딩 완료!\n", filepath);
     } catch (Exception e) {
       System.out.printf("%s 파일 로딩 중 오류 발생!\n", filepath);
       e.printStackTrace();
     }
-    return new ArrayList<E>();
+    return list;
     // 단점 : 읽다가 실패하면 새 배열을 생성해서 리턴
   }
 
