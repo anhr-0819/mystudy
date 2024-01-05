@@ -22,13 +22,14 @@ import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.CsvString;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.Prompt;
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.ObjectInputStream;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 public class App {
 
@@ -42,10 +43,11 @@ public class App {
   MenuGroup mainMenu;
 
   App() {
-    assignmentRepository = loadData("assignment.data");
-    memberRepository = loadData("member.data");
-    boardRepository = loadData("board.data");
-    greetingRepository = loadData("greeting.data");
+    assignmentRepository = loadData("assignment.csv", Assignment.class);
+    memberRepository = loadData("member.csv", Member.class);
+    boardRepository = loadData("board.csv", Board.class);
+    greetingRepository = loadData("greeting.csv", Board.class);
+    // 어떤 객체를 만들어야 하는지 파라미터로 전달
 
     prepareMenu();
   }
@@ -118,11 +120,20 @@ public class App {
 //    }
 //  }
 
-  <E> List<E> loadData(String filepath) {
-    try (ObjectInputStream in = new ObjectInputStream(
-        new BufferedInputStream(new FileInputStream(filepath)))) {
-      return (List<E>) in.readObject();
-
+  <E> List<E> loadData(String filepath, Class<E> clazz) { // 어떤 객체를 만들어야 하는지 파라미터로 받기
+    // 0) 객체를 저장할 List를 준비한다.
+    ArrayList<E> list = new ArrayList<>();
+    try (Scanner in = new Scanner(new FileReader(filepath))) {
+      // 1) 클래스 정보를 가지고 팩토리 메서드를 알아낸다
+      Method factoryMethod = clazz.getMethod("createFormCsv", String.class);
+      while (true) {
+        // 2) 팩토리 메서드에 csv 문자열을 전달하고 객체를 리턴 받는다.
+        E obj = (E) factoryMethod.invoke(null, in.nextLine()); // static 메서드는 인스턴스가 필요없으므로 null을 넘김
+        // 3) 생성한 객체를 List에 저장한다.
+        list.add(obj);
+      }
+    } catch (NoSuchElementException e) { // 더이상 로딩할 데이터가 없으면
+      return list;
     } catch (Exception e) {
       System.out.printf("%s 파일 로딩 중 오류 발생!\n", filepath);
       e.printStackTrace();
