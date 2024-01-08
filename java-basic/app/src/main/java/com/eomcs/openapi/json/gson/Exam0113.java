@@ -26,8 +26,10 @@ public class Exam0113 {
     m.setRegisteredDate(new Date(System.currentTimeMillis()));
 
     // 2) JSON 처리 객체 준비
-    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     GsonBuilder builder = new GsonBuilder();
+
+    // Date 타입을 JSON 문자열로 변환해줄 어댑터 등록
+    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     builder.registerTypeAdapter(Date.class, new JsonSerializer<Date>() {
       @Override
       public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext context) {
@@ -49,11 +51,9 @@ public class Exam0113 {
 //
 // 값:
 // - 문자열 => "값"
-// - 숫자   => 값
-// - 논리   => true, false
+// - 숫자 => 값
+// - 논리 => true, false
 //
 // 프로퍼티명은 반드시 문자열로 표현해야 한다.
-
-
 
 

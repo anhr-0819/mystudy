@@ -1,4 +1,4 @@
-// 객체 --> JSON 문자열 : 객체의 필드 값을 json 형식의 문자열로 만들기
+1// 객체 --> JSON 문자열 : 객체의 필드 값을 json 형식의 문자열로 만들기
 package com.eomcs.openapi.json.gson;
 
 import java.sql.Date;
@@ -42,7 +42,5 @@ public class Exam0111 {
 // - 논리   => true, false
 //
 // 프로퍼티명은 반드시 문자열로 표현해야 한다.
-
-
 
 

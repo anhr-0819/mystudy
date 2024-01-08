@@ -14,11 +14,13 @@ public class Exam0123 {
   public static void main(String[] args) {
 
     // 1) JSON 문자열 준비
-    String jsonStr = "{\"no\":100,\"name\":\"홍길동\",\"email\":\"hong@test.com\",\"password\":\"1111\",\"photo\":\"hong.gif\",\"tel\":\"010-2222-1111\",\"registeredDate\":\"2023-07-03\"}";
+    String jsonStr =
+        "{\"no\":100,\"name\":\"홍길동\",\"email\":\"hong@test.com\",\"password\":\"1111\",\"photo\":\"hong.gif\",\"tel\":\"010-2222-1111\",\"registeredDate\":\"2023-07-03\"}";
 
     // 2) JSON 처리 객체 준비
     GsonBuilder builder = new GsonBuilder();
-    builder.registerTypeAdapter(Date.class, new JsonDeserializer<Date>() {
+    builder.registerTypeAdapter(Date.class, new JsonDeserializer<Date>() { // 특별한 형식으로 된 객체를 만들고 싶을
+                                                                           // 때 사용
       @Override
       public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
           throws JsonParseException {
@@ -33,8 +35,5 @@ public class Exam0123 {
     System.out.println(m);
   }
 }
-
-
-
 
 

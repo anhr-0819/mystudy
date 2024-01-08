@@ -26,15 +26,14 @@ public class Exam0114 {
     m.setRegisteredDate(new Date(System.currentTimeMillis()));
 
     // 2) JSON 처리 객체 준비
+    // - 메서드를 호출할 때 체인 방식으로 처리하기
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    Gson gson = new GsonBuilder()
-        .registerTypeAdapter(Date.class, new JsonSerializer<Date>() {
-          @Override
-          public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext context) {
-            return new JsonPrimitive(dateFormat.format(src));
-          }
-        })
-        .create();
+    Gson gson = new GsonBuilder().registerTypeAdapter(Date.class, new JsonSerializer<Date>() {
+      @Override
+      public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext context) {
+        return new JsonPrimitive(dateFormat.format(src));
+      }
+    }).create();
 
     // 3) 객체의 값을 JSON 문자열로 얻기
     String jsonStr = gson.toJson(m);
@@ -48,11 +47,9 @@ public class Exam0114 {
 //
 // 값:
 // - 문자열 => "값"
-// - 숫자   => 값
-// - 논리   => true, false
+// - 숫자 => 값
+// - 논리 => true, false
 //
 // 프로퍼티명은 반드시 문자열로 표현해야 한다.
-
-
 
 
