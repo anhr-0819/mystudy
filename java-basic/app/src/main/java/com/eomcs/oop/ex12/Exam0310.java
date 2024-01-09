@@ -18,10 +18,8 @@ public class Exam0310 {
       public void play() {
         System.out.println("실행!");
       }
-    }
-
+    };
     testPlayer(new MyPlayer());
-
   }
 }
 

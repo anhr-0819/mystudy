@@ -14,6 +14,18 @@ public class Exam0110 {
 
     // 익명 클래스로 인터페이스 구현하기
     Player p1 = new Player() {
+
+      // new Player()
+      // 전달값이 없으면 익명 클래스의 기본 생성자를 호출하고 기본 생성자에서 수퍼클래스의 기본 생성자를 호출
+      // => 수퍼클래스의 생성자는 다이렉트로 호출할 수 없다.
+      // public Exam0110$1() {
+      // super();
+      // }
+      // new Player("a")
+      // public Exam0110$1("a") {
+      // super("a");
+      // } => 반드시 수퍼클래스에 선언되어있는 생성자를 호출해야한다.
+
       @Override
       public void play() {
         System.out.println("익명 클래스");
@@ -30,32 +42,32 @@ public class Exam0110 {
   }
 }
 
-// 익명 클래스와 .class 파일 
+// 익명 클래스와 .class 파일
 // => 자바의 nested class 는 모두 별도의 .class 파일을 갖는다.
 // => 위의 main()에 정의된 로컬 익명 클래스는 다음과 같은 이름의 .class 파일로 컴파일 된다.
-//      Exam0110$1.class
+// Exam0110$1.class
 //
-// 람다와 .class 파일 
+// 람다와 .class 파일
 // => 람다는 별도의 .class 파일을 생성하지 않는다.
 // => 컴파일러는 람다 코드를 해당 클래스의 스태틱 메서드로 정의한다.
-// => 그리고 리플렉션 API를 사용하여 이 메서드를 호출하도록 변경한다. 
+// => 그리고 리플렉션 API를 사용하여 이 메서드를 호출하도록 변경한다.
 // => 람다 문법이 초기에 등장했을 때는 익명 클래스로 변환되었다.
 // => 그러나 최근에는 메서드로 변환한 후 호출하는 방식으로 바뀌었다.
-// => 예) 
+// => 예)
 // 원래의 자바코드:
-//    Player p2 = () -> {
-//      System.out.println("람다");
-//    };
+// Player p2 = () -> {
+// System.out.println("람다");
+// };
 //
 // 컴파일러가 변환한 코드:
-//    private static synthetic void lambda$0();
-//    0  getstatic java.lang.System.out : java.io.PrintStream [33]
-//    3  ldc <String "람다"> [39]
-//    5  invokevirtual java.io.PrintStream.println(java.lang.String) : void [41]
-//    8  return
-//      Line numbers:
-//        [pc: 0, line: 27]
-//        [pc: 8, line: 28]
+// private static synthetic void lambda$0();
+// 0 getstatic java.lang.System.out : java.io.PrintStream [33]
+// 3 ldc <String "람다"> [39]
+// 5 invokevirtual java.io.PrintStream.println(java.lang.String) : void [41]
+// 8 return
+// Line numbers:
+// [pc: 0, line: 27]
+// [pc: 8, line: 28]
 //
 // => 람다를 호출하는 코드는 자동 생성된 메서드를 호출하는 코드로 변환된다.
 //

@@ -21,5 +21,11 @@ public class Exam0920 {
       }
     }
     names.forEach(new MyConsumer<String>());
+
+    // forEach() 메서드는 대략적으로 다음과 같이 구현되어 있다.
+    // public void forEach(Consumer<? super E> action) {
+    // for(E value : this) {
+    // action.accept(value);
+    // }
   }
 }
