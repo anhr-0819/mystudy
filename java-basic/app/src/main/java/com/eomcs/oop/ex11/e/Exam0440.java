@@ -7,7 +7,7 @@ public class Exam0440 {
     void print();
   }
 
-  static void m1(A obj) { // A를 구현한 객체(주소)를 파라미터로 넘겨야 한다.
+  static void m1(A obj) {
     obj.print();
   }
 
@@ -31,7 +31,7 @@ public class Exam0440 {
     };
     m1(obj);
 
-    // 3) 익명 클래스를 파라미터 자리에 바로 삽입 // <= 클래스 라인이 길지 않을 경우, 실무에서는 이 방법을 쓴다.
+    // 3) 익명 클래스를 파라미터 자리에 바로 삽입
     m1(new A() {
       @Override
       public void print() {
@@ -40,13 +40,14 @@ public class Exam0440 {
     });
 
     // 위의 코드는 컴파일러가 다음 코드로 바꾼다.
-    // class Exam0440$2 implements A { // A 인터페이스를 구현한 클래스 작성
-    // 스태틱 메서드는 바깥 클래스의 주소를 받을 변수를 생성하지 않음.
-    // public void print() {
-    // System.out.println("안녕!!!");
-    // }
-    // }
-    // A temp = new Exam0440$2(); // 익명 클래스의 객체 주소를 저장
-    // m1(temp);
+    //    class Exam0440$2 implements A {
+    //      @Override
+    //      public void print() {
+    //        System.out.println("안녕!!!");
+    //      }
+    //    }
+    //    A temp = new Exam0440$2();
+    //    m1(temp);
+
   }
 }

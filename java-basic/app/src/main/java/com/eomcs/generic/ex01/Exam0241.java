@@ -6,9 +6,15 @@ import java.util.Date;
 public class Exam0241 {
 
   static class Box<T> {
-    T value; 
-    public T get() {return this.value;}
-    public void set(T value) {this.value = value;}
+    T value;
+
+    public T get() {
+      return this.value;
+    }
+
+    public void set(T value) {
+      this.value = value;
+    }
   }
 
   public static void main(String[] args) {
@@ -19,8 +25,8 @@ public class Exam0241 {
     //
     Box<Date> b4 = new Box<>();
 
-    // 다음과 같이 인스턴스를 생성할 때 지정한 타입이 아닌 것을 다루려고 하면 
+    // 다음과 같이 인스턴스를 생성할 때 지정한 타입이 아닌 것을 다루려고 하면
     // 컴파일 오류가 발생한다.
-    //    b4.set("Hello!"); // 컴파일 오류!
+    // b4.set("Hello!"); // 컴파일 오류!
   }
 }

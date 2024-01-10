@@ -4,7 +4,6 @@ package com.eomcs.basic.ex02;
 public class Exam0163 {
   public static void main(String[] args) throws Exception {
     StringBuffer buf = new StringBuffer();
-    // StringBuffer 쓰레드에 안전하다
 
     Worker w1 = new Worker(buf, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
     Worker w2 = new Worker(buf, "--------------------------------------------------");
@@ -26,8 +25,9 @@ public class Exam0163 {
     System.out.println(buf.length());
   }
 
-  // 하는 일 :
-  // 주어진 메시지를 버퍼에 100번 담는 일을 한다.
+  // 하는 일:
+  // - 주어진 메시지를 버퍼에 100번 담는 일을 한다.
+  //
   static class Worker extends Thread {
     String message;
     StringBuffer buf;
@@ -47,4 +47,5 @@ public class Exam0163 {
   }
 
 }
+
 

@@ -7,14 +7,13 @@ public class Exam0810 {
     Object create();
   }
 
-  static class Car {
-  }
+  static class Car {}
 
   public static void main(String[] args) {
     // 1) 로컬 클래스로 인터페이스 구현체를 만든다.
-    class CarFactory implements Factory { // Factory를 만드는 규격에 따라 CarFactory를 만듬
+    class CarFactory implements Factory {
       @Override
-      public Object create() { // Factory 객체 생성해서 리턴
+      public Object create() {
         return new Car();
       }
     }

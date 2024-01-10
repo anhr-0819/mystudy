@@ -3,13 +3,11 @@ package com.eomcs.basic.ex01;
 
 
 public class Exam0161 {
-
-
   public static void main(String[] args) {
 
-    // Primitive Type은 Object의 서브클래스가 아니기 때문에 getClass()를 호출할 수 없다.
-    // 그러나 static 변수인 class를 사용하여 class 정보를 리턴 받을 수 있다.
-    //
+    // Primitive Type은 Object의 서브 클래스가 아니기 때문에 getClass()를 호출할 수 없다.
+    // 대신 static 변수인 class 를 사용하여 Class 정보를 리턴 받을 수 있다.
+    // 
     Class classInfo = byte.class;
     System.out.println(classInfo.getName());
     System.out.println(short.class.getName());
@@ -24,5 +22,10 @@ public class Exam0161 {
 
   }
 }
+
+
+
+
+
 
 

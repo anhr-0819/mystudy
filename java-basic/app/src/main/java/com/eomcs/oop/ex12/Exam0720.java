@@ -20,7 +20,7 @@ public class Exam0720 {
     ListFactory f1 = new ListFactory() {
       @Override
       public List create() {
-        return new ArrayList(); // ArrayList 생성자를 호출해서 List 구현체를 리턴
+        return new ArrayList();
       }
     };
 

@@ -11,7 +11,6 @@ class My {
   }
 }
 
-
 public class Exam0450 {
   // 인터페이스의 경우 static으로 선언하지 않아도 스태틱 멤버에서 사용할 수 있다.
   interface A {
@@ -38,7 +37,7 @@ public class Exam0450 {
     return a;
   }
 
-  static A create2() { // 실무에서 자주 쓰는 방법
+  static A create2() {
     return new A() {
       @Override
       public void print() {
@@ -47,33 +46,30 @@ public class Exam0450 {
     };
   }
 
-  // 인터페이스 중에서 "추상 메서드가 딱 한개"뿐인 메서드가 한 문장일경우 아래와 같이 줄일 수 있다.
-  // functional interface
-  static A create3() { // 람다 문법 (인터페이스만 가능!)
+  static A create3() {
     return () -> System.out.println("Hello3!");
 
     // 컴파일러는 위의 문장을 다음과 같이 바꾼다.
-    // return new A() {
-    // @Override
-    // public void print() {
-    // System.out.println("Hello3!");
-    // }
-    // };
+    //    return new A() {
+    //      @Override
+    //      public void print() {
+    //        System.out.println("Hello3!");
+    //      }
+    //    };
   }
 
-  // 메소드 레퍼런스
-  // A 인터페이스를 구현했는데 파라미터가 없고 형식이 같은 static 메서드일 경우 아래와 같이 줄일 수 있다.
-  static A create4() { // 람다 문법
+  static A create4() {
     return My::m1;
+
     // 컴파일러는 위의 문장을 다음과 같이 바꾼다.
-    // return () -> My.m1();
+    //    return () -> My.m1();
   }
 
-  // A 인터페이스를 구현했는데 파라미터가 없고 형식이 같은 인스턴스 메서드일 경우 아래와 같이 줄일 수 있다.
   static A create5() {
     return new My()::m2;
+
     // 컴파일러는 위의 문장을 다음과 같이 바꾼다.
-    // return () -> new My().m2();
+    //    return () -> new My().m2();
   }
 
   public static void main(String[] args) {

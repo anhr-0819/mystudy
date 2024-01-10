@@ -4,7 +4,6 @@ package com.eomcs.basic.ex02;
 public class Exam0164 {
   public static void main(String[] args) throws Exception {
     StringBuilder buf = new StringBuilder();
-    // StringBuilder
 
     Worker w1 = new Worker(buf, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
     Worker w2 = new Worker(buf, "--------------------------------------------------");
@@ -26,8 +25,9 @@ public class Exam0164 {
     System.out.println(buf.length());
   }
 
-  // 하는 일 :
-  // 주어진 메시지를 버퍼에 100번 담는 일을 한다.
+  // 하는 일:
+  // - 주어진 메시지를 버퍼에 100번 담는 일을 한다.
+  //
   static class Worker extends Thread {
     String message;
     StringBuilder buf;
@@ -47,4 +47,5 @@ public class Exam0164 {
   }
 
 }
+
 

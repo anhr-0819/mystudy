@@ -16,7 +16,7 @@ public class Exam0430 {
     }
 
     void m1() {
-      System.out.println("A.m1()");
+      System.out.println("A.m1()");   
     }
   }
 
@@ -28,33 +28,37 @@ public class Exam0430 {
     @Override
     void print() {
       System.out.println("A2.print():");
-      System.out.printf("  => this.name(%s), super.name(%s)\n", this.name, super.name);
-      System.out.printf("  => this.working(%s), super.working(%s)\n", this.working, super.working);
-      System.out.printf("  => this.age(%s), super.age(컴파일 오류!) \n", this.age /* , super.age */);
+      System.out.printf("  => this.name(%s), super.name(%s)\n",
+          this.name, super.name);
+      System.out.printf("  => this.working(%s), super.working(%s)\n",
+          this.working, super.working);
+      System.out.printf("  => this.age(%s), super.age(컴파일 오류!) \n",
+          this.age /*, super.age*/);
+
       this.m1();
       super.m1();
     }
 
     @Override
     void m1() {
-      System.out.println("A2.m1()");
+      System.out.println("A2.m1()");   
     }
   }
 
 
   static class A3 extends A2 {
     String name = "A3";
+    String gender = "남";
 
     @Override
     void m1() {
-      System.out.println("A3.m1()");
+      System.out.println("A3.m1()");   
     }
+
   }
 
   public static void main(String[] args) {
     A2 obj = new A3();
     obj.print();
-
   }
-
 }

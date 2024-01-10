@@ -14,7 +14,6 @@ public class Exam0461 {
 
     // for 문에 컬렉션도 적용할 수 있다.
     // for (변수 선언 : 컬렉션객체) 문장;
-    // 컬렉션객체 자리에는 배열이나 이터러블 인터페이스를 구현한 객체가 올 수 있다.
     for (Object value : list)
       System.out.println(value);
   }

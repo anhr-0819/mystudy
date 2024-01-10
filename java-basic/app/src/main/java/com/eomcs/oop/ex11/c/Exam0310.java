@@ -8,8 +8,7 @@ class C {
     //
     X obj; // 레퍼런스 선언은 가능!
 
-    // obj = new X(); // 컴파일 오류! 인스턴스 생성 불가능!
-    // obj = this.new X(); // 컴파일 오류! 인스턴스 생성 불가능!
+    //    obj = this.new X(); // 컴파일 오류! 인스턴스 생성 불가능!
 
     // 이유?
     // - 인스턴스 멤버를 사용하려면 인스턴스 주소가 있어야 한다.
@@ -19,11 +18,12 @@ class C {
   void m2() {
     // 인스턴스 메서드는 인스턴스 주소를 담고 있는 this 변수가 있다.
     // 그래서 inner class 를 사용할 수 있다.
-    X obj = this.new X();
+    X obj = this.new X(); 
     // 위 코드는 다음과 같이 변경될 수 있다.
     // 예1)
-    // => X obj = new X(this);
-    // 예2)
+    // X obj = new X(this); 라는 코드를 변경된다.
+    //
+    // 예2) 
     // X obj = new X();
     // obj.this$0 = this;
 
@@ -34,17 +34,16 @@ class C {
   }
 
   class X {
-    // C this$0
-    //
-    // X(C obj) {
-    // this%0 = obj;
-    // } // 컴파일러에 의해 자동으로 만들어짐
+    //    C this$0;
+    // 
+    //    X(C obj) {
+    //      this$0 = obj;
+    //    }
     void test() {
       System.out.println("X.test()");
     }
   }
 }
-
 
 public class Exam0310 {
 

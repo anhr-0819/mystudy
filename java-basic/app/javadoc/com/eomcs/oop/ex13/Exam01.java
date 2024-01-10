@@ -17,10 +17,17 @@ public class Exam01 {
     if (System.getProperty("user.language") != null)
       userLanguage = System.getProperty("user.language");
 
+    System.out.printf("지역: %s\n", userCountry);
+    System.out.printf("언어: %s\n", userLanguage);
+    
+    Properties props = System.getProperties();
+    props.forEach(new BiConsumer<Object,Object<>() {
+      
+    });
     label = new Properties();
-    label.load(new FileReader(
-        String.format("%s-%s%s.properties", 
-            filename, userLanguage, userCountry)));
+//    label.load(new FileReader(
+//        String.format("%s-%s%s.properties", 
+//            filename, userLanguage, userCountry)));
 
   }
 

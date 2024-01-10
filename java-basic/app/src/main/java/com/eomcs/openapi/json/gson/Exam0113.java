@@ -24,6 +24,7 @@ public class Exam0113 {
     m.setPhoto("hong.gif");
     m.setTel("010-2222-1111");
     m.setRegisteredDate(new Date(System.currentTimeMillis()));
+    m.setSchool(new School("학사", "비트대학교"));
 
     // 2) JSON 처리 객체 준비
     GsonBuilder builder = new GsonBuilder();
@@ -34,6 +35,14 @@ public class Exam0113 {
       @Override
       public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext context) {
         return new JsonPrimitive(dateFormat.format(src));
+      }
+    });
+
+    // School 타입을 JSON 문자열로 변환해줄 어댑터 등록
+    builder.registerTypeAdapter(School.class, new JsonSerializer<School>() {
+      @Override
+      public JsonElement serialize(School src, Type typeOfSrc, JsonSerializationContext context) {
+        return new JsonPrimitive(String.format("%s(%s)", src.level, src.name));
       }
     });
 
@@ -51,9 +60,11 @@ public class Exam0113 {
 //
 // 값:
 // - 문자열 => "값"
-// - 숫자 => 값
-// - 논리 => true, false
+// - 숫자   => 값
+// - 논리   => true, false
 //
 // 프로퍼티명은 반드시 문자열로 표현해야 한다.
+
+
 
 

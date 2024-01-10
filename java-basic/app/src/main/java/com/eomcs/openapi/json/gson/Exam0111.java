@@ -20,9 +20,9 @@ public class Exam0111 {
 
     // 2) JSON 처리 객체 준비
 
-    // GsonBuilder builder = new GsonBuilder();
-    // builder.setDateFormat("yyyy-MM-dd");
-    // Gson gson = builder.create();
+    //    GsonBuilder builder = new GsonBuilder();
+    //    builder.setDateFormat("yyyy-MM-dd");
+    //    Gson gson = builder.create();
 
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
 
@@ -38,9 +38,11 @@ public class Exam0111 {
 //
 // 값:
 // - 문자열 => "값"
-// - 숫자 => 값
-// - 논리 => true, false
+// - 숫자   => 값
+// - 논리   => true, false
 //
 // 프로퍼티명은 반드시 문자열로 표현해야 한다.
+
+
 
 

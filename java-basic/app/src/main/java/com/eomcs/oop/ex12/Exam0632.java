@@ -10,18 +10,20 @@ public class Exam0632 {
     // Predicate<String> 인터페이스 구현체 준비하기
     // => 자바에서 제공하는 인터페이스
     // => 형식
-    // interface Predicate<T> {
-    // boolean test(T value);
-    // ...
-    // }
+    //    interface Predicate<T> {
+    //      boolean test(T value);
+    //      ...
+    //    }
 
     // 3) 람다로 인터페이스 구현체 만들기
-    // Predicate<String> p3 = (String value) -> {return value.isEmpty();};
+    //Predicate<String> p3 = (String value) -> {return value.isEmpty();};
     Predicate<String> p3 = value -> value.isEmpty();
 
     System.out.println(p3.test("")); // true
     System.out.println(p3.test("Hello!")); // false
+
   }
+
 }
 
 
