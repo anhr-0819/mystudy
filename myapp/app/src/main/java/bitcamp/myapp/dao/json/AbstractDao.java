@@ -1,5 +1,6 @@
-package bitcamp.myapp.dao;
+package bitcamp.myapp.dao.json;
 
+import bitcamp.myapp.dao.DaoException;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.io.BufferedReader;
@@ -10,13 +11,19 @@ import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 
 public abstract class AbstractDao<T> {
-  // AbstractDao를 사용하는 서브클래스에서 타입을 지정
 
-  ArrayList<T> list;
+  protected ArrayList<T> list;
+  // 서브 클래스가 같은 패키지에 있다고 보장할 수 없으므로 접근 제한자를 다른 패키지의 서브패키지도 접근할 수 있도록 설정
+  private String filepath;
 
-  void loadData(String filepath) {
+  public AbstractDao(String filepath) {
+    this.filepath = filepath;
+    loadData();
+  }
 
+  protected void loadData() {
     try (BufferedReader in = new BufferedReader(new FileReader(filepath))) {
+
       // 파일에서 JSON 문자열을 모두 읽어서 버퍼에 저장한다.
       StringBuilder strBuilder = new StringBuilder();
       String str;
@@ -24,9 +31,9 @@ public abstract class AbstractDao<T> {
         strBuilder.append(str);
       }
 
-      // 타입 파라미터 T가 가리키는 클래스가 무엇인지 알아낸다.
       // 이 클래스가 다루는 데이터의 클래스 정보를 알아낸다.
-      Class<?> dataType = (Class) ((ParameterizedType) this.getClass() // 이 메서드를 호출한 클래스의 정보를 알아낸다.
+      // 타입 파라미터 T가 가리키는 클래스가 무엇인지 알아낸다.
+      Class<T> dataType = (Class<T>) ((ParameterizedType) this.getClass() // 이 메서드를 호출한 클래스의 정보를 알아낸다.
           .getGenericSuperclass() // AbstractDao 클래스의 정보를 알아낸다.
       ).getActualTypeArguments()[0]; // AbstractDao에 전달한 제네릭 타입의 클래스 정보를 알아낸다.
 
@@ -34,21 +41,19 @@ public abstract class AbstractDao<T> {
       list = (ArrayList<T>) new GsonBuilder().setDateFormat("yyyy-MM-dd").create().fromJson(
           strBuilder.toString(),
           TypeToken.getParameterized(ArrayList.class, dataType));
+
     } catch (Exception e) {
       list = new ArrayList<>();
       throw new DaoException("데이터 로딩 오류!", e);
     }
+
   }
 
-  void saveData(String filepath) {
+  protected void saveData() {
     try (BufferedWriter out = new BufferedWriter(new FileWriter(filepath))) {
-
       out.write(new GsonBuilder().setDateFormat("yyyy-MM-dd").create().toJson(list));
-
     } catch (Exception e) {
       throw new DaoException("데이터 저장 오류!", e);
     }
   }
-
-
 }

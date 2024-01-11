@@ -8,20 +8,26 @@ public class Main {
     int n = scan.nextInt();
     int[][] arr = new int[100][100];
     int area = 0;
+
     for (int i = 0; i < n; i++) {
-      int x = scan.nextInt();
-      int y = scan.nextInt();
-      for (int j = 0; j < 10; j++) {
-        arr[x++][y++] += 1;
-        if (arr[x][y] == 1)
-          area++;
+      int x = scan.nextInt() - 1;
+      int y = scan.nextInt() - 1;
+      try {
+        for (; x < x + 10; x++) {
+          for (; y < y + 10; y++) {
+            arr[x][y] += 1;
+            if (arr[x][y] == 1) {
+              area++;
+            }
+            // System.out.printf("arr[x][y] = %d\n", arr[x][y]);
+            // System.out.printf("arr[x++][y++] = %d\n", arr[x++][y++]);
+          }
+        }
+      } catch (ArrayIndexOutOfBoundsException e) {
+        continue;
       }
     }
     scan.close();
     System.out.print(area);
-
-    for (int[] arr2 : arr) {
-      // System.out.println(arr2.);
-    }
   }
 }
