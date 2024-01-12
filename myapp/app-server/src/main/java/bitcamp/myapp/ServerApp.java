@@ -1,28 +1,13 @@
 package bitcamp.myapp;
 
-import bitcamp.menu.MenuGroup;
 import bitcamp.myapp.dao.AssignmentDao;
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.dao.json.AssignmentDaoImpl;
 import bitcamp.myapp.dao.json.BoardDaoImpl;
 import bitcamp.myapp.dao.json.MemberDaoImpl;
-import bitcamp.myapp.handler.HelpHandler;
-import bitcamp.myapp.handler.assignment.AssignmentAddHandler;
-import bitcamp.myapp.handler.assignment.AssignmentDeleteHandler;
-import bitcamp.myapp.handler.assignment.AssignmentListHandler;
-import bitcamp.myapp.handler.assignment.AssignmentModifyHandler;
-import bitcamp.myapp.handler.assignment.AssignmentViewHandler;
-import bitcamp.myapp.handler.board.BoardAddHandler;
-import bitcamp.myapp.handler.board.BoardDeleteHandler;
-import bitcamp.myapp.handler.board.BoardListHandler;
-import bitcamp.myapp.handler.board.BoardModifyHandler;
-import bitcamp.myapp.handler.board.BoardViewHandler;
-import bitcamp.myapp.handler.member.MemberAddHandler;
-import bitcamp.myapp.handler.member.MemberDeleteHandler;
-import bitcamp.myapp.handler.member.MemberListHandler;
-import bitcamp.myapp.handler.member.MemberModifyHandler;
-import bitcamp.myapp.handler.member.MemberViewHandler;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class ServerApp {
 
@@ -31,59 +16,32 @@ public class ServerApp {
   AssignmentDao assignmentDao = new AssignmentDaoImpl("assignment.json");
   MemberDao memberDao = new MemberDaoImpl("member.json");
 
-  MenuGroup mainMenu;
-
-  ServerApp() {
-    prepareMenu();
-  }
-
   public static void main(String[] args) {
     new ServerApp().run();
   }
 
-  void prepareMenu() {
-    mainMenu = MenuGroup.getInstance("메인");
-
-    MenuGroup assignmentMenu = mainMenu.addGroup("과제");
-    assignmentMenu.addItem("등록", new AssignmentAddHandler(assignmentDao, prompt));
-    assignmentMenu.addItem("조회", new AssignmentViewHandler(assignmentDao, prompt));
-    assignmentMenu.addItem("변경", new AssignmentModifyHandler(assignmentDao, prompt));
-    assignmentMenu.addItem("삭제", new AssignmentDeleteHandler(assignmentDao, prompt));
-    assignmentMenu.addItem("목록", new AssignmentListHandler(assignmentDao, prompt));
-
-    MenuGroup boardMenu = mainMenu.addGroup("게시글");
-    boardMenu.addItem("등록", new BoardAddHandler(boardDao, prompt));
-    boardMenu.addItem("조회", new BoardViewHandler(boardDao, prompt));
-    boardMenu.addItem("변경", new BoardModifyHandler(boardDao, prompt));
-    boardMenu.addItem("삭제", new BoardDeleteHandler(boardDao, prompt));
-    boardMenu.addItem("목록", new BoardListHandler(boardDao, prompt));
-
-    MenuGroup memberMenu = mainMenu.addGroup("회원");
-    memberMenu.addItem("등록", new MemberAddHandler(memberDao, prompt));
-    memberMenu.addItem("조회", new MemberViewHandler(memberDao, prompt));
-    memberMenu.addItem("변경", new MemberModifyHandler(memberDao, prompt));
-    memberMenu.addItem("삭제", new MemberDeleteHandler(memberDao, prompt));
-    memberMenu.addItem("목록", new MemberListHandler(memberDao, prompt));
-
-    MenuGroup greetingMenu = mainMenu.addGroup("가입인사");
-    greetingMenu.addItem("등록", new BoardAddHandler(greetingDao, prompt));
-    greetingMenu.addItem("조회", new BoardViewHandler(greetingDao, prompt));
-    greetingMenu.addItem("변경", new BoardModifyHandler(greetingDao, prompt));
-    greetingMenu.addItem("삭제", new BoardDeleteHandler(greetingDao, prompt));
-    greetingMenu.addItem("목록", new BoardListHandler(greetingDao, prompt));
-
-    mainMenu.addItem("도움말", new HelpHandler(prompt));
-  }
-
   void run() {
-    while (true) {
-      try {
-        mainMenu.execute(prompt);
-        prompt.close();
-        break;
-      } catch (Exception e) {
-        System.out.println("예외 발생!");
-      }
+    System.out.println("[과제관리 서버시스템]");
+    try {
+      // 1) 랜카드 연결 정보를 준비한다.
+      // => 랜카드와 연결하는 것은 실제 OS가 수행한다.
+      // => JVM은 OS가 작업한 결과를 가져온다.
+      // new ServerSocket(포트번호)
+      // => 포트 번호 : 랜카드로 들어온 데이터를 받을 때 사용할 식별 번호. 중복 불가.
+      ServerSocket serverSocket = new ServerSocket(8888);
+      System.out.println("서버 실행!");
+
+      // 2) 클라이언트의 연결을 기다림
+      // => 클라이언트 대기 목록에서 먼저 연결된 순서대로 클라이언트 연결 정보를 꺼낸다.
+      // => 클라이언트 대기 목록에 아무것도 없다면 연결이 될 때까지 리턴하지 않고 기다린다.
+      System.out.println("클라이언트 연결을 기다리는 중...");
+      Socket socket = serverSocket.accept();
+      System.out.println("대기 목록에서 클라이언트 연결 정보를 꺼냈음!");
+
+      // 3) 클라이언트와 통신
+    } catch (Exception e) {
+      System.out.println("통신 오류!");
+      e.printStackTrace();
     }
   }
 }
