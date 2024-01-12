@@ -23,8 +23,13 @@ import bitcamp.myapp.handler.member.MemberDeleteHandler;
 import bitcamp.myapp.handler.member.MemberListHandler;
 import bitcamp.myapp.handler.member.MemberModifyHandler;
 import bitcamp.myapp.handler.member.MemberViewHandler;
+import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.Prompt;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,11 +65,30 @@ public class ClientApp {
       System.out.println("서버 연결 중...");
       Socket socket = new Socket("localhost", 8888);
       System.out.println("서버와 연결 되었음!");
-//    new ClientApp().run();
+
+      DataInputStream in = new DataInputStream(socket.getInputStream());
+      DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+      System.out.println("입출력 준비 완료!");
+
+      out.writeUTF("board");
+      out.writeUTF("fineAll");
+      out.writeUTF("");
+      System.out.println("서버에 데이터를 보냈음!");
+
+      String response = in.readUTF();
+      ArrayList<Board> list = (ArrayList<Board>) new GsonBuilder().setDateFormat("yyyy-MM-dd")
+          .create().fromJson(response,
+              TypeToken.getParameterized(ArrayList.class, Board.class));
+
+      for (Board board : list) {
+        System.out.println(board);
+      }
+
     } catch (Exception e) {
       System.out.println("통신 오류!");
       e.printStackTrace();
     }
+//    new ClientApp().run();
   }
 
   void prepareMenu() {
