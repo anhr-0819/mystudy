@@ -41,6 +41,7 @@ public class ServerApp {
       Socket socket = serverSocket.accept();
       System.out.println("대기 목록에서 클라이언트 연결 정보를 꺼냈음!");
 
+      // 3) 클라이언트와 통신
       DataInputStream in = new DataInputStream(socket.getInputStream());
       DataOutputStream out = new DataOutputStream(socket.getOutputStream());
       System.out.println("입출력 준비 완료!");
@@ -54,13 +55,13 @@ public class ServerApp {
       System.out.println(command);
       System.out.println(value);
 
+      out.writeUTF("200");
+
       String json = new GsonBuilder().setDateFormat("yyyy-MM-dd").create()
           .toJson(boardDao.findAll());
-
       out.writeUTF(json);
       System.out.println("클라이언트로 데이터 전송!");
 
-      // 3) 클라이언트와 통신
     } catch (Exception e) {
       System.out.println("통신 오류!");
       e.printStackTrace();
