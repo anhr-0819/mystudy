@@ -13,18 +13,21 @@ public class Main {
       int x = scan.nextInt() - 1;
       int y = scan.nextInt() - 1;
       try {
-        for (; x < x + 10; x++) {
-          for (; y < y + 10; y++) {
-            arr[x][y] += 1;
-            if (arr[x][y] == 1) {
+        while (x <= x + 10) {
+          while (y <= y + 10) {
+            if (arr[x][y] == 0) {
               area++;
             }
+            arr[x][y] += 1;
+            System.out.print(arr[x][y]);
             // System.out.printf("arr[x][y] = %d\n", arr[x][y]);
             // System.out.printf("arr[x++][y++] = %d\n", arr[x++][y++]);
+            y++;
           }
+          x++;
+          System.out.println("i = " + i);
         }
       } catch (ArrayIndexOutOfBoundsException e) {
-        continue;
       }
     }
     scan.close();
