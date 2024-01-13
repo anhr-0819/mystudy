@@ -20,8 +20,8 @@ public class Main {
             }
             arr[x][y] += 1;
             System.out.print(arr[x][y]);
-            // System.out.printf("arr[x][y] = %d\n", arr[x][y]);
-            // System.out.printf("arr[x++][y++] = %d\n", arr[x++][y++]);
+            System.out.printf("arr[x][y] = %d\n", arr[x][y]);
+            System.out.printf("arr[x++][y++] = %d\n", arr[x++][y++]);
             y++;
           }
           x++;
