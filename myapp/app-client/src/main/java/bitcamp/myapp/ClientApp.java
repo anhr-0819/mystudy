@@ -72,6 +72,7 @@ public class ClientApp {
       System.out.println("입출력 준비 완료!");
 
       // 네트워크 DAO 구현체 준비
+      // 이전까진 JSON DAO 구현체를 사용했음
       boardDao = new BoardDaoImpl("board", in, out);
       greetingDao = new BoardDaoImpl("greeting", in, out);
       assignmentDao = new AssignmentDaoImpl("assignment", in, out);

@@ -1,8 +1,5 @@
 package bitcamp.myapp;
 
-import bitcamp.myapp.dao.AssignmentDao;
-import bitcamp.myapp.dao.BoardDao;
-import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.dao.json.AssignmentDaoImpl;
 import bitcamp.myapp.dao.json.BoardDaoImpl;
 import bitcamp.myapp.dao.json.MemberDaoImpl;
@@ -19,11 +16,6 @@ import java.util.HashMap;
 public class ServerApp {
 
   HashMap<String, Object> daoMap = new HashMap<>();
-  BoardDao boardDao = new BoardDaoImpl("board.json");
-  BoardDao greetingDao = new BoardDaoImpl("greeting.json");
-  AssignmentDao assignmentDao = new AssignmentDaoImpl("assignment.json");
-  MemberDao memberDao = new MemberDaoImpl("member.json");
-
   Gson gson;
 
   public ServerApp() {
@@ -31,6 +23,7 @@ public class ServerApp {
     daoMap.put("greeting", new BoardDaoImpl("greeting.json"));
     daoMap.put("assignment", new AssignmentDaoImpl("assignment.json"));
     daoMap.put("member", new MemberDaoImpl("member.json"));
+
     gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
   }
 
@@ -57,24 +50,25 @@ public class ServerApp {
       Socket socket = serverSocket.accept();
       System.out.println("대기 목록에서 클라이언트 연결 정보를 꺼냈음!");
 
+      // 3) 클라이언트와 통신
       DataInputStream in = new DataInputStream(socket.getInputStream());
       DataOutputStream out = new DataOutputStream(socket.getOutputStream());
       System.out.println("입출력 준비 완료!");
 
       while (true) {
-        // 3) 클라이언트와 통신
-        System.out.println("-----------------------------");
+        System.out.println("----------------------------");
+
         String dataName = in.readUTF();
         String command = in.readUTF();
         String value = in.readUTF();
-        System.out.println("클라이언트 요청 : ");
+        System.out.println("클라이언트 요청:");
 
         // dataName으로 DAO를 찾는다.
         Object dao = daoMap.get(dataName);
         System.out.printf("데이터: %s\n", dataName);
 
         // command 이름으로 메서드를 찾는다.
-        Method[] methods = dao.getClass().getDeclaredMethods(); // 현재 선언된 메서드s
+        Method[] methods = dao.getClass().getDeclaredMethods();
         Method commandHandler = null;
         for (Method m : methods) {
           if (m.getName().equals(command)) {
@@ -82,25 +76,24 @@ public class ServerApp {
             break;
           }
         }
-        System.out.printf("메서드: %\n", commandHandler.getName());
+        System.out.printf("메서드: %s\n", commandHandler.getName());
 
         // 메서드의 파라미터 정보를 알아낸다.
-        Parameter[] params = commandHandler.getParameters(); // 파라미터가 없는 메서드가 있으므로 갯수가 중요함 따라서 배열로 받는다.
-        System.out.printf("파라미터: %s\n", params.length);
+        Parameter[] params = commandHandler.getParameters();
+        System.out.printf("파라미터 개수: %d\n", params.length);
 
         // 메서드를 호출할 때 파라미터에 넘겨 줄 데이터를 담을 배열을 준비한다.
         Object[] args = new Object[params.length];
 
         // 아규먼트 값 준비하기
-        // 현재 =< 모든 DAO의 메서드는 파라미터가 최대 1개만 있다.
+        // => 현재 모든 DAO의 메서드는 파라미터가 최대 1개만 있다.
         // => 1개만 있다는 가정하에서 아규먼트 값을 준비한다.
         if (params.length > 0) {
           // 파라미터 타입을 알아낸다.
           Class<?> paramType = params[0].getType();
 
           // 클라이언트가 보낸 JSON 문자열을 해당 파라미터 타입 객체로 변환한다.
-          Object paramValue = gson.fromJson(value,
-              paramType); // paramType 타입으로 변환된 객체 주소를 paramValue에 저장
+          Object paramValue = gson.fromJson(value, paramType);
 
           // 아규먼트 배열에 저장한다.
           args[0] = paramValue;
@@ -108,16 +101,16 @@ public class ServerApp {
 
         // 메서드의 리턴 타입을 알아낸다.
         Class<?> returnType = commandHandler.getReturnType();
-        System.out.println(returnType);
         System.out.printf("리턴: %s\n", returnType.getName());
 
         // 메서드를 호출한다.
-        Object returnValue = commandHandler.invoke(dao, args); // 메서드의 리턴값을 retrunValue에 담는다.
+        Object returnValue = commandHandler.invoke(dao, args);
 
         out.writeUTF("200");
         out.writeUTF(gson.toJson(returnValue));
-        System.out.println("클라이언트에게 응답완료!");
+        System.out.println("클라이언트에게 응답 완료!");
       }
+
     } catch (Exception e) {
       System.out.println("통신 오류!");
       e.printStackTrace();

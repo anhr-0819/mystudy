@@ -5,7 +5,7 @@ package bitcamp.myapp;
 
 import org.junit.jupiter.api.Test;
 
-class ServerAppTest {
+class AppTest {
 
   @Test
   void appHasAGreeting() {
