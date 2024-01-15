@@ -36,13 +36,13 @@ public class ServerApp {
   void run() {
     System.out.println("[과제관리 서버시스템]");
 
-    try {
+    try (ServerSocket serverSocket = new ServerSocket(8888)) {
       // 1) 랜카드 연결 정보를 준비한다.
       // => 랜카드와 연결하는 것은 실제 OS가 수행한다.
       // => JVM은 OS가 작업한 결과를 가져온다.
       // new ServerSocket(포트번호)
       // => 포트번호: 랜카드로 들어온 데이터를 받을 때 사용할 식별 번호. 중복 불가.
-      ServerSocket serverSocket = new ServerSocket(8888);
+
       System.out.println("서버 실행!");
 
       while (true) {
@@ -59,7 +59,7 @@ public class ServerApp {
     }
   }
 
-  void service(Socket socket) throws Exception { // 소켓을 받으면 하나의 클라이언트와 무한으로 통신. 하나의 클라이언트의 연결을 처리.
+  void service(Socket socket) { // 소켓을 받으면 하나의 클라이언트와 무한으로 통신. 하나의 클라이언트의 연결을 처리.
     try (Socket s = socket;
         DataInputStream in = new DataInputStream(socket.getInputStream());
         DataOutputStream out = new DataOutputStream(socket.getOutputStream())) {
