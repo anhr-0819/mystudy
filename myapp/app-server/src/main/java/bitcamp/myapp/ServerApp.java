@@ -45,12 +45,13 @@ public class ServerApp {
       ServerSocket serverSocket = new ServerSocket(8888);
       System.out.println("서버 실행!");
 
-      // 2) 클라이언트의 연결을 기다림
-      // => 클라이언트 대기 목록에서 먼저 연결된 순서대로 클라이언트 연결 정보를 꺼낸다.
-      // => 클라이언트 대기 목록에 아무것도 없다면 연결이 될 때까지 리턴하지 않고 기다린다.
-      // Socket socket = serverSocket.accept();
       while (true) {
+        // 2) 클라이언트의 연결을 기다림
+        // => 클라이언트 대기 목록에서 먼저 연결된 순서대로 클라이언트 연결 정보를 꺼낸다.
+        // => 클라이언트 대기 목록에 아무것도 없다면 연결이 될 때까지 리턴하지 않고 기다린다.
+        // Socket socket = serverSocket.accept();
         service(serverSocket.accept());
+        // 클라이언트와 연결됐을 때, 연결된 정보를 리턴
       }
     } catch (Exception e) {
       System.out.println("통신 오류!");
@@ -58,61 +59,74 @@ public class ServerApp {
     }
   }
 
-  void service(Socket socket) throws Exception {
-    System.out.println("클라이언트와 연결됨!");
-    // 3) 클라이언트와 통신
-    DataInputStream in = new DataInputStream(socket.getInputStream());
-    DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-//      System.out.println("입출력 준비 완료!");
-    while (true) {
-      System.out.println("----------------------------");
-      processRequest(in, out);
+  void service(Socket socket) throws Exception { // 소켓을 받으면 하나의 클라이언트와 무한으로 통신. 하나의 클라이언트의 연결을 처리.
+    try (Socket s = socket;
+        DataInputStream in = new DataInputStream(socket.getInputStream());
+        DataOutputStream out = new DataOutputStream(socket.getOutputStream())) {
+
+      System.out.println("클라이언트와 연결됨!");
+
+      // 3) 클라이언트와 통신
+      while (processRequest(in, out) != -1) {
+        System.out.println("----------------------------"); // 요청과 요청 사이의 구분선 표시용
+      }
+
+      System.out.println("클라이언트 연결 종료!");
+
+
+    } catch (Exception e) {
+      System.out.println("클라이언트 연결 오류!");
     }
   }
 
-  // 입출력 스트림을 통해 클라이언트 요청을 처리
-  void processRequest(DataInputStream in, DataOutputStream out) throws IOException {
+  // 입출력 스트림을 통해 클라이언트 요청을 읽어서 응답
+  int processRequest(DataInputStream in, DataOutputStream out) throws IOException {
+    System.out.println("[클라이언트 요청]");
     String dataName = in.readUTF();
+    if (dataName.equals("quit")) {
+      out.writeUTF("Goodbye!");
+      // 더이상 클라이언트로부터 데이터를 읽을일이 없으면 -1 리턴
+      return -1;
+    }
+
     String command = in.readUTF();
     String value = in.readUTF();
-    System.out.println("[클라이언트 요청]");
 
     try {
       // dataName으로 DAO를 찾는다.
       Object dao = daoMap.get(dataName);
       if (dao == null) { // 클라이언트가 요청한 데이터를 처리할 DAO가 없다면
-        throw new RuntimeException("요청 데이터가 없습니다!");
+        throw new RequestException("요청 데이터가 없습니다!");
       }
-
       System.out.printf("데이터: %s\n", dataName);
 
       Method commandHandler = findMethod(dao.getClass(), command);
-      if (commandHandler == null) { // 일치하는 메서드를 찾지 못했다면
-        out.writeUTF("400");
-        out.writeUTF(gson.toJson("요청 메서드가 없습니다!"));
-//        continue; // 다음 반복문으로가기
-      }
       System.out.printf("메서드: %s\n", commandHandler.getName());
 
-      Object args = getArguments(commandHandler, value);
+      Object[] args = getArguments(commandHandler, value);
 
       // 메서드의 리턴 타입을 알아낸다.
-      Class<?> returnType = commandHandler.getReturnType();
-      System.out.printf("리턴: %s\n", returnType.getName());
+      // Class<?> returnType = commandHandler.getReturnType();
+      // System.out.printf("리턴: %s\n", returnType.getName());
 
       // 메서드를 호출한다.
       Object returnValue = commandHandler.invoke(dao, args);
 
+      // 응답 : 정상적으로 처리
       out.writeUTF("200");
       out.writeUTF(gson.toJson(returnValue));
       System.out.println("클라이언트에게 응답 완료!");
-    } catch (RequestException e) { // 요청에 문제 발생
+
+    } catch (RequestException e) { // 응답 : 요청에 문제 발생
       out.writeUTF("400");
       out.writeUTF(gson.toJson(e.getMessage()));
-    } catch (Exception e) { // 서버쪽 문제 발생
+
+    } catch (Exception e) { // 응답 : 서버쪽 문제 발생
       out.writeUTF("500");
       out.writeUTF(gson.toJson(e.getMessage()));
     }
+    // 정상적으로 클라이언트 요청을 처리했으면 0 리턴
+    return 0;
   }
 
   Method findMethod(Class<?> clazz, String name) {
