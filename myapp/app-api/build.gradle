@@ -7,7 +7,6 @@ repositories {
 }
 
 dependencies {
-    // 빌드할 때 해당 프로젝트를 포함하겠다는 의미
     implementation project(':app-common')
 
     // JSON 라이브러리

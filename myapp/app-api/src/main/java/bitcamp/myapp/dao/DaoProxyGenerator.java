@@ -14,7 +14,6 @@ public class DaoProxyGenerator {
   private int port;
   private Gson gson;
 
-
   public DaoProxyGenerator(String host, int port) {
     this.host = host;
     this.port = port;
@@ -30,6 +29,7 @@ public class DaoProxyGenerator {
           try (Socket socket = new Socket(host, port);
               DataInputStream in = new DataInputStream(socket.getInputStream());
               DataOutputStream out = new DataOutputStream(socket.getOutputStream())) {
+
             out.writeUTF(dataName);
             out.writeUTF(method.getName());
             if (args == null) {
@@ -52,6 +52,7 @@ public class DaoProxyGenerator {
             } else {
               return gson.fromJson(entity, returnType);
             }
+
 
           } catch (Exception e) {
             e.printStackTrace();

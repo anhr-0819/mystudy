@@ -38,7 +38,7 @@ public class Sender5 {
     while ((b = fileIn.read()) != -1) {
       out.write(b);
     }
-    out.flush(); // 버퍼에 남아있는 데이터를 방출하기
+    out.flush(); // 버퍼에 남아있는 데이터를 방출하기 // 버퍼가 꽉 차지 않으면 방출하지 않기 때문에 방출하는 메서드를 호출
 
     long endTime = System.currentTimeMillis();
 
