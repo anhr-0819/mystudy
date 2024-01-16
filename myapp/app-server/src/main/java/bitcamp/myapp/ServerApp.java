@@ -66,13 +66,10 @@ public class ServerApp {
 
       System.out.println("클라이언트와 연결됨!");
 
-      // 3) 클라이언트와 통신
-      while (processRequest(in, out) != -1) {
-        System.out.println("----------------------------"); // 요청과 요청 사이의 구분선 표시용
-      }
+      // 3) 클라이언트와 통신 <= 한번 연결하면 한번만 요청을 처리. // 반복 X
+      processRequest(in, out);
 
       System.out.println("클라이언트 연결 종료!");
-
 
     } catch (Exception e) {
       System.out.println("클라이언트 연결 오류!");
@@ -80,15 +77,9 @@ public class ServerApp {
   }
 
   // 입출력 스트림을 통해 클라이언트 요청을 읽어서 응답
-  int processRequest(DataInputStream in, DataOutputStream out) throws IOException {
+  void processRequest(DataInputStream in, DataOutputStream out) throws IOException {
     System.out.println("[클라이언트 요청]");
     String dataName = in.readUTF();
-    if (dataName.equals("quit")) {
-      out.writeUTF("Goodbye!");
-      // 더이상 클라이언트로부터 데이터를 읽을일이 없으면 -1 리턴
-      return -1;
-    }
-
     String command = in.readUTF();
     String value = in.readUTF();
 
@@ -125,8 +116,6 @@ public class ServerApp {
       out.writeUTF("500");
       out.writeUTF(gson.toJson(e.getMessage()));
     }
-    // 정상적으로 클라이언트 요청을 처리했으면 0 리턴
-    return 0;
   }
 
   Method findMethod(Class<?> clazz, String name) {
