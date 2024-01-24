@@ -14,21 +14,12 @@ public class Exam0511 {
 
     // => MS949로 인코딩 하기
     System.out.printf("file.encoding=%s\n", System.getProperty("file.encoding"));
-    // byte[] bytes = str.getBytes("EUC-KR"); // UCS2 ==> EUC-KR
+    //byte[] bytes = str.getBytes("EUC-KR"); // UCS2 ==> EUC-KR
     byte[] bytes = str.getBytes("MS949"); // UCS2 ==> MS949
-    byte[] bytes2 = str.getBytes("UTF-8"); // UCS2 ==> UTF-8
 
-    System.out.println("UCS2 ==> MS949");
     for (byte b : bytes) {
       System.out.printf("%x ", b);
     }
-    System.out.println();
-
-    System.out.println("UCS2 ==> UTF-8");
-    for (byte b2 : bytes2) {
-      System.out.printf("%x ", b2);
-    }
-
     System.out.println();
 
     // 바이트 배열 전체를 그대로 출력한다.

@@ -25,7 +25,6 @@ public class CalcServer {
     // ss.close();
   }
 
-  // 연결 후 요청을 처리한 후에 바로 종료한다.
   static void processRequest(Socket socket) throws Exception {
     try (Socket socket2 = socket;
         DataInputStream in = new DataInputStream(socket.getInputStream());
@@ -52,7 +51,7 @@ public class CalcServer {
           out.println("해당 연산을 지원하지 않습니다.");
           return;
       }
-      out.printf("계산결과 = %d\n", result);
+      out.printf("계산 결과: %d\n", result);
     }
   }
 }

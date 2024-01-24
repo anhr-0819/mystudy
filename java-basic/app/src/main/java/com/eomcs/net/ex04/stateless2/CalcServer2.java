@@ -55,7 +55,7 @@ public class CalcServer2 {
         result = obj; // auto-unboxing
       } else {
         // 맵에 해당 클라이언트 ID로 저장된 값이 없다는 것은
-        // 한 번도 서버에 접속한 적이 없다는 의미다.
+        // 한 번도 서버에 접속한 적이 없다는 의미다. 
         // 따라서 새 클라이언트 아이디를 발급한다.
         // => 예제를 간단히 하기 위해 현재 실행 시점의 밀리초를 사용한다.
         clientId = System.currentTimeMillis();

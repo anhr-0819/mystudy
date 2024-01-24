@@ -12,12 +12,12 @@ import java.util.Scanner;
 public class Sender5 {
 
   public static void main(String[] args) throws Exception {
-    File file = new File("temp/jls17.pdf");
+    File file = new File("temp/test.jpeg");
 
     BufferedInputStream fileIn = new BufferedInputStream(new FileInputStream(file));
 
     System.out.println("서버에 연결 중...");
-    Socket socket = new Socket("192.168.0.225", 8888);
+    Socket socket = new Socket("192.168.0.46", 8888);
     System.out.println("서버에 연결 완료!");
 
     DataOutputStream out = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
@@ -35,10 +35,15 @@ public class Sender5 {
 
     // 3) 파일 데이터 보내기
     int b;
+    int count = 0;
     while ((b = fileIn.read()) != -1) {
       out.write(b);
+      count++;
+      if (count % 1024 == 0) {
+        System.out.println("1KB 보냄!");
+      }
     }
-    out.flush(); // 버퍼에 남아있는 데이터를 방출하기 // 버퍼가 꽉 차지 않으면 방출하지 않기 때문에 방출하는 메서드를 호출
+    out.flush(); // 버퍼에 남아있는 데이터를 방출하기
 
     long endTime = System.currentTimeMillis();
 

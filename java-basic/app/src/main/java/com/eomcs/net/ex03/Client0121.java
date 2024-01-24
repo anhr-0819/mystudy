@@ -25,8 +25,9 @@ public class Client0121 {
         if (i > 0 && (i % 20) == 0) {
           System.out.println(); // 20바이트 출력한 후 줄 바꾼다.
         }
-        System.out.printf("%02x ", buf[i]); // %02x 16진수를 2자리로 출력(빈자리 0으로 채움)
+        System.out.printf("%02x ", buf[i]);
       }
+
 
     } catch (Exception e) {
       e.printStackTrace();

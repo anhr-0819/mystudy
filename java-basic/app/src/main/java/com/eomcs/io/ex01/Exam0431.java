@@ -10,8 +10,8 @@ public class Exam0431 {
     File file = new File("temp2/b/test.txt");
 
     // 파일을 생성하기 전에 존재하지 않는 폴더를 생성하고 싶다면,
-    // String path = file.getParent(); // => temp/b // 자기를 포함하는 폴더의 경로까지 리턴
-    // File dir = new File(path);
+    //    String path = file.getParent(); // => temp/b
+    //    File dir = new File(path);
     File dir = file.getParentFile(); // 위의 코드와 같다.
     System.out.println(dir.getCanonicalPath());
 

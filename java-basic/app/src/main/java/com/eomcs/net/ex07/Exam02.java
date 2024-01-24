@@ -8,9 +8,8 @@ public class Exam02 {
 
   public static void main(String[] args) throws Exception {
     // 포트번호 명시
-    // - http://서버주소:포트번호/자원경로?파라미터명=값&파라미터명=값&파라미터명=값
-    // URL url = new
-    // URL("https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=bitcamp");
+    // - http://서버주소:포트번호/자원경로?파라미터명=값&파라미터명=값&파라미터명=값 
+    //    URL url = new URL("https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=bitcamp");
     URL url = new URI("https://search.naver.com/search.naver").toURL();
 
     // URL 분석
