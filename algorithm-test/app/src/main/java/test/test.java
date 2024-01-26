@@ -5,16 +5,28 @@ import java.util.Scanner;
 public class test {
 
   public static void main(String[] args) {
-    int n = new Scanner(System.in).nextInt();
-    int cnt = n;
-    while (n >= 1) {
-      if (n % 2 == 0 || n % 3 == 0 || n % 5 == 0) {
-        cnt--;
-        System.out.println(n);
+    Scanner scan = new Scanner(System.in);
+    for (int i = 0;; i++) {
+      int n = scan.nextInt();
+      switch (n) {
+        case 1:
+          System.out.println("John");
+          continue;
+        case 2:
+          System.out.println("Tom");
+          continue;
+        case 3:
+          System.out.println("Paul");
+          continue;
+        case 4:
+          System.out.println("Sam");
+          continue;
+        default:
+          System.out.println("Vacancy");
+          return;
       }
-      n--;
+
     }
-    System.out.print("------------------" + cnt);
   }
 
 
