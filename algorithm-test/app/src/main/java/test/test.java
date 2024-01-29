@@ -6,6 +6,8 @@ public class test {
 
   public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
+    String s = " ";
+    s.equals(s);
     for (int i = 0;; i++) {
       int n = scan.nextInt();
       switch (n) {
