@@ -56,7 +56,9 @@ public class ClientApp {
 //      DriverManager.registerDriver(driver);
 
       Connection con =
-          DriverManager.getConnection("jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
+          DriverManager.getConnection("jdbc:mysql://db-ld262-kr.vpc-pub-cdb.ntruss.com/studydb",
+              "study", "Bitcamp!@#123");
+      // jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123
       // connection 객체를 넘겨줌
 
       boardDao = new BoardDaoImpl(con, 1);
