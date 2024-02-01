@@ -3,12 +3,60 @@
  */
 package com.anhyeryoung.testapp;
 
+import com.anhyeryoung.menu.MenuGroup;
+import com.anhyeryoung.testapp.dao.WordDao;
+import com.anhyeryoung.testapp.dao.mysql.WordDaoImpl;
+import com.anhyeryoung.util.Prompt;
+import com.anhyeryoung.testapp.handler.word.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
+
+    Prompt prompt = new Prompt(System.in);
+    WordDao wordDao;
+    MenuGroup mainMenu;
+
+    App() {
+        prepareDatabase();
+        prepareMenu();
+    }
+
+    void prepareMenu() {
+        mainMenu = MenuGroup.getInstance("#STUDY NOTE#");
+        MenuGroup boardMenu = mainMenu.addGroup("word note books");
+        boardMenu.addItem("add", new WordAddHandler(wordDao, prompt));
+        boardMenu.addItem("find", new WordViewHandler(wordDao, prompt));
+        boardMenu.addItem("modify", new WordModifyHandler(wordDao, prompt));
+        boardMenu.addItem("delete", new WordDeleteHandler(wordDao, prompt));
+        boardMenu.addItem("list", new WordListHandler(wordDao, prompt));
+    }
+
+    void prepareDatabase() {
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://db-ld262-kr.vpc-pub-cdb.ntruss.com/studydb",
+                "study", "Bitcamp!@#123");
+            wordDao = new WordDaoImpl(con,1);
+        } catch (Exception e) {
+            System.out.println("Database Connection Error");
+            //e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        System.out.println("###CRUD TEST MAIN###");
+        new App().run();
+    }
+
+    private void run() {
+        while (true) {
+            try {
+                mainMenu.execute(prompt);
+                prompt.close();
+                break;
+            } catch (Exception e) {
+                System.out.println("예외 발생!");
+            }
+        }
     }
 }
