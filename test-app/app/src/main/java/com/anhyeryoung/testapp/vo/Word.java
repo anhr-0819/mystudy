@@ -12,6 +12,7 @@ public class Word implements Serializable {
   private String mean;
   private String writer;
   private String reference;
+  private String memo;
   private int category;
   private int check;
   private Date createdDate;
@@ -78,5 +79,13 @@ public class Word implements Serializable {
 
   public void setCategory(int category) {
     this.category = category;
+  }
+
+  public String getMemo() {
+    return memo;
+  }
+
+  public void setMemo(String memo) {
+    this.memo = memo;
   }
 }

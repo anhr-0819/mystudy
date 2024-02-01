@@ -1,5 +1,6 @@
 package com.anhyeryoung.menu;
 
+import com.anhyeryoung.util.AnsiEscape;
 import com.anhyeryoung.util.Prompt;
 import java.util.Stack;
 
@@ -26,7 +27,7 @@ public class MenuItem extends AbstractMenu {
       try {
         this.menuHandler.action(this);
       } catch (Exception e) {
-        System.out.println("실행 오류!");
+        System.out.println(AnsiEscape.RED_BRIGHT + "실행 오류!" + AnsiEscape.RESET);
       }
     }
   }

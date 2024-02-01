@@ -3,6 +3,7 @@ package com.anhyeryoung.testapp.handler.word;
 import com.anhyeryoung.menu.AbstractMenuHandler;
 import com.anhyeryoung.testapp.dao.WordDao;
 import com.anhyeryoung.testapp.vo.Word;
+import com.anhyeryoung.util.AnsiEscape;
 import com.anhyeryoung.util.Prompt;
 
 public class WordViewHandler extends AbstractMenuHandler {
@@ -20,14 +21,14 @@ public class WordViewHandler extends AbstractMenuHandler {
 
     Word word = wordDao.findBy(no);
     if (word == null) {
-      System.out.println("ERROR : Unknown column");
+      System.out.println(AnsiEscape.RED_BRIGHT + "ERROR : Unknown column" + AnsiEscape.RESET);
       return;
     }
-
-    System.out.printf("no: %d\n", word.getNo());
-    System.out.printf("word: %s\n", word.getWord());
-    System.out.printf("mean: %s\n", word.getMean());
-    System.out.printf("writer: %s\n", word.getWriter());
-    System.out.printf("createdDate: %1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS\n", word.getCreatedDate());
+    System.out.println(AnsiEscape.GREEN + "-----------------------------------------------------------------"+AnsiEscape.RESET);
+    System.out.printf("word: %s%s%s\n", AnsiEscape.GREEN_BOLD, word.getWord(), AnsiEscape.RESET);
+    System.out.printf("mean: %s%s%s\n", AnsiEscape.GREEN_BOLD, word.getMean(), AnsiEscape.RESET);
+    System.out.printf("reference: %s\n", word.getReference());
+    System.out.printf("memo: %s\n", word.getMemo());
+    System.out.printf("createdDate: %1$tY-%1$tm-%1$td\n", word.getCreatedDate());
   }
 }

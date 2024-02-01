@@ -19,8 +19,8 @@ public class WordAddHandler extends AbstractMenuHandler {
     Word word = new Word();
     word.setWord(this.prompt.input("word : "));
     word.setMean(this.prompt.input("mean : "));
-    //board.setWriter(this.prompt.input("writer : "));
-    word.setCheck(this.prompt.inputInt("check(default:0) : "));
+    word.setReference(this.prompt.input("reference : "));
+    word.setMemo(this.prompt.input("memo : "));
 
     wordDao.add(word);
   }

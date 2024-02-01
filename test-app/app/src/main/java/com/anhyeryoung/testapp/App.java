@@ -6,6 +6,7 @@ package com.anhyeryoung.testapp;
 import com.anhyeryoung.menu.MenuGroup;
 import com.anhyeryoung.testapp.dao.WordDao;
 import com.anhyeryoung.testapp.dao.mysql.WordDaoImpl;
+import com.anhyeryoung.util.AnsiEscape;
 import com.anhyeryoung.util.Prompt;
 import com.anhyeryoung.testapp.handler.word.*;
 import java.sql.Connection;
@@ -23,7 +24,7 @@ public class App {
     }
 
     void prepareMenu() {
-        mainMenu = MenuGroup.getInstance("#STUDY NOTE#");
+        mainMenu = MenuGroup.getInstance("study note");
         MenuGroup boardMenu = mainMenu.addGroup("word note books");
         boardMenu.addItem("add", new WordAddHandler(wordDao, prompt));
         boardMenu.addItem("find", new WordViewHandler(wordDao, prompt));
@@ -38,13 +39,13 @@ public class App {
                 "study", "Bitcamp!@#123");
             wordDao = new WordDaoImpl(con,1);
         } catch (Exception e) {
-            System.out.println("Database Connection Error");
+            System.out.println(AnsiEscape.RED_BRIGHT +"Database Connection Error"+AnsiEscape.RESET);
             //e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
-        System.out.println("###CRUD TEST MAIN###");
+        //System.out.println("###CRUD TEST MAIN###");
         new App().run();
     }
 
@@ -55,7 +56,7 @@ public class App {
                 prompt.close();
                 break;
             } catch (Exception e) {
-                System.out.println("예외 발생!");
+                System.out.println(AnsiEscape.RED_BRIGHT+"예외 발생"+AnsiEscape.RESET);
             }
         }
     }

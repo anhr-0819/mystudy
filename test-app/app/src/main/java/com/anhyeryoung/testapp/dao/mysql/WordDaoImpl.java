@@ -25,11 +25,11 @@ public class WordDaoImpl implements WordDao {
       Statement stmt = con.createStatement();
       stmt.executeUpdate(
           String.format(
-              "insert into words(word,mean,is_check,reference,category) values('%s','%s','%d','%s',%d)",
+              "insert into words(word,mean,reference,memo,category) values('%s','%s','%s','%s',%d)",
               word.getWord(),
               word.getMean(),
-              word.getCheck(),
               word.getReference(),
+              word.getMemo(),
               this.category
           ));
     } catch (Exception e) {
@@ -62,7 +62,8 @@ public class WordDaoImpl implements WordDao {
         word.setWriter(rs.getString("writer"));
         word.setCreatedDate(rs.getDate("created_date"));
         word.setReference(rs.getString("reference"));
-        word.setCheck(rs.getInt("is_check"));
+        word.setMemo(rs.getString("memo"));
+        //word.setCheck(rs.getInt("is_check"));
 
         list.add(word);
       }
@@ -85,8 +86,10 @@ public class WordDaoImpl implements WordDao {
         word.setWord(rs.getString("word"));
         word.setMean(rs.getString("mean"));
         word.setWriter(rs.getString("writer"));
-        word.setCheck(rs.getInt("is_check"));
+        word.setReference(rs.getString("reference"));
+        word.setMemo(rs.getString("memo"));
         word.setCreatedDate(rs.getDate("created_date"));
+        //word.setCheck(rs.getInt("is_check"));
         return word;
       }
       return null;
@@ -101,12 +104,14 @@ public class WordDaoImpl implements WordDao {
       Statement stmt = con.createStatement();
       return stmt.executeUpdate(
           String.format(
-              "update words set word='%s', mean='%s', writer='%s', check=%d where word_no=%d",
+              "update words set word='%s', mean='%s', writer='%s', reference='%s', memo='%s' where word_no=%d",
               word.getWord(),
               word.getMean(),
               word.getWriter(),
-              word.getCheck(),
+              word.getReference(),
+              word.getMemo(),
               word.getNo()
+              //word.getCheck(),
           ));
     } catch (Exception e) {
       e.printStackTrace();
