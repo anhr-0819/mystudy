@@ -13,7 +13,6 @@ public class Word implements Serializable {
   private String writer;
   private String reference;
   private String memo;
-  private int category;
   private int check;
   private Date createdDate;
 
@@ -71,14 +70,6 @@ public class Word implements Serializable {
 
   public void setCreatedDate(Date createdDate) {
     this.createdDate = createdDate;
-  }
-
-  public int getCategory() {
-    return category;
-  }
-
-  public void setCategory(int category) {
-    this.category = category;
   }
 
   public String getMemo() {

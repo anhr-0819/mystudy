@@ -27,7 +27,7 @@ public class WordModifyHandler extends AbstractMenuHandler {
 
     Word word = new Word();
     word.setNo(oldWord.getNo());
-    System.out.println(AnsiEscape.GREEN + "-----------------------------------------------------------------"+AnsiEscape.RESET);
+    System.out.println(AnsiEscape.GREEN + "------------------------------------------" + AnsiEscape.RESET);
     word.setWord(this.prompt.input("word(%s) : ", oldWord.getWord()));
     word.setMean(this.prompt.input("mean(%s) : ", oldWord.getMean()));
     word.setReference(this.prompt.input("Reference(%s) : ", oldWord.getReference()));

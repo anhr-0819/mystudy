@@ -24,7 +24,7 @@ public class WordViewHandler extends AbstractMenuHandler {
       System.out.println(AnsiEscape.RED_BRIGHT + "ERROR : Unknown column" + AnsiEscape.RESET);
       return;
     }
-    System.out.println(AnsiEscape.GREEN + "-----------------------------------------------------------------"+AnsiEscape.RESET);
+    System.out.println(AnsiEscape.GREEN + "------------------------------------------" + AnsiEscape.RESET);
     System.out.printf("word: %s%s%s\n", AnsiEscape.GREEN_BOLD, word.getWord(), AnsiEscape.RESET);
     System.out.printf("mean: %s%s%s\n", AnsiEscape.GREEN_BOLD, word.getMean(), AnsiEscape.RESET);
     System.out.printf("reference: %s\n", word.getReference());
