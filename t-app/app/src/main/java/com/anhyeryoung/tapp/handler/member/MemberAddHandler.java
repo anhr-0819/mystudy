@@ -13,7 +13,7 @@ public class MemberAddHandler extends AbstractMenuHandler {
   public MemberAddHandler(MemberDao memberDao, Prompt prompt) {
     super(prompt);
     this.memberDao = memberDao;
-  } 
+  }
 
   @Override
   protected void action() {
