@@ -1,8 +1,8 @@
-package bitcamp.myapp.dao.mysql;
+package com.anhyeryoung.tapp.dao.mysql;
 
-import bitcamp.myapp.dao.DaoException;
-import bitcamp.myapp.dao.MemberDao;
-import bitcamp.myapp.vo.Member;
+import com.anhyeryoung.tapp.dao.DaoException;
+import com.anhyeryoung.tapp.dao.MemberDao;
+import com.anhyeryoung.tapp.vo.Member;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
