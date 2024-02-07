@@ -152,8 +152,8 @@ eclipse {
         name = "java-basic"
     }
     jdt {
-      sourceCompatibility = 21
-      targetCompatibility = 21
+      sourceCompatibility = '21'
+      targetCompatibility = '21'
       javaRuntimeName = "JavaSE-21"
     }
 }
