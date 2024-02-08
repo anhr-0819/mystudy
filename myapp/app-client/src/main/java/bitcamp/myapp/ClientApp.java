@@ -32,7 +32,7 @@ public class ClientApp {
             System.in)) { // try with resources <- AutoCloseable 인터페이스를 구현한 객체만 사용가능
       while (true) {
         String response = in.readUTF();
-        if (response.equals("quit")) {
+        if (response.equals("[[quit!]]")) {
           break;
         }
         System.out.print(response);
