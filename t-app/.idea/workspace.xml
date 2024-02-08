@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="" />
+    <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/../myapp/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-api/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-api/src/main/java/bitcamp/myapp/dao/DaoProxyGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-api/src/main/resources/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-api/src/test/java/bitcamp/myapp/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-api/src/test/resources/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/ClientApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/ClientApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/util/Prompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/util/Prompt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-common/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-common/src/main/resources/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-common/src/test/java/bitcamp/myapp/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-common/src/test/resources/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-server/assignment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-server/board.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-server/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-server/greeting.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-server/member.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/RequestException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/ServerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/ServerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/dao/json/AbstractDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/dao/json/AssignmentDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/dao/json/BoardDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/dao/json/MemberDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,12 +44,33 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="t-app" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="t-app" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="t-app" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="t-app" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -46,6 +93,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.t-app:app [:app:App.main()].executor": "Run",
+    "Gradle.t-app:app [run].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
