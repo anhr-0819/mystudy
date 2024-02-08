@@ -7,6 +7,7 @@ import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.dao.mysql.AssignmentDaoImpl;
 import bitcamp.myapp.dao.mysql.BoardDaoImpl;
 import bitcamp.myapp.dao.mysql.MemberDaoImpl;
+import bitcamp.myapp.handler.AboutHandler;
 import bitcamp.myapp.handler.HelpHandler;
 import bitcamp.myapp.handler.assignment.AssignmentAddHandler;
 import bitcamp.myapp.handler.assignment.AssignmentDeleteHandler;
@@ -30,9 +31,12 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ServerApp {
 
+  ExecutorService executorService = Executors.newCachedThreadPool();
   Prompt prompt = new Prompt(System.in);
 
   BoardDao boardDao;
@@ -107,13 +111,14 @@ public class ServerApp {
     greetingMenu.addItem("목록", new BoardListHandler(greetingDao));
 
     mainMenu.addItem("도움말", new HelpHandler());
+    mainMenu.addItem("...대하여", new AboutHandler());
   }
 
   void run() {
     try (ServerSocket serverSocket = new ServerSocket(8888)) {
       while (true) {
         Socket socket = serverSocket.accept();
-        processRequest(socket);
+        executorService.execute(() -> processRequest(socket));
       }
 
     } catch (Exception e) {
