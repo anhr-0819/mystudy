@@ -23,7 +23,12 @@ import bitcamp.myapp.handler.member.MemberDeleteHandler;
 import bitcamp.myapp.handler.member.MemberListHandler;
 import bitcamp.myapp.handler.member.MemberModifyHandler;
 import bitcamp.myapp.handler.member.MemberViewHandler;
+import bitcamp.util.NetPrompt;
 import bitcamp.util.Prompt;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -45,7 +50,7 @@ public class ServerApp {
   }
 
   public static void main(String[] args) {
-    System.out.println("[과제관리 시스템]");
+    System.out.println("과제관리 시스템 서버실행!");
     new ServerApp().run();
   }
 
@@ -107,15 +112,55 @@ public class ServerApp {
   }
 
   void run() {
-    while (true) {
-      try {
-        mainMenu.execute(prompt);
-        prompt.close();
-        break;
-      } catch (Exception e) {
-        System.out.println("예외 발생!");
+    try (ServerSocket serverSocket = new ServerSocket(8888)) {
+      while (true) {
+        Socket socket = serverSocket.accept();
+        processRequest(socket);
       }
+
+    } catch (Exception e) {
+      System.out.println("서버 소켓 생성 오류");
+      e.printStackTrace();
     }
   }
+
+  void processRequest(Socket socket) {
+    try (Socket s = socket;
+        DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+        DataInputStream in = new DataInputStream(socket.getInputStream());
+        NetPrompt prompt = new NetPrompt(in, out)) {
+
+      prompt.println("[과제관리 시스템]");
+      prompt.println("환영합니다");
+      prompt.println("반가워요!");
+      prompt.end();
+
+      String request = prompt.input();
+      System.out.println(request);
+
+//      out.writeUTF("[과제관리 시스템]");
+//      String request = in.readUTF();
+//      if (request.equals("quit")) {
+//        out.writeUTF("[[quit!]]");
+//      }
+//      System.out.println(request);
+
+    } catch (Exception e) {
+      System.out.println("클라이언트 통신 오류");
+      e.printStackTrace();
+    }
+  }
+
+//  void run() {
+//    while (true) {
+//      try {
+//        mainMenu.execute(prompt);
+//        prompt.close();
+//        break;
+//      } catch (Exception e) {
+//        System.out.println("예외 발생!");
+//      }
+//    }
+//  }
 
 }

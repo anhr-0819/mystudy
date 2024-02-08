@@ -11,7 +11,6 @@ public class ClientApp {
   int port;
 
   public static void main(String[] args) {
-    System.out.println("[과제관리 시스템]");
     new ClientApp().server("localhost").port(8888).run();
   }
 
@@ -30,10 +29,10 @@ public class ClientApp {
         DataInputStream in = new DataInputStream(socket.getInputStream());
         DataOutputStream out = new DataOutputStream(socket.getOutputStream());
         Prompt prompt = new Prompt(
-            System.in)) { // try with resources : AutoCloseable 인터페이스를 구현한 객체만 사용가능
+            System.in)) { // try with resources <- AutoCloseable 인터페이스를 구현한 객체만 사용가능
       while (true) {
         String response = in.readUTF();
-        if (response.equals("[[quit]]")) {
+        if (response.equals("quit")) {
           break;
         }
         System.out.print(response);
