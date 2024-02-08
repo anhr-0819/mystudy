@@ -2,24 +2,20 @@ package bitcamp.util;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.Date;
-import java.util.Scanner;
+import java.util.Stack;
 
+// 서버쪽의 프롬프트 객체는 각각의 클라이언트에 대하여 동작한다.
 public class Prompt implements AutoCloseable {
 
-  Scanner keyIn;
+  Stack<String> breadcrumb = new Stack<>();
 
   private DataInputStream in;
   private DataOutputStream out;
   private StringWriter stringWriter = new StringWriter();
   private PrintWriter writer = new PrintWriter(stringWriter);
-
-  public Prompt(InputStream in) {
-    keyIn = new Scanner(in);
-  }
 
   public Prompt(DataInputStream in, DataOutputStream out) {
     this.in = in;
@@ -83,6 +79,18 @@ public class Prompt implements AutoCloseable {
   public void close() throws Exception {
     writer.close();
     stringWriter.close();
+  }
+
+  public void pushPath(String path) {
+    breadcrumb.push(path);
+  }
+
+  public String popPath() {
+    return breadcrumb.pop();
+  }
+
+  public String getFullPath() {
+    return String.join("/", breadcrumb.toArray(new String[0]));
   }
 
 }
