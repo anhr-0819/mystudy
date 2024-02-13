@@ -3,17 +3,17 @@ package bitcamp.myapp.handler.board;
 import bitcamp.menu.AbstractMenuHandler;
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.Board;
+import bitcamp.util.DBConnectionPool;
 import bitcamp.util.Prompt;
-import bitcamp.util.ThreadConnection;
 import java.sql.Connection;
 
 public class BoardAddHandler extends AbstractMenuHandler {
 
-  ThreadConnection threadConnection;
+  DBConnectionPool DBConnectionPool;
   private BoardDao boardDao;
 
-  public BoardAddHandler(ThreadConnection threadConnection, BoardDao boardDao) {
-    this.threadConnection = threadConnection;
+  public BoardAddHandler(DBConnectionPool DBConnectionPool, BoardDao boardDao) {
+    this.DBConnectionPool = DBConnectionPool;
     this.boardDao = boardDao;
   }
 
@@ -26,7 +26,7 @@ public class BoardAddHandler extends AbstractMenuHandler {
 
     Connection con = null;
     try {
-      con = threadConnection.get();
+      con = DBConnectionPool.getConnection();
       con.setAutoCommit(false);
 
       boardDao.add(board);
