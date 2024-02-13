@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/ServerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/ServerApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/dao/mysql/AssignmentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/dao/mysql/AssignmentDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/dao/mysql/BoardDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/dao/mysql/BoardDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/dao/mysql/MemberDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/dao/mysql/MemberDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/util/ThreadConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/util/ThreadConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/handler/assignment/AssignmentAddHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/handler/assignment/AssignmentAddHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/handler/board/BoardAddHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/handler/board/BoardAddHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

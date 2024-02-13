@@ -24,7 +24,6 @@ public class AssignmentDaoImpl implements AssignmentDao {
     try {
       con = threadConnection.get(); // 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어준다.
 
-      con.setAutoCommit(false);
       try (PreparedStatement pstmt = con.prepareStatement(
           "insert into assignments(title,content,deadline) values(?,?,?)")) {
         pstmt.setString(1, assignment.getTitle());
