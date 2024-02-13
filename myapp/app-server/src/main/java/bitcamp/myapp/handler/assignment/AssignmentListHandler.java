@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AssignmentListHandler extends AbstractMenuHandler {
 
-  DBConnectionPool connectionPool;
+  private DBConnectionPool connectionPool;
   private AssignmentDao assignmentDao;
 
   public AssignmentListHandler(DBConnectionPool connectionPool, AssignmentDao assignmentDao) {

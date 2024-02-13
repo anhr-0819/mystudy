@@ -12,11 +12,11 @@ import java.util.List;
 
 public class BoardDaoImpl implements BoardDao {
 
-  DBConnectionPool DBConnectionPool;
+  DBConnectionPool connectionPool;
   int category;
 
-  public BoardDaoImpl(DBConnectionPool DBConnectionPool, int category) {
-    this.DBConnectionPool = DBConnectionPool;
+  public BoardDaoImpl(DBConnectionPool connectionPool, int category) {
+    this.connectionPool = connectionPool;
     this.category = category;
   }
 
@@ -24,7 +24,7 @@ public class BoardDaoImpl implements BoardDao {
   public void add(Board board) {
     Connection con = null;
     try {
-      con = DBConnectionPool.getConnection(); // 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어준다.
+      con = connectionPool.getConnection(); // 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어준다.
       try (PreparedStatement pstmt = con.prepareStatement(
           "insert into boards(title,content,writer,category) values(?,?,?,?)")) {
         pstmt.setString(1, board.getTitle());
@@ -42,7 +42,7 @@ public class BoardDaoImpl implements BoardDao {
   public int delete(int no) {
     Connection con = null;
     try {
-      con = DBConnectionPool.getConnection(); // 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어준다.
+      con = connectionPool.getConnection(); // 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어준다.
       try (PreparedStatement pstmt = con.prepareStatement("delete from boards where board_no=?")) {
         pstmt.setInt(1, no);
         return pstmt.executeUpdate();
@@ -56,7 +56,7 @@ public class BoardDaoImpl implements BoardDao {
   public List<Board> findAll() {
     Connection con = null;
     try {
-      con = DBConnectionPool.getConnection(); // 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어준다.
+      con = connectionPool.getConnection(); // 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어준다.
       try (PreparedStatement pstmt = con.prepareStatement(
           "select * from boards where category=? order by board_no desc")) {
         pstmt.setInt(1, this.category);
@@ -83,7 +83,7 @@ public class BoardDaoImpl implements BoardDao {
   public Board findBy(int no) {
     Connection con = null;
     try {
-      con = DBConnectionPool.getConnection(); // 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어준다.
+      con = connectionPool.getConnection(); // 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어준다.
 
       try (PreparedStatement pstmt = con.prepareStatement(
           "select * from boards where board_no=?")) {
@@ -110,7 +110,7 @@ public class BoardDaoImpl implements BoardDao {
   public int update(Board board) {
     Connection con = null;
     try {
-      con = DBConnectionPool.getConnection(); // 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어준다.
+      con = connectionPool.getConnection(); // 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어준다.
       try (PreparedStatement pstmt = con.prepareStatement(
           "update boards set title=?, content=?, writer=? where board_no=?")) {
         pstmt.setString(1, board.getTitle());
