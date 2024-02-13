@@ -21,5 +21,4 @@ public class BoardAddHandler extends AbstractMenuHandler {
     board.setWriter(prompt.input("작성자? "));
     boardDao.add(board);
   }
-  // 기존의 input은 값을 화면에 출력 -> 화면이 아닌 client로 출력하고 end()호출
 }
