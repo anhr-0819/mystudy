@@ -14,6 +14,7 @@ public class Board implements Serializable {
   private String writer;
   private Date createdDate;
   private List<AttachedFile> files;
+  private int fileCount;
 
   @Override
   public String toString() {
@@ -23,6 +24,8 @@ public class Board implements Serializable {
         ", content='" + content + '\'' +
         ", writer='" + writer + '\'' +
         ", createdDate=" + createdDate +
+        ", files=" + files +
+        ", fileCount=" + fileCount +
         '}';
   }
 
@@ -72,5 +75,13 @@ public class Board implements Serializable {
 
   public void setFiles(List<AttachedFile> files) {
     this.files = files;
+  }
+
+  public int getFileCount() {
+    return fileCount;
+  }
+
+  public void setFileCount(int fileCount) {
+    this.fileCount = fileCount;
   }
 }

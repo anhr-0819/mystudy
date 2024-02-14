@@ -6,6 +6,13 @@ public class AttachedFile {
   private String filePath;
   private int boardNo;
 
+  public AttachedFile() {
+  }
+
+  public AttachedFile(int boardNo) {
+    this.boardNo = boardNo;
+  }
+
   public int getNo() {
     return no;
   }
@@ -28,5 +35,10 @@ public class AttachedFile {
 
   public void setBoardNo(int boardNo) {
     this.boardNo = boardNo;
+  }
+
+  public AttachedFile filePath(String filePath) {
+    this.filePath = filePath;
+    return this;
   }
 }
