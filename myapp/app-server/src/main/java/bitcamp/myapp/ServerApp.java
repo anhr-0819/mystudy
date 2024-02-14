@@ -124,10 +124,11 @@ public class ServerApp {
         Socket socket = serverSocket.accept();
         executorService.execute(() -> processRequest(socket));
       }
-
     } catch (Exception e) {
       System.out.println("서버 소켓 생성 오류");
       e.printStackTrace();
+    } finally {
+      connectionPool.closeAll(); // 아직 서버를 멈추는 기능을 완성하지 않았으므로 finally에 둠.
     }
   }
 

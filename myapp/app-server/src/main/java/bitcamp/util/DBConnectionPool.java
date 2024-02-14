@@ -55,4 +55,10 @@ public class DBConnectionPool implements ConnectionPool {
     connections.add(con);
     System.out.printf("%s: DB 커넥션을 커넥션풀에 반환\n", Thread.currentThread().getName());
   }
+
+  public void closeAll() {
+    for (Connection con : connections) {
+      ((ConnectionProxy) con).realClose();
+    }
+  }
 }
