@@ -14,4 +14,8 @@ public class Session {
   public Object getAttribute(String name) {
     return attrMap.get(name);
   }
+
+  public void invalidate() {
+    attrMap.clear(); // Map에 매핑되어있는 모든것을 제거
+  }
 }
