@@ -30,6 +30,7 @@ import bitcamp.myapp.handler.member.MemberModifyHandler;
 import bitcamp.myapp.handler.member.MemberViewHandler;
 import bitcamp.util.DBConnectionPool;
 import bitcamp.util.Prompt;
+import bitcamp.util.Session;
 import bitcamp.util.TransactionManager;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -51,6 +52,7 @@ public class ServerApp {
   MemberDao memberDao;
   AttachedFileDao attachedFileDao;
   MenuGroup mainMenu;
+  Session session;
 
   ServerApp() {
     prepareDatabase();

@@ -11,8 +11,8 @@ plugins {
 }
 
 rootProject.name = 'myapp'
-//include('app')
-include('app-client')
-include('app-server')
+include('app')
+//include('app-client')
+//include('app-server')
 //include('app-common') // 클라이언트와 서버에 공통으로 들어가는 코드를 app-common으로 분리
 //include('app-api') // app-server에서 제공하는 DAO객체의 stub(클라이언트 보조 객체)

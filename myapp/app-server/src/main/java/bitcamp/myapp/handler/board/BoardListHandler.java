@@ -4,14 +4,21 @@ import bitcamp.menu.AbstractMenuHandler;
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.Board;
 import bitcamp.util.Prompt;
+import bitcamp.util.Session;
 import java.util.List;
 
 public class BoardListHandler extends AbstractMenuHandler {
 
   private BoardDao boardDao;
+  private Session session;
 
   public BoardListHandler(BoardDao boardDao) {
     this.boardDao = boardDao;
+  }
+
+  public BoardListHandler(BoardDao boardDao, Session session) {
+    this.boardDao = boardDao;
+    this.session = session;
   }
 
   @Override
@@ -25,7 +32,7 @@ public class BoardListHandler extends AbstractMenuHandler {
         prompt.printf("%-4d\t%-20s\t%10s\t%4$tY-%4$tm-%4$td\t%5$d\n",
             board.getNo(),
             board.getTitle(),
-            board.getWriter(),
+            board.getWriter().getName(),
             board.getCreatedDate(),
             board.getFileCount());
       }

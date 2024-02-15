@@ -3,9 +3,12 @@ package bitcamp.myapp.handler.board;
 import bitcamp.menu.AbstractMenuHandler;
 import bitcamp.myapp.dao.AttachedFileDao;
 import bitcamp.myapp.dao.BoardDao;
+import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
+import bitcamp.myapp.vo.Member;
 import bitcamp.util.Prompt;
+import bitcamp.util.Session;
 import bitcamp.util.TransactionManager;
 import java.util.ArrayList;
 
@@ -13,7 +16,9 @@ public class BoardAddHandler extends AbstractMenuHandler {
 
   private TransactionManager txManager;
   private BoardDao boardDao;
+  private MemberDao memberDao;
   private AttachedFileDao attachedFileDao;
+  private Session session;
 
   public BoardAddHandler(TransactionManager txManager, BoardDao boardDao,
       AttachedFileDao attachedFileDao) {
@@ -22,12 +27,26 @@ public class BoardAddHandler extends AbstractMenuHandler {
     this.attachedFileDao = attachedFileDao;
   }
 
+  public BoardAddHandler(TransactionManager txManager, BoardDao boardDao,
+      AttachedFileDao attachedFileDao, Session session) {
+    this.txManager = txManager;
+    this.boardDao = boardDao;
+    this.attachedFileDao = attachedFileDao;
+    this.session = session;
+  }
+
   @Override
   protected void action(Prompt prompt) {
+
+    Member loginUser = (Member) prompt.getSession().getAttribute("loginUser");
+    if (loginUser == null) {
+      prompt.println("로그인하시기 바랍니다");
+      return;
+    }
     Board board = new Board();
     board.setTitle(prompt.input("제목? "));
     board.setContent(prompt.input("내용? "));
-    board.setWriter(prompt.input("작성자? "));
+    board.setWriter(loginUser);
 
     ArrayList<AttachedFile> files = new ArrayList<>();
     while (true) {
