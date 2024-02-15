@@ -100,7 +100,7 @@ public class ServerApp {
     MenuGroup boardMenu = mainMenu.addGroup("게시글");
     boardMenu.addItem("등록", new BoardAddHandler(txManager, boardDao, attachedFileDao));
     boardMenu.addItem("조회", new BoardViewHandler(boardDao, attachedFileDao));
-    boardMenu.addItem("변경", new BoardModifyHandler(boardDao, attachedFileDao));
+    boardMenu.addItem("변경", new BoardModifyHandler(txManager, boardDao, attachedFileDao));
     boardMenu.addItem("삭제", new BoardDeleteHandler(boardDao));
     boardMenu.addItem("목록", new BoardListHandler(boardDao));
 
@@ -114,7 +114,7 @@ public class ServerApp {
     MenuGroup greetingMenu = mainMenu.addGroup("가입인사");
     greetingMenu.addItem("등록", new BoardAddHandler(txManager, greetingDao, attachedFileDao));
     greetingMenu.addItem("조회", new BoardViewHandler(greetingDao, attachedFileDao));
-    greetingMenu.addItem("변경", new BoardModifyHandler(greetingDao, attachedFileDao));
+    greetingMenu.addItem("변경", new BoardModifyHandler(txManager, greetingDao, attachedFileDao));
     greetingMenu.addItem("삭제", new BoardDeleteHandler(greetingDao));
     greetingMenu.addItem("목록", new BoardListHandler(greetingDao));
 
