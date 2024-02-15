@@ -15,6 +15,7 @@ public class MenuItem extends AbstractMenu {
     super(title);
   }
 
+
   public MenuItem(String title, MenuHandler menuHandler) {
     this(title);
     this.menuHandler = menuHandler;
