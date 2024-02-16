@@ -4,25 +4,24 @@ import bitcamp.myapp.dao.AttachedFileDao;
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.dao.mysql.AttachedFileDaoImpl;
 import bitcamp.myapp.dao.mysql.BoardDaoImpl;
-import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
+import bitcamp.myapp.vo.Member;
 import bitcamp.util.DBConnectionPool;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/board/view")
-public class BoardViewServlet extends HttpServlet {
+@WebServlet("/board/delete")
+public class BoardDeleteServlet extends HttpServlet {
 
   private BoardDao boardDao;
   private AttachedFileDao attachedFileDao;
 
-  public BoardViewServlet() {
+  public BoardDeleteServlet() {
     DBConnectionPool connectionPool = new DBConnectionPool(
         "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
 
@@ -45,6 +44,14 @@ public class BoardViewServlet extends HttpServlet {
     out.println("<body>");
     out.println("<h1>게시글</h1>");
 
+    Member loginUser = (Member) request.getSession().getAttribute("loginUser");
+    if (loginUser == null) {
+      out.println("<p>로그인하시기 바랍니다.</p>");
+      out.println("</body>");
+      out.println("</html>");
+      return;
+    }
+
     try {
       int no = Integer.parseInt(request.getParameter("no"));
 
@@ -54,41 +61,21 @@ public class BoardViewServlet extends HttpServlet {
         out.println("</body>");
         out.println("</html>");
         return;
+      } else if (board.getWriter().getNo() != loginUser.getNo()) {
+        out.println("<p>권한이 없습니다.<p>");
+        out.println("</body>");
+        out.println("</html>");
+        return;
       }
 
-      List<AttachedFile> files = attachedFileDao.findAllByBoardNo(no);
-
-      out.println("<form action='/board/update'>");
-      out.println("<div>");
-      out.printf(" 번호: <input readonly name='no' type='text' value='%d'>\n", board.getNo());
-      out.println("</div>");
-      out.println("<div>");
-      out.printf(" 제목: <input name='title' type='text' value='%s'>\n", board.getTitle());
-      out.println("</div>");
-      out.println("<div>");
-      out.printf(" 내용: <textarea name='content'>%s</textarea>\n", board.getContent());
-      out.println("</div>");
-      out.println("<div>");
-      out.printf(" 작성자: <input readonly type='text' value='%s'>\n", board.getWriter().getName());
-      out.println("</div>");
-      out.println("<div>");
-      out.println("  첨부파일: <input multiple name='files' type='file'>");
-      out.println("<ul>");
-      for (AttachedFile file : files) {
-        out.printf("  <li>%s <a href='/board/file/delete?no=%d'>삭제</a></li>\n"
-            , file.getFilePath()
-            , file.getNo());
-      }
-      out.println("</ul>");
-      out.println("</div>");
-      out.println("<div>");
-      out.println(" <button>변경</button>");
-      out.printf(" <a href='/board/delete?no=%d'>[삭제]</a>\n", no);
-      out.println("</div>");
-      out.println("</form>");
+      attachedFileDao.deleteAll(no);
+      boardDao.delete(no);
+      out.println("<script>");
+      out.println(" location.href = '/board/list'");
+      out.println("</script>");
 
     } catch (Exception e) {
-      out.println("<p>조회 오류!</p>");
+      out.println("<p>삭제 오류!</p>");
       out.println("<pre>");
       e.printStackTrace(out);
       out.println("</pre>");
