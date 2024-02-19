@@ -1,30 +1,35 @@
-package bitcamp.myapp.servlet.board;
+package bitcamp.myapp.servlet.assignment;
 
+import bitcamp.myapp.dao.AssignmentDao;
 import bitcamp.myapp.dao.AttachedFileDao;
-import bitcamp.myapp.dao.BoardDao;
+import bitcamp.myapp.dao.mysql.AssignmentDaoImpl;
 import bitcamp.myapp.dao.mysql.AttachedFileDaoImpl;
-import bitcamp.myapp.dao.mysql.BoardDaoImpl;
-import bitcamp.myapp.vo.Board;
+import bitcamp.myapp.vo.Assignment;
+import bitcamp.myapp.vo.Member;
 import bitcamp.util.DBConnectionPool;
+import bitcamp.util.TransactionManager;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/board/delete")
-public class BoardDeleteServlet extends HttpServlet {
+@WebServlet("/assignment/add")
+public class AssignmentAddServlet extends HttpServlet {
 
-  private BoardDao boardDao;
+  private TransactionManager txManager;
+  private AssignmentDao assignmentDao;
   private AttachedFileDao attachedFileDao;
 
-  public BoardDeleteServlet() {
+  public AssignmentAddServlet() {
     DBConnectionPool connectionPool = new DBConnectionPool(
         "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
 
-    this.boardDao = new BoardDaoImpl(connectionPool, 1);
+    this.txManager = new TransactionManager(connectionPool);
+    this.assignmentDao = new AssignmentDaoImpl(connectionPool);
     this.attachedFileDao = new AttachedFileDaoImpl(connectionPool);
   }
 
@@ -41,9 +46,9 @@ public class BoardDeleteServlet extends HttpServlet {
     out.println("<title>비트캠프 데브옵스 5기</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>게시글</h1>");
+    out.println("<h1>과제</h1>");
 
-    bitcamp.myapp.vo.Member loginUser = (bitcamp.myapp.vo.Member) request.getSession()
+    Member loginUser = (Member) request.getSession()
         .getAttribute("loginUser");
     if (loginUser == null) {
       out.println("<p>로그인하시기 바랍니다.</p>");
@@ -52,35 +57,30 @@ public class BoardDeleteServlet extends HttpServlet {
       return;
     }
 
+    Assignment assignment = new Assignment();
+    assignment.setTitle(request.getParameter("title"));
+    assignment.setContent(request.getParameter("content"));
+    assignment.setDeadline(Date.valueOf(request.getParameter("deadline")));
+    //assignment.setWriter(loginUser);
+
     try {
-      int no = Integer.parseInt(request.getParameter("no"));
+      txManager.startTransaction();
 
-      Board board = boardDao.findBy(no);
-      if (board == null) {
-        out.println("<p>게시글 번호가 유효하지 않습니다.<p>");
-        out.println("</body>");
-        out.println("</html>");
-        return;
-      } else if (board.getWriter().getNo() != loginUser.getNo()) {
-        out.println("<p>권한이 없습니다.<p>");
-        out.println("</body>");
-        out.println("</html>");
-        return;
-      }
+      assignmentDao.add(assignment);
 
-      attachedFileDao.deleteAll(no);
-      boardDao.delete(no);
-      out.println("<script>");
-      out.println(" location.href = '/board/list'");
-      out.println("</script>");
+      txManager.commit();
+      out.println("<p>과제를 등록했습니다.</p>");
 
     } catch (Exception e) {
-      out.println("<p>삭제 오류!</p>");
+      try {
+        txManager.rollback();
+      } catch (Exception e2) {
+      }
+      out.println("<p>과제 등록 오류!</p>");
       out.println("<pre>");
       e.printStackTrace(out);
       out.println("</pre>");
     }
-
     out.println("</body>");
     out.println("</html>");
   }

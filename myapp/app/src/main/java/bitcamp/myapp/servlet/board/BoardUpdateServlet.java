@@ -6,7 +6,6 @@ import bitcamp.myapp.dao.mysql.AttachedFileDaoImpl;
 import bitcamp.myapp.dao.mysql.BoardDaoImpl;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
-import bitcamp.myapp.vo.Member;
 import bitcamp.util.DBConnectionPool;
 import bitcamp.util.TransactionManager;
 import java.io.IOException;
@@ -49,7 +48,8 @@ public class BoardUpdateServlet extends HttpServlet {
     out.println("<body>");
     out.println("<h1>게시글</h1>");
 
-    Member loginUser = (Member) request.getSession().getAttribute("loginUser");
+    bitcamp.myapp.vo.Member loginUser = (bitcamp.myapp.vo.Member) request.getSession()
+        .getAttribute("loginUser");
     if (loginUser == null) {
       out.println("<p>로그인하시기 바랍니다!</p>");
       out.println("</body>");

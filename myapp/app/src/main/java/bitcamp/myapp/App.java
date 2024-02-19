@@ -99,7 +99,7 @@ public class App {
         new File("build/classes/java/main").getAbsolutePath(), // 서블릿 클래스 파일이 있는 실제 경로
         "/" // 웹 애플리케이션 내부 경로
     ));
-    
+
     // 웹 애플리케이션 설정 정보를 웹 애플리케이션 환경 정보에 등록
     ctx.setResources(resources);
 

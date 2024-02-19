@@ -4,7 +4,6 @@ import bitcamp.menu.AbstractMenuHandler;
 import bitcamp.myapp.dao.AttachedFileDao;
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.Board;
-import bitcamp.myapp.vo.Member;
 import bitcamp.util.Prompt;
 
 public class BoardDeleteHandler extends AbstractMenuHandler {
@@ -20,7 +19,8 @@ public class BoardDeleteHandler extends AbstractMenuHandler {
   @Override
   protected void action(Prompt prompt) {
 
-    Member loginUser = (Member) prompt.getSession().getAttribute("loginUser");
+    bitcamp.myapp.vo.Member loginUser = (bitcamp.myapp.vo.Member) prompt.getSession()
+        .getAttribute("loginUser");
     if (loginUser == null) {
       prompt.println("로그인하시기 바랍니다!");
       return;

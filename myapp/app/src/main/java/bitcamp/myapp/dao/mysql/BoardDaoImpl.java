@@ -3,7 +3,6 @@ package bitcamp.myapp.dao.mysql;
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.dao.DaoException;
 import bitcamp.myapp.vo.Board;
-import bitcamp.myapp.vo.Member;
 import bitcamp.util.DBConnectionPool;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -96,7 +95,7 @@ public class BoardDaoImpl implements BoardDao {
           board.setCreatedDate(rs.getDate("created_date"));
           board.setFileCount(rs.getInt("file_count"));
 
-          Member writer = new Member();
+          bitcamp.myapp.vo.Member writer = new bitcamp.myapp.vo.Member();
           writer.setNo(rs.getInt("member_no"));
           writer.setName(rs.getString("name"));
 
@@ -137,7 +136,7 @@ public class BoardDaoImpl implements BoardDao {
           board.setContent(rs.getString("content"));
           board.setCreatedDate(rs.getDate("created_date"));
 
-          Member writer = new Member();
+          bitcamp.myapp.vo.Member writer = new bitcamp.myapp.vo.Member();
           writer.setNo(rs.getInt("member_no"));
           writer.setName(rs.getString("name"));
 

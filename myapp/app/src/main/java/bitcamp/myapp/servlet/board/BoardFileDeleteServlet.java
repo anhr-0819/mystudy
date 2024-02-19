@@ -5,7 +5,6 @@ import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.dao.mysql.AttachedFileDaoImpl;
 import bitcamp.myapp.dao.mysql.BoardDaoImpl;
 import bitcamp.myapp.vo.AttachedFile;
-import bitcamp.myapp.vo.Member;
 import bitcamp.util.DBConnectionPool;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -44,7 +43,8 @@ public class BoardFileDeleteServlet extends HttpServlet {
     out.println("<body>");
     out.println("<h1>게시글</h1>");
 
-    Member loginUser = (Member) request.getSession().getAttribute("loginUser");
+    bitcamp.myapp.vo.Member loginUser = (bitcamp.myapp.vo.Member) request.getSession()
+        .getAttribute("loginUser");
     if (loginUser == null) {
       out.println("<p>로그인하시기 바랍니다.</p>");
       out.println("</body>");
@@ -63,7 +63,7 @@ public class BoardFileDeleteServlet extends HttpServlet {
         return;
       }
 
-      Member writer = boardDao.findBy(file.getBoardNo()).getWriter();
+      bitcamp.myapp.vo.Member writer = boardDao.findBy(file.getBoardNo()).getWriter();
       if (writer.getNo() != loginUser.getNo()) {
         out.println("<p>권한이 없습니다.<p>");
         out.println("</body>");
