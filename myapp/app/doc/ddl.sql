@@ -48,9 +48,7 @@ create table members(
   created_date datetime null default now()
 );
 
-alter table members
-  add constraint primary key (member_no),
-  modify column member_no int not null auto_increment;
+gi
 
 alter table boards
   add constraint member_fk foreign key (writer) references members(member_no);

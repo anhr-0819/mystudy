@@ -2,11 +2,8 @@ package bitcamp.myapp.servlet.board;
 
 import bitcamp.myapp.dao.AttachedFileDao;
 import bitcamp.myapp.dao.BoardDao;
-import bitcamp.myapp.dao.mysql.AttachedFileDaoImpl;
-import bitcamp.myapp.dao.mysql.BoardDaoImpl;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Member;
-import bitcamp.util.DBConnectionPool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -21,11 +18,11 @@ public class BoardFileDeleteServlet extends HttpServlet {
   private BoardDao boardDao;
   private AttachedFileDao attachedFileDao;
 
-  public BoardFileDeleteServlet() {
-    DBConnectionPool connectionPool = new DBConnectionPool(
-        "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
-    this.boardDao = new BoardDaoImpl(connectionPool);
-    this.attachedFileDao = new AttachedFileDaoImpl(connectionPool);
+  @Override
+  public void init() {
+    this.boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
+    this.attachedFileDao = (AttachedFileDao) this.getServletContext()
+        .getAttribute("attachedFileDao");
   }
 
   @Override

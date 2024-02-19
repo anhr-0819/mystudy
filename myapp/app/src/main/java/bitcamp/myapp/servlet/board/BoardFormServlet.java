@@ -31,7 +31,7 @@ public class BoardFormServlet extends HttpServlet {
     out.printf("<h1>%s</h1>\n", title);
 
     out.printf("<form action='/board/add?category=%d'>\n", category);
-    out.printf("<input name='category' type='text' value='%d'>\n", category);
+    out.printf("<input name='category' type='hidden' value='%d'>\n", category);
     out.println("<div>");
     out.println("      제목: <input name='title' type='text'>");
     out.println("</div>");
@@ -44,7 +44,7 @@ public class BoardFormServlet extends HttpServlet {
       out.println("      첨부파일: <input multiple name='files' type='file'>");
       out.println("</div>");
     }
-    
+
     out.println("<div>");
     out.println("  <button>등록</button>");
     out.println("</div>");

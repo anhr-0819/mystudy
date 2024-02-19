@@ -1,4 +1,4 @@
-package com.anhyeryoung.tapp.dao;
+package  com.anhyeryoung.tapp.dao;
 
 import com.anhyeryoung.tapp.vo.Member;
 import java.util.List;
@@ -15,5 +15,5 @@ public interface MemberDao {
 
   public int update(Member member);
 
-  ;
+  public Member findByEmailAndPassword(String email, String password);
 }

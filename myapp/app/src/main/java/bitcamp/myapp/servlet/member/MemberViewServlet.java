@@ -1,9 +1,7 @@
 package bitcamp.myapp.servlet.member;
 
 import bitcamp.myapp.dao.MemberDao;
-import bitcamp.myapp.dao.mysql.MemberDaoImpl;
 import bitcamp.myapp.vo.Member;
-import bitcamp.util.DBConnectionPool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,10 +15,9 @@ public class MemberViewServlet extends HttpServlet {
 
   private MemberDao memberDao;
 
-  public MemberViewServlet() {
-    DBConnectionPool connectionPool = new DBConnectionPool(
-        "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
-    this.memberDao = new MemberDaoImpl(connectionPool);
+  @Override
+  public void init() {
+    this.memberDao = (MemberDao) this.getServletContext().getAttribute("memberDao");
   }
 
   @Override
@@ -64,7 +61,7 @@ public class MemberViewServlet extends HttpServlet {
       out.println("  암호: <input name='password' type='password'>");
       out.println("</div>");
       out.println("<div>");
-      out.printf("  가입일: <input readonly type='text' value='%s'>\n", member.getCreatedDate());
+      out.printf("  가입일: <input readonly type='date' value='%s'>\n", member.getCreatedDate());
       out.println("</div>");
       out.println("<div>");
       out.println("  <button>변경</button>");

@@ -1,6 +1,7 @@
-package bitcamp.myapp.servlet.member;
+package com.anhyeryoung.tapp.servlet;
 
-import bitcamp.myapp.dao.MemberDao;
+import com.anhyeryoung.tapp.dao.MemberDao;
+import com.anhyeryoung.tapp.vo.Member;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -9,10 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/member/delete")
-public class MemberDeleteServlet extends HttpServlet {
+@WebServlet("/auth/login")
+public class LoginServlet extends HttpServlet {
 
-  private MemberDao memberDao;
+  MemberDao memberDao;
 
   @Override
   public void init() {
@@ -20,8 +21,11 @@ public class MemberDeleteServlet extends HttpServlet {
   }
 
   @Override
-  protected void service(HttpServletRequest request, HttpServletResponse response)
+  public void service(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+
+    String email = request.getParameter("email");
+    String password = request.getParameter("password");
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
@@ -30,22 +34,22 @@ public class MemberDeleteServlet extends HttpServlet {
     out.println("<html lang='en'>");
     out.println("<head>");
     out.println("  <meta charset='UTF-8'>");
-    out.println("  <title>비트캠프 데브옵스 5기</title>");
+    out.println("  <title>test page</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>회원</h1>");
+    out.println("<h1>test page</h1>");
+    out.println("<h2>Login</h2>");
 
     try {
-      int no = Integer.parseInt(request.getParameter("no"));
-
-      if (memberDao.delete(no) == -1) {
-        out.println("<p>회원 번호가 유효하지 않습니다.</p>");
+      Member member = memberDao.findByEmailAndPassword(email, password);
+      if (member != null) {
+        request.getSession().setAttribute("loginUser", member);
+        out.printf("<p>%s 님 환영합니다.</p>\n", member.getName());
       } else {
-        out.println("<p>회원을 삭제했습니다.</p>");
+        out.println("<p>이메일 또는 암호가 맞지 않습니다.</p>");
       }
-
     } catch (Exception e) {
-      out.println("<p>삭제 오류!</p>");
+      out.println("<p>로그인 오류!</p>");
       out.println("<pre>");
       e.printStackTrace(out);
       out.println("</pre>");

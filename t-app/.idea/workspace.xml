@@ -5,8 +5,78 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/handler/auth/LoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/handler/board/BoardModifyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-server/src/main/java/bitcamp/myapp/handler/board/BoardModifyHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/app/t-app.app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/doc/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/doc/ddl.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/listener/ContextLoaderListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/util/ConnectionPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/util/ConnectionProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/util/DBConnectionPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/util/TransactionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/webapp/auth/form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/listener/ContextLoaderListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/listener/ContextLoaderListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentAddServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentDeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentDeleteServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentListServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentUpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentUpdateServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentViewServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/auth/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/auth/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardAddServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardDeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardDeleteServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardFileDeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardFileDeleteServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardFormServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardFormServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardListServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardUpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardUpdateServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardViewServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberAddServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberDeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberDeleteServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberListServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberUpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberUpdateServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberViewServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/dao/MemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/dao/MemberDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/dao/mysql/MemberDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/dao/mysql/MemberDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/vo/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/vo/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/menu/AbstractMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/menu/AbstractMenuHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/menu/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/menu/MenuGroup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/menu/MenuHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/menu/MenuItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/testapp/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/testapp/dao/DaoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/testapp/dao/WordDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/testapp/dao/mysql/WordDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/testapp/handler/word/WordAddHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/testapp/handler/word/WordDeleteHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/testapp/handler/word/WordListHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/testapp/handler/word/WordModifyHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/testapp/handler/word/WordViewHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/testapp/vo/Word.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/util/AnsiEscape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/main/java/com/anhyeryoung/util/Prompt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/app/src/test/java/com/anhyeryoung/testapp/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/gradle/libs.versions.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test-app/settings.gradle" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +108,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -49,23 +126,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.t-app:app [:app:App.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.t-app:app [run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/anhr0/git/mystudy/t-app/app/src/main/java/com/anhyeryoung/tapp&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.t-app:app [:app:App.main()].executor": "Run",
+    "Gradle.t-app:app [run].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/anhr0/git/mystudy/t-app/app/doc"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\anhr0\git\mystudy\t-app\app\doc" />
       <recent name="C:\Users\anhr0\git\mystudy\t-app\app\src\main\java\com\anhyeryoung\tapp" />
+      <recent name="C:\Users\anhr0\git\mystudy\t-app\app\src\main\java\com\anhyeryoung\util" />
+      <recent name="C:\Users\anhr0\git\mystudy\t-app\app\src\main\webapp" />
       <recent name="C:\Users\anhr0\git\mystudy\t-app\app\src\main\java\com\anhyeryoung\tapp\handler" />
-      <recent name="C:\Users\anhr0\git\mystudy\t-app\app\src\main\java\com\anhyeryoung" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.anhyeryoung.tapp.servlet" />
+      <recent name="" />
     </key>
   </component>
   <component name="RunManager">
