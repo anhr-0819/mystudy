@@ -4,27 +4,23 @@ import bitcamp.myapp.dao.AssignmentDao;
 import bitcamp.myapp.dao.mysql.AssignmentDaoImpl;
 import bitcamp.myapp.vo.Assignment;
 import bitcamp.util.DBConnectionPool;
-import bitcamp.util.TransactionManager;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/assignment/add")
-public class AssignmentAddServlet extends HttpServlet {
+@WebServlet("/assignment/delete")
+public class AssignmentDeleteServlet extends HttpServlet {
 
-  private TransactionManager txManager;
   private AssignmentDao assignmentDao;
 
-  public AssignmentAddServlet() {
+  public AssignmentDeleteServlet() {
     DBConnectionPool connectionPool = new DBConnectionPool(
         "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
 
-    this.txManager = new TransactionManager(connectionPool);
     this.assignmentDao = new AssignmentDaoImpl(connectionPool);
   }
 
@@ -43,29 +39,28 @@ public class AssignmentAddServlet extends HttpServlet {
     out.println("<body>");
     out.println("<h1>과제</h1>");
 
-    Assignment assignment = new Assignment();
-    assignment.setTitle(request.getParameter("title"));
-    assignment.setContent(request.getParameter("content"));
-    assignment.setDeadline(Date.valueOf(request.getParameter("deadline")));
-
     try {
-      txManager.startTransaction();
+      int no = Integer.parseInt(request.getParameter("no"));
 
-      assignmentDao.add(assignment);
-
-      txManager.commit();
-      out.println("<p>과제를 등록했습니다.</p>");
+      Assignment assignment = assignmentDao.findBy(no);
+      if (assignment == null) {
+        out.println("<p>과제 번호가 유효하지 않습니다.<p>");
+        out.println("</body>");
+        out.println("</html>");
+        return;
+      }
+      assignmentDao.delete(no);
+      out.println("<script>");
+      out.println(" location.href = '/assignment/list'");
+      out.println("</script>");
 
     } catch (Exception e) {
-      try {
-        txManager.rollback();
-      } catch (Exception e2) {
-      }
-      out.println("<p>과제 등록 오류!</p>");
+      out.println("<p>삭제 오류!</p>");
       out.println("<pre>");
       e.printStackTrace(out);
       out.println("</pre>");
     }
+
     out.println("</body>");
     out.println("</html>");
   }

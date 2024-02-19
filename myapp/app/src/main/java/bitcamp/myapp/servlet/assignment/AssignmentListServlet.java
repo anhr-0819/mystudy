@@ -7,14 +7,14 @@ import bitcamp.util.DBConnectionPool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/assignment/list")
-public class AssignmentListServlet extends GenericServlet {
+public class AssignmentListServlet extends HttpServlet {
 
   private AssignmentDao assignmentDao;
 
@@ -25,11 +25,11 @@ public class AssignmentListServlet extends GenericServlet {
   }
 
   @Override
-  public void service(ServletRequest servletRequest, ServletResponse servletResponse)
+  protected void service(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    servletResponse.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = servletResponse.getWriter();
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
     out.println("<!DOCTYPE html>");
     out.println("<html lang='en'>");
     out.println("<head>");
@@ -44,7 +44,7 @@ public class AssignmentListServlet extends GenericServlet {
     try {
       out.println("<table border='1'>");
       out.println("<thead>");
-      out.println("<tr> <th>번호</th> <th>제목</th> <th>제출마감일</th></tr>");
+      out.println("<tr> <th>번호</th> <th>과제</th> <th>제출마감일</th></tr>");
       out.println("</thead>");
       out.println("<tbody>");
 
@@ -52,12 +52,11 @@ public class AssignmentListServlet extends GenericServlet {
 
       for (Assignment assignment : list) {
         out.printf(
-            "<tr> <td>%d</td> <td><a href='/assignment/view?no=%1$d'>%s</a></td> <td>%s</td></tr>\n",
+            "<tr> <td>%d</td> <td><a href='/assignment/view?no=%1$d'>%s</a></td> <td>%s</td> </tr>\n",
             assignment.getNo(),
             assignment.getTitle(),
             assignment.getDeadline());
       }
-
       out.println("</tbody>");
       out.println("</table>");
     } catch (Exception e) {

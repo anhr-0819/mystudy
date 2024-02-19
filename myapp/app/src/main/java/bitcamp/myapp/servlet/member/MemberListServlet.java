@@ -7,14 +7,14 @@ import bitcamp.util.DBConnectionPool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/member/list")
-public class MemberListServlet extends GenericServlet {
+public class MemberListServlet extends HttpServlet {
 
   private MemberDao memberDao;
 
@@ -25,11 +25,11 @@ public class MemberListServlet extends GenericServlet {
   }
 
   @Override
-  public void service(ServletRequest servletRequest, ServletResponse servletResponse)
+  protected void service(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    servletResponse.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = servletResponse.getWriter();
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
     out.println("<!DOCTYPE html>");
     out.println("<html lang='en'>");
     out.println("<head>");
@@ -39,7 +39,7 @@ public class MemberListServlet extends GenericServlet {
     out.println("<body>");
     out.println("<h1>회원</h1>");
 
-    out.println("<a href='/board/form.html'>회원 추가</a>");
+    out.println("<a href='/member/form.html'>새 회원</a>");
 
     try {
       out.println("<table border='1'>");
@@ -58,7 +58,6 @@ public class MemberListServlet extends GenericServlet {
             member.getEmail(),
             member.getCreatedDate());
       }
-
       out.println("</tbody>");
       out.println("</table>");
     } catch (Exception e) {

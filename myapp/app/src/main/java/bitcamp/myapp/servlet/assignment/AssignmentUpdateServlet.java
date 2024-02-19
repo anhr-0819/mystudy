@@ -14,17 +14,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/assignment/add")
-public class AssignmentAddServlet extends HttpServlet {
+@WebServlet("/assignment/update")
+public class AssignmentUpdateServlet extends HttpServlet {
 
   private TransactionManager txManager;
   private AssignmentDao assignmentDao;
 
-  public AssignmentAddServlet() {
+  public AssignmentUpdateServlet() {
     DBConnectionPool connectionPool = new DBConnectionPool(
         "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
-
-    this.txManager = new TransactionManager(connectionPool);
+    txManager = new TransactionManager(connectionPool);
     this.assignmentDao = new AssignmentDaoImpl(connectionPool);
   }
 
@@ -34,27 +33,38 @@ public class AssignmentAddServlet extends HttpServlet {
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
+
     out.println("<!DOCTYPE html>");
     out.println("<html lang='en'>");
     out.println("<head>");
-    out.println("<meta charset='UTF - 8'>");
-    out.println("<title>비트캠프 데브옵스 5기</title>");
+    out.println("  <meta charset='UTF-8'>");
+    out.println("  <title>비트캠프 데브옵스 5기</title>");
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>과제</h1>");
 
-    Assignment assignment = new Assignment();
-    assignment.setTitle(request.getParameter("title"));
-    assignment.setContent(request.getParameter("content"));
-    assignment.setDeadline(Date.valueOf(request.getParameter("deadline")));
-
     try {
+      int no = Integer.parseInt(request.getParameter("no"));
+
+      Assignment assignment = assignmentDao.findBy(no);
+      if (assignment == null) {
+        out.println("<p>과제 번호가 유효하지 않습니다.</p>");
+        out.println("</body>");
+        out.println("</html>");
+        return;
+      }
+
+      assignment.setTitle(request.getParameter("title"));
+      assignment.setContent(request.getParameter("content"));
+      assignment.setDeadline(Date.valueOf(request.getParameter("deadline")));
+
       txManager.startTransaction();
 
-      assignmentDao.add(assignment);
+      assignmentDao.update(assignment);
 
       txManager.commit();
-      out.println("<p>과제를 등록했습니다.</p>");
+
+      out.println("<p>과제를 변경했습니다.</p>");
 
     } catch (Exception e) {
       try {
@@ -66,6 +76,7 @@ public class AssignmentAddServlet extends HttpServlet {
       e.printStackTrace(out);
       out.println("</pre>");
     }
+
     out.println("</body>");
     out.println("</html>");
   }
