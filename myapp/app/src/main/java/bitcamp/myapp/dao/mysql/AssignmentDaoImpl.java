@@ -23,9 +23,11 @@ public class AssignmentDaoImpl implements AssignmentDao {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "insert into assignments(title,content,deadline) values(?,?,?)")) {
+
       pstmt.setString(1, assignment.getTitle());
       pstmt.setString(2, assignment.getContent());
       pstmt.setDate(3, assignment.getDeadline());
+
       pstmt.executeUpdate();
 
     } catch (Exception e) {
@@ -39,7 +41,9 @@ public class AssignmentDaoImpl implements AssignmentDao {
         PreparedStatement pstmt = con.prepareStatement(
             "delete from assignments where assignment_no=?")) {
       pstmt.setInt(1, no);
+
       return pstmt.executeUpdate();
+
     } catch (Exception e) {
       throw new DaoException("데이터 삭제 오류", e);
     }
@@ -51,17 +55,21 @@ public class AssignmentDaoImpl implements AssignmentDao {
         PreparedStatement pstmt = con.prepareStatement(
             "select assignment_no, title, deadline from assignments order by assignment_no desc");
         ResultSet rs = pstmt.executeQuery()) {
+
       ArrayList<Assignment> list = new ArrayList<>();
+
       while (rs.next()) {
         Assignment assignment = new Assignment();
         assignment.setNo(rs.getInt("assignment_no"));
         assignment.setTitle(rs.getString("title"));
         assignment.setDeadline(rs.getDate("deadline"));
+
         list.add(assignment);
       }
       return list;
+
     } catch (Exception e) {
-      throw new DaoException("데이터 조회 오류", e);
+      throw new DaoException("데이터 가져오기 오류", e);
     }
   }
 
@@ -70,8 +78,11 @@ public class AssignmentDaoImpl implements AssignmentDao {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "select * from assignments where assignment_no=?")) {
+
       pstmt.setInt(1, no);
+
       try (ResultSet rs = pstmt.executeQuery()) {
+
         if (rs.next()) {
           Assignment assignment = new Assignment();
           assignment.setNo(rs.getInt("assignment_no"));
@@ -82,8 +93,9 @@ public class AssignmentDaoImpl implements AssignmentDao {
         }
         return null;
       }
+
     } catch (Exception e) {
-      throw new DaoException("데이터 조회 오류", e);
+      throw new DaoException("데이터 가져오기 오류", e);
     }
   }
 
@@ -92,11 +104,14 @@ public class AssignmentDaoImpl implements AssignmentDao {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "update assignments set title=?, content=?, deadline=? where assignment_no=?")) {
+
       pstmt.setString(1, assignment.getTitle());
       pstmt.setString(2, assignment.getContent());
       pstmt.setDate(3, assignment.getDeadline());
       pstmt.setInt(4, assignment.getNo());
+
       return pstmt.executeUpdate();
+
     } catch (Exception e) {
       throw new DaoException("데이터 변경 오류", e);
     }

@@ -30,11 +30,12 @@ public class AssignmentListServlet extends HttpServlet {
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
+
     out.println("<!DOCTYPE html>");
     out.println("<html lang='en'>");
     out.println("<head>");
-    out.println("<meta charset='UTF - 8'>");
-    out.println("<title>비트캠프 데브옵스 5기</title>");
+    out.println("  <meta charset='UTF-8'>");
+    out.println("  <title>비트캠프 데브옵스 5기</title>");
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>과제</h1>");
@@ -43,10 +44,10 @@ public class AssignmentListServlet extends HttpServlet {
 
     try {
       out.println("<table border='1'>");
-      out.println("<thead>");
-      out.println("<tr> <th>번호</th> <th>과제</th> <th>제출마감일</th></tr>");
-      out.println("</thead>");
-      out.println("<tbody>");
+      out.println("    <thead>");
+      out.println("    <tr> <th>번호</th> <th>과제</th> <th>제출마감일</th> </tr>");
+      out.println("    </thead>");
+      out.println("    <tbody>");
 
       List<Assignment> list = assignmentDao.findAll();
 
@@ -57,14 +58,17 @@ public class AssignmentListServlet extends HttpServlet {
             assignment.getTitle(),
             assignment.getDeadline());
       }
-      out.println("</tbody>");
+
+      out.println("    </tbody>");
       out.println("</table>");
+
     } catch (Exception e) {
       out.println("<p>목록 오류!</p>");
       out.println("<pre>");
       e.printStackTrace(out);
       out.println("</pre>");
     }
+
     out.println("</body>");
     out.println("</html>");
   }

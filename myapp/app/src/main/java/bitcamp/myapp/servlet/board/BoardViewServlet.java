@@ -25,8 +25,7 @@ public class BoardViewServlet extends HttpServlet {
   public BoardViewServlet() {
     DBConnectionPool connectionPool = new DBConnectionPool(
         "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
-
-    this.boardDao = new BoardDaoImpl(connectionPool, 1);
+    this.boardDao = new BoardDaoImpl(connectionPool);
     this.attachedFileDao = new AttachedFileDaoImpl(connectionPool);
   }
 
@@ -34,23 +33,27 @@ public class BoardViewServlet extends HttpServlet {
   protected void service(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
+    int category = Integer.valueOf(request.getParameter("category"));
+    String title = category == 1 ? "게시글" : "가입인사";
+
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
+
     out.println("<!DOCTYPE html>");
     out.println("<html lang='en'>");
     out.println("<head>");
-    out.println("<meta charset='UTF - 8'>");
-    out.println("<title>비트캠프 데브옵스 5기</title>");
+    out.println("  <meta charset='UTF-8'>");
+    out.println("  <title>비트캠프 데브옵스 5기</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>게시글</h1>");
+    out.printf("<h1>%s</h1>\n", title);
 
     try {
       int no = Integer.parseInt(request.getParameter("no"));
 
       Board board = boardDao.findBy(no);
       if (board == null) {
-        out.println("<p>게시글 번호가 유효하지 않습니다.<p>");
+        out.println("<p>번호가 유효하지 않습니다.</p>");
         out.println("</body>");
         out.println("</html>");
         return;
@@ -59,31 +62,37 @@ public class BoardViewServlet extends HttpServlet {
       List<AttachedFile> files = attachedFileDao.findAllByBoardNo(no);
 
       out.println("<form action='/board/update'>");
+      out.printf("<input name='category' type='text' value='%d'>\n", category);
       out.println("<div>");
-      out.printf(" 번호: <input readonly name='no' type='text' value='%d'>\n", board.getNo());
+      out.printf("  번호: <input readonly name='no' type='text' value='%d'>\n", board.getNo());
       out.println("</div>");
       out.println("<div>");
-      out.printf(" 제목: <input name='title' type='text' value='%s'>\n", board.getTitle());
+      out.printf("  제목: <input name='title' type='text' value='%s'>\n", board.getTitle());
       out.println("</div>");
       out.println("<div>");
-      out.printf(" 내용: <textarea name='content'>%s</textarea>\n", board.getContent());
+      out.printf("  내용: <textarea name='content'>%s</textarea>\n", board.getContent());
       out.println("</div>");
       out.println("<div>");
-      out.printf(" 작성자: <input readonly type='text' value='%s'>\n", board.getWriter().getName());
+      out.printf("  작성자: <input readonly type='text' value='%s'>\n", board.getWriter().getName());
       out.println("</div>");
-      out.println("<div>");
-      out.println("  첨부파일: <input multiple name='files' type='file'>");
-      out.println("<ul>");
-      for (AttachedFile file : files) {
-        out.printf("  <li>%s <a href='/board/file/delete?no=%d'>삭제</a></li>\n"
-            , file.getFilePath()
-            , file.getNo());
+
+      if (category == 1) {
+        out.println("<div>");
+        out.println("  첨부파일: <input multiple name='files' type='file'>");
+        out.println("  <ul>");
+        for (AttachedFile file : files) {
+          out.printf("    <li>%s <a href='/board/file/delete?category=%d&no=%d'>삭제</a></li>\n",
+              file.getFilePath(),
+              category,
+              file.getNo());
+        }
+        out.println("  </ul>");
+        out.println("</div>");
       }
-      out.println("</ul>");
-      out.println("</div>");
+      
       out.println("<div>");
-      out.println(" <button>변경</button>");
-      out.printf(" <a href='/board/delete?no=%d'>[삭제]</a>\n", no);
+      out.println("  <button>변경</button>");
+      out.printf("  <a href='/board/delete?category=%d&no=%d'>[삭제]</a>\n", category, no);
       out.println("</div>");
       out.println("</form>");
 

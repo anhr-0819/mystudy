@@ -85,6 +85,7 @@ public class ConnectionProxy implements Connection {
     original.rollback();
   }
 
+
   @Override
   public boolean isClosed() throws SQLException {
     return original.isClosed();

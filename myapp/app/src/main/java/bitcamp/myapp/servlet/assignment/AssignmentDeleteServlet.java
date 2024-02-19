@@ -2,7 +2,6 @@ package bitcamp.myapp.servlet.assignment;
 
 import bitcamp.myapp.dao.AssignmentDao;
 import bitcamp.myapp.dao.mysql.AssignmentDaoImpl;
-import bitcamp.myapp.vo.Assignment;
 import bitcamp.util.DBConnectionPool;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,7 +19,6 @@ public class AssignmentDeleteServlet extends HttpServlet {
   public AssignmentDeleteServlet() {
     DBConnectionPool connectionPool = new DBConnectionPool(
         "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
-
     this.assignmentDao = new AssignmentDaoImpl(connectionPool);
   }
 
@@ -30,11 +28,12 @@ public class AssignmentDeleteServlet extends HttpServlet {
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
+
     out.println("<!DOCTYPE html>");
     out.println("<html lang='en'>");
     out.println("<head>");
-    out.println("<meta charset='UTF - 8'>");
-    out.println("<title>비트캠프 데브옵스 5기</title>");
+    out.println("  <meta charset='UTF-8'>");
+    out.println("  <title>비트캠프 데브옵스 5기</title>");
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>과제</h1>");
@@ -42,17 +41,11 @@ public class AssignmentDeleteServlet extends HttpServlet {
     try {
       int no = Integer.parseInt(request.getParameter("no"));
 
-      Assignment assignment = assignmentDao.findBy(no);
-      if (assignment == null) {
-        out.println("<p>과제 번호가 유효하지 않습니다.<p>");
-        out.println("</body>");
-        out.println("</html>");
-        return;
+      if (assignmentDao.delete(no) == 0) {
+        out.println("<p>과제 번호가 유효하지 않습니다.</p>");
+      } else {
+        out.println("<p>과제를 삭제했습니다.</p>");
       }
-      assignmentDao.delete(no);
-      out.println("<script>");
-      out.println(" location.href = '/assignment/list'");
-      out.println("</script>");
 
     } catch (Exception e) {
       out.println("<p>삭제 오류!</p>");

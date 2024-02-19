@@ -4,7 +4,6 @@ import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.dao.mysql.MemberDaoImpl;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.DBConnectionPool;
-import bitcamp.util.TransactionManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,13 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/member/update")
 public class MemberUpdateServlet extends HttpServlet {
 
-  private TransactionManager txManager;
   private MemberDao memberDao;
 
   public MemberUpdateServlet() {
     DBConnectionPool connectionPool = new DBConnectionPool(
         "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
-    txManager = new TransactionManager(connectionPool);
     this.memberDao = new MemberDaoImpl(connectionPool);
   }
 
@@ -45,40 +42,25 @@ public class MemberUpdateServlet extends HttpServlet {
     try {
       int no = Integer.parseInt(request.getParameter("no"));
 
-      Member member = memberDao.findBy(no);
-      if (member == null) {
+      Member old = memberDao.findBy(no);
+      if (old == null) {
         out.println("<p>회원 번호가 유효하지 않습니다.</p>");
         out.println("</body>");
         out.println("</html>");
         return;
       }
 
-      Member loginUser = (Member) request.getSession()
-          .getAttribute("loginUser");
-      if (loginUser == null) {
-        out.println("<p>로그인하시기 바랍니다.</p>");
-        out.println("</body>");
-        out.println("</html>");
-        return;
-      }
-
-      member.setName(request.getParameter("name"));
+      Member member = new Member();
+      member.setNo(old.getNo());
       member.setEmail(request.getParameter("email"));
+      member.setName(request.getParameter("name"));
       member.setPassword(request.getParameter("password"));
-
-      txManager.startTransaction();
+      member.setCreatedDate(old.getCreatedDate());
 
       memberDao.update(member);
-
-      txManager.commit();
-
-      out.println("<p>회원 정보를 변경했습니다.</p>");
+      out.println("<p>회원을 변경했습니다.</p>");
 
     } catch (Exception e) {
-      try {
-        txManager.rollback();
-      } catch (Exception e2) {
-      }
       out.println("<p>회원 변경 오류!</p>");
       out.println("<pre>");
       e.printStackTrace(out);

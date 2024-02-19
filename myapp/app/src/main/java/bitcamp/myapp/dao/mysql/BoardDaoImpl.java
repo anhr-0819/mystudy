@@ -3,6 +3,7 @@ package bitcamp.myapp.dao.mysql;
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.dao.DaoException;
 import bitcamp.myapp.vo.Board;
+import bitcamp.myapp.vo.Member;
 import bitcamp.util.DBConnectionPool;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,11 +14,9 @@ import java.util.List;
 public class BoardDaoImpl implements BoardDao {
 
   DBConnectionPool connectionPool;
-  int category;
 
-  public BoardDaoImpl(DBConnectionPool connectionPool, int category) {
+  public BoardDaoImpl(DBConnectionPool connectionPool) {
     this.connectionPool = connectionPool;
-    this.category = category;
   }
 
   @Override
@@ -30,7 +29,7 @@ public class BoardDaoImpl implements BoardDao {
       pstmt.setString(1, board.getTitle());
       pstmt.setString(2, board.getContent());
       pstmt.setInt(3, board.getWriter().getNo());
-      pstmt.setInt(4, category);
+      pstmt.setInt(4, board.getCategory());
 
       pstmt.executeUpdate();
 
@@ -60,14 +59,12 @@ public class BoardDaoImpl implements BoardDao {
   }
 
   @Override
-  public List<Board> findAll() {
+  public List<Board> findAll(int category) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "select\n"
                 + "  b.board_no,\n"
                 + "  b.title,\n"
-                + "  b.content,\n"
-                + "  b.writer,\n"
                 + "  b.created_date,\n"
                 + "  count(file_no) file_count,\n"
                 + "  m.member_no,\n"
@@ -95,7 +92,7 @@ public class BoardDaoImpl implements BoardDao {
           board.setCreatedDate(rs.getDate("created_date"));
           board.setFileCount(rs.getInt("file_count"));
 
-          bitcamp.myapp.vo.Member writer = new bitcamp.myapp.vo.Member();
+          Member writer = new Member();
           writer.setNo(rs.getInt("member_no"));
           writer.setName(rs.getString("name"));
 
@@ -118,11 +115,11 @@ public class BoardDaoImpl implements BoardDao {
             "select"
                 + "  b.board_no,\n"
                 + "  b.title,\n"
-                + "  b.content,\n"
+                + "  b.content,"
                 + "  b.created_date,\n"
                 + "  m.member_no,\n"
                 + "  m.name\n"
-                + "from"
+                + " from "
                 + "  boards b inner join members m on b.writer=m.member_no\n"
                 + " where board_no=?")) {
 
@@ -136,7 +133,7 @@ public class BoardDaoImpl implements BoardDao {
           board.setContent(rs.getString("content"));
           board.setCreatedDate(rs.getDate("created_date"));
 
-          bitcamp.myapp.vo.Member writer = new bitcamp.myapp.vo.Member();
+          Member writer = new Member();
           writer.setNo(rs.getInt("member_no"));
           writer.setName(rs.getString("name"));
 
@@ -155,7 +152,7 @@ public class BoardDaoImpl implements BoardDao {
   public int update(Board board) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "update boards set title=?, content=?, writer=? where board_no=?")) {
+            "update boards set title=?, content=? where board_no=?")) {
 
       pstmt.setString(1, board.getTitle());
       pstmt.setString(2, board.getContent());

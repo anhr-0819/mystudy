@@ -10,8 +10,6 @@ public class TransactionManager {
     this.connectionPool = connectionPool;
   }
 
-
-  // getConnection()은 스레드에 보관된 커넥션을 꺼낸다.
   public void startTransaction() throws Exception {
     connectionPool.getConnection().setAutoCommit(false);
     System.out.printf("[%s] 트랜잭션 시작\n", Thread.currentThread().getName());
@@ -30,7 +28,7 @@ public class TransactionManager {
   private void complete() throws Exception {
     Connection con = connectionPool.getConnection();
     con.setAutoCommit(true);
-    con.close(); // close()를 호출하면 커넥션을 커넥션풀로 되돌린다.
+    con.close();
     System.out.printf("[%s] 트랜잭션 종료\n", Thread.currentThread().getName());
   }
 }

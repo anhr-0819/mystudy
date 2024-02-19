@@ -29,11 +29,9 @@ public class LoginServlet extends GenericServlet {
   public void service(ServletRequest servletRequest, ServletResponse servletResponse)
       throws ServletException, IOException {
 
-    // 서블릿 컨테이너가 service()를 호출할 때 넘겨주는 값은
-    // -> HttpServletRequest와 ServletResponse이다.
-    // 파라미터로 넘어온 객체를 제대로 사용하고 싶다면 원래 타입으로 형변환하라
-    // HttpServletRequest, ServletResponse 인터페이스의 구현체가 넘어옴
-    // 파라미터 타입은 다양한 프로토콜에 대응할 수 있도록 선언되어 있으므로 형변환하여 사용
+    // 서블릿 컨테이너가 service()를 호출할 때 넘겨주는 값을
+    // HttpServletRequest와 HttpServletResponse이다.
+    // 파라미터로 넘어 온 객체를 제대로 사용하고 싶다면 원래 타입으로 형변환하라!
     HttpServletRequest request = (HttpServletRequest) servletRequest;
     HttpServletResponse response = (HttpServletResponse) servletResponse;
 
@@ -56,8 +54,7 @@ public class LoginServlet extends GenericServlet {
     try {
       Member member = memberDao.findByEmailAndPassword(email, password);
       if (member != null) {
-        request.getSession()
-            .setAttribute("loginUser", member); // request.getSession() <-- HttpSession 리턴
+        request.getSession().setAttribute("loginUser", member);
         out.printf("<p>%s 님 환영합니다.</p>\n", member.getName());
       } else {
         out.println("<p>이메일 또는 암호가 맞지 않습니다.</p>");

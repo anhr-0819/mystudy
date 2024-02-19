@@ -4,7 +4,6 @@ import bitcamp.myapp.dao.AssignmentDao;
 import bitcamp.myapp.dao.mysql.AssignmentDaoImpl;
 import bitcamp.myapp.vo.Assignment;
 import bitcamp.util.DBConnectionPool;
-import bitcamp.util.TransactionManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -17,13 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/assignment/update")
 public class AssignmentUpdateServlet extends HttpServlet {
 
-  private TransactionManager txManager;
   private AssignmentDao assignmentDao;
 
   public AssignmentUpdateServlet() {
     DBConnectionPool connectionPool = new DBConnectionPool(
         "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
-    txManager = new TransactionManager(connectionPool);
     this.assignmentDao = new AssignmentDaoImpl(connectionPool);
   }
 
@@ -46,32 +43,25 @@ public class AssignmentUpdateServlet extends HttpServlet {
     try {
       int no = Integer.parseInt(request.getParameter("no"));
 
-      Assignment assignment = assignmentDao.findBy(no);
-      if (assignment == null) {
+      Assignment old = assignmentDao.findBy(no);
+      if (old == null) {
         out.println("<p>과제 번호가 유효하지 않습니다.</p>");
         out.println("</body>");
         out.println("</html>");
         return;
       }
 
+      Assignment assignment = new Assignment();
+      assignment.setNo(old.getNo());
       assignment.setTitle(request.getParameter("title"));
       assignment.setContent(request.getParameter("content"));
       assignment.setDeadline(Date.valueOf(request.getParameter("deadline")));
 
-      txManager.startTransaction();
-
       assignmentDao.update(assignment);
-
-      txManager.commit();
-
       out.println("<p>과제를 변경했습니다.</p>");
 
     } catch (Exception e) {
-      try {
-        txManager.rollback();
-      } catch (Exception e2) {
-      }
-      out.println("<p>과제 등록 오류!</p>");
+      out.println("<p>과제 변경 오류!</p>");
       out.println("<pre>");
       e.printStackTrace(out);
       out.println("</pre>");
@@ -79,5 +69,6 @@ public class AssignmentUpdateServlet extends HttpServlet {
 
     out.println("</body>");
     out.println("</html>");
+
   }
 }

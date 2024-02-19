@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/auth/logout") // 이 서블릿을 호출할때는 클라이언트가 해당 경로로 요청하도록 한다.
+@WebServlet("/auth/logout")
 public class LogoutServlet extends HttpServlet {
 
   @Override
@@ -29,7 +29,7 @@ public class LogoutServlet extends HttpServlet {
     out.println("<body>");
     out.println("<h1>과제 관리 시스템</h1>");
     out.println("<h2>로그아웃</h2>");
-    out.println("<p>로그아웃 했습니다</p>");
+    out.println("<p>로그아웃 했습니다!</p>");
     out.println("</body>");
     out.println("</html>");
   }
