@@ -1,4 +1,4 @@
-package com.anhyeryoung.tapp.servlet;
+package com.anhyeryoung.tapp.servlet.auth;
 
 import com.anhyeryoung.tapp.dao.MemberDao;
 import com.anhyeryoung.tapp.vo.Member;
@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
   }
 
   @Override
-  public void service(HttpServletRequest request, HttpServletResponse response)
+  protected void service(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
     String email = request.getParameter("email");
