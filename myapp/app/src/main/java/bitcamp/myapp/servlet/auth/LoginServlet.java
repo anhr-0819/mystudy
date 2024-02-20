@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
   }
 
   @Override
-  public void service(HttpServletRequest request, HttpServletResponse response)
+  protected void service(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
     String email = request.getParameter("email");

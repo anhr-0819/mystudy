@@ -16,11 +16,9 @@ public class BoardListServlet extends GenericServlet {
 
   private BoardDao boardDao;
 
-
   @Override
   public void init() {
     this.boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
-
   }
 
   @Override
