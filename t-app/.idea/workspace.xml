@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/resources/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/resources/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/HelloServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/HelloServlet2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/HelloServlet3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../servlet-app/app/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/webapp/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/LoginServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/dao/mysql/MemberDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/dao/mysql/MemberDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/webapp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -22,7 +22,11 @@ public class MemberDaoImpl implements MemberDao {
   public void add(Member member) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "insert into members(email,name,password) values(?,?,sha2(?,256))")) {
+            "insert into t_member(name,tel,email,password,post_code,basic_addr,detail_addr,authority_no)"
+                + " values("
+                + " ?, ?, ?, sha2(?,256),"
+                + " sha2(?,256),"
+                + " )")) {
       pstmt.setString(1, member.getEmail());
       pstmt.setString(2, member.getName());
       pstmt.setString(3, member.getPassword());
