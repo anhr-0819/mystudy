@@ -34,12 +34,13 @@ public class Exam0140 {
       contents = keyScan.nextLine();
     }
 
-    try (Connection con = DriverManager.getConnection( //
+    try (Connection con = DriverManager.getConnection(
         "jdbc:mysql://localhost:3306/studydb", "study", "Bitcamp!@#123");
         Statement stmt = con.createStatement()) {
 
       // update 문장은 executeUpdate()를 사용하여 서버에 전달한다.
-      String sql = String.format("update x_board set title='%s',contents='%s' where board_id=%s",
+      String sql = String.format(
+          "update x_board set title='%s',contents='%s' where board_id=%s",
           title, contents, no);
       int count = stmt.executeUpdate(sql);
 

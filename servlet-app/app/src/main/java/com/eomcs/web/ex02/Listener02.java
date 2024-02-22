@@ -33,22 +33,22 @@ import javax.servlet.http.HttpServletRequest;
 public class Listener02 implements ServletRequestListener {
 
   public Listener02() {
-    System.out.println("Listener02() 호출됨!");
+    //System.out.println("Listener02() 호출됨!");
   }
 
   @Override
   public void requestInitialized(ServletRequestEvent sre) {
     // 요청이 들어 왔을 때 호출된다.
-    System.out.println("Listener02.requestInitialized()");
-    HttpServletRequest request = (HttpServletRequest) sre.getServletRequest();
-    System.out.println("클라이언트 IP: " + request.getRemoteAddr());
-    System.out.println("요청 URL: " + request.getServletPath());
+    //System.out.println("Listener02.requestInitialized()");
+    //HttpServletRequest request = (HttpServletRequest) sre.getServletRequest();
+    //System.out.println("클라이언트 IP: " + request.getRemoteAddr());
+    //System.out.println("요청 URL: " + request.getServletPath());
   }
 
   @Override
   public void requestDestroyed(ServletRequestEvent sre) {
     // 요청 처리를 완료할 때 호출된다.
-    System.out.println("Listener02.requestDestroyed()");
+    //System.out.println("Listener02.requestDestroyed()");
   }
 }
 

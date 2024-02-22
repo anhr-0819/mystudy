@@ -1,8 +1,9 @@
-// sychronized 인스턴스 메서드 - 적용 후
+// sychronized 인스턴스 메서드 - 적용 후 II
 package com.eomcs.concurrent.ex5;
 
 public class Exam0540 {
   public static void main(String[] args) {
+
     Job job1 = new Job();
     Job job2 = new Job();
 
@@ -19,6 +20,7 @@ public class Exam0540 {
     w4.start();
     w5.start();
     w6.start();
+
   }
 
   static class Job {
@@ -47,6 +49,5 @@ public class Exam0540 {
         e.printStackTrace();
       }
     }
-
   }
 }

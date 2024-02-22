@@ -42,18 +42,18 @@ import javax.servlet.annotation.WebListener;
 public class Listener01 implements ServletContextListener {
 
   public Listener01() {
-    System.out.println("Listener01() 호출됨!");
+    //System.out.println("Listener01() 호출됨!");
   }
 
   @Override
   public void contextInitialized(ServletContextEvent sce) {
     // 웹 애플리케이션이 시작될 때 호출된다.
-    System.out.println("Listener01.contextInitialized()");
+    //System.out.println("Listener01.contextInitialized()");
   }
 
   @Override
   public void contextDestroyed(ServletContextEvent sce) {
     // 웹 애플리케이션이 종료될 때 호출된다.
-    System.out.println("Listener01.contextDestroyed()");
+    //System.out.println("Listener01.contextDestroyed()");
   }
 }

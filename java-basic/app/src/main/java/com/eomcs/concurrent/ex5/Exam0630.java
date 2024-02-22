@@ -1,8 +1,9 @@
-// sychronized 인스턴스 메서드
+// sychronized 인스턴스 메서드 - 적용 전
 package com.eomcs.concurrent.ex5;
 
 public class Exam0630 {
   public static void main(String[] args) {
+
     Job job1 = new Job();
     Job job2 = new Job();
 
@@ -15,23 +16,26 @@ public class Exam0630 {
     w2.start();
     w3.start();
     w4.start();
+
   }
 
   static class Job {
+
     synchronized void play1(String threadName) throws Exception {
-      System.out.println(threadName + ".play1() 호출함");
+      System.out.println(threadName + ".play1() 호출함!");
       Thread.sleep(10000);
     }
 
     synchronized void play2(String threadName) throws Exception {
-      System.out.println(threadName + ".play2() 호출함");
+      System.out.println(threadName + ".play2() 호출함!");
       Thread.sleep(10000);
     }
 
     synchronized void play3(String threadName) throws Exception {
-      System.out.println(threadName + ".play3() 호출함");
+      System.out.println(threadName + ".play3() 호출함!");
       Thread.sleep(10000);
     }
+
   }
 
   static class Worker1 extends Thread {
@@ -50,7 +54,6 @@ public class Exam0630 {
         e.printStackTrace();
       }
     }
-
   }
 
   static class Worker2 extends Thread {
@@ -69,7 +72,6 @@ public class Exam0630 {
         e.printStackTrace();
       }
     }
-
   }
 
   static class Worker3 extends Thread {
@@ -88,7 +90,6 @@ public class Exam0630 {
         e.printStackTrace();
       }
     }
-
   }
 
   static class Worker4 extends Thread {
@@ -107,6 +108,5 @@ public class Exam0630 {
         e.printStackTrace();
       }
     }
-
   }
 }

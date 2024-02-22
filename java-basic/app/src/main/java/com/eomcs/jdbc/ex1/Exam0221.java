@@ -6,24 +6,15 @@ import java.sql.DriverManager;
 public class Exam0221 {
 
   public static void main(String[] args) throws Exception {
-    int cnt = 0;
+
+    int count = 0;
     while (true) {
-
-      // try-with-resources 문법을 사용하면
-      // try 블록을 벗어날 때 close()가 자동 호출된다.
-      //
-      try (java.sql.Connection con =
-          DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", // jdbcURL
-              "study", // username
-              "Bitcamp!@#123" // password
-          );) {
-
-        System.out.printf("DBMS와 연결됨! %d ", cnt++);
-
+      try (java.sql.Connection con = DriverManager.getConnection(
+          "jdbc:mariadb://localhost:3306/studydb", "study", "Bitcamp!@#123");) {
+        System.out.printf("DBMS와 연결됨 = %d\n", ++count);
       }
       System.out.println("DBMS와 연결 해제됨!");
     }
-
   }
 }
 

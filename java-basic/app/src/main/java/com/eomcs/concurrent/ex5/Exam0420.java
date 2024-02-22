@@ -8,6 +8,7 @@ public class Exam0420 {
 
     w1.start();
     w2.start();
+
   }
 
   synchronized static void play(String threadName) throws Exception {
@@ -28,6 +29,5 @@ public class Exam0420 {
         e.printStackTrace();
       }
     }
-
   }
 }

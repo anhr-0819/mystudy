@@ -3,6 +3,7 @@ package com.eomcs.concurrent.ex5;
 
 public class Exam0520 {
   public static void main(String[] args) {
+
     Job job = new Job();
 
     Worker w1 = new Worker("홍길동", job);
@@ -10,6 +11,7 @@ public class Exam0520 {
 
     w1.start();
     w2.start();
+
   }
 
   static class Job {
@@ -35,6 +37,5 @@ public class Exam0520 {
         e.printStackTrace();
       }
     }
-
   }
 }

@@ -1,8 +1,8 @@
 // 데이터를 처리하는 코드를 별도의 클래스로 캡슐화시킨다.
 // => data 영속성(지속성)을 관리하는 클래스를 DAO(Data Access Object)라 부른다.
 // => data 영속성(지속성)
-// - 데이터를 저장하고 유지하는 것.
-// - "데이터 퍼시스턴스(persistence)"라 부른다.
+//    - 데이터를 저장하고 유지하는 것.
+//    - "데이터 퍼시스턴스(persistence)"라 부른다.
 package com.eomcs.jdbc.ex2;
 
 import java.sql.Connection;
@@ -52,8 +52,10 @@ public class BoardDao2 {
   public int insert(Board board) throws Exception {
     try (Statement stmt = con.createStatement();) {
 
-      String sql = String.format("insert into x_board(title,contents) values('%s','%s')",
-          board.getTitle(), board.getContent());
+      String sql = String.format(
+          "insert into x_board(title,contents) values('%s','%s')", 
+          board.getTitle(),
+          board.getContent());
 
       return stmt.executeUpdate(sql);
     }
@@ -62,8 +64,11 @@ public class BoardDao2 {
   public int update(Board board) throws Exception {
     try (Statement stmt = con.createStatement()) {
 
-      String sql = String.format("update x_board set title='%s', contents='%s' where board_id=%d",
-          board.getTitle(), board.getContent(), board.getNo());
+      String sql = String.format(
+          "update x_board set title='%s', contents='%s' where board_id=%d", 
+          board.getTitle(),
+          board.getContent(),
+          board.getNo());
 
       return stmt.executeUpdate(sql);
     }
