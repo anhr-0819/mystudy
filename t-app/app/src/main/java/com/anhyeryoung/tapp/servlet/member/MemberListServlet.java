@@ -4,14 +4,15 @@ import com.anhyeryoung.tapp.dao.MemberDao;
 import com.anhyeryoung.tapp.vo.Member;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/member/view")
-public class MemberViewServlet extends HttpServlet {
+@WebServlet("/member/list")
+public class MemberListServlet extends HttpServlet {
 
   private MemberDao memberDao;
 
@@ -36,26 +37,32 @@ public class MemberViewServlet extends HttpServlet {
     out.println("<body>");
     out.println("<h1>회원</h1>");
 
+    out.println("<a href=''>새 회원</a>");
     try {
-      int no = Integer.parseInt(req.getParameter("no"));
+      out.println("<table border='1'>");
+      out.println("    <thead>");
+      out.println("    <tr> <th>번호</th> <th>이름</th> <th>이메일</th> <th>가입일</th> </tr>");
+      out.println("    </thead>");
+      out.println("    <tbody>");
 
-      Member member = memberDao.findBy(no);
-      if (member == null) {
-        out.println("<p>회원 번호가 유효하지 않습니다.</p>");
-        out.println("</body>");
-        out.println("<div>");
-        out.printf("  번호: <input readonly name='no' type='text' value='%d'>\n", member.getNo());
-        out.println("</div>");
-        out.println("</html>");
-        return;
+      List<Member> list = memberDao.findAll();
+
+      for (Member member : list) {
+        out.printf(
+            "<tr> <td>%d</td> <td><a href=''>%s</a></td> <td>%s</td> <td>%s</td> </tr>\n",
+            member.getNo(),
+            member.getName(),
+            member.getEmail(),
+            member.getCreatedDate());
       }
-
-      out.println("<form action='/member/update'>");
-      out.println("</form>");
-
+      out.println("    </tbody>");
+      out.println("</table>");
 
     } catch (Exception e) {
-
+      out.println("<p>목록 오류!</p>");
+      out.println("<pre>");
+      e.printStackTrace(out);
+      out.println("</pre>");
     }
 
     out.println("</body>");
