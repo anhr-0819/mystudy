@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberListServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/webapp/member/form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/dao/mysql/MemberDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/dao/mysql/MemberDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/handler/member/MemberAddHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/handler/member/MemberDeleteHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/handler/member/MemberListHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/handler/member/MemberModifyHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/handler/member/MemberViewHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/MainFormServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberViewServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/auth/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/webapp/auth/form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/webapp/member/mypage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
