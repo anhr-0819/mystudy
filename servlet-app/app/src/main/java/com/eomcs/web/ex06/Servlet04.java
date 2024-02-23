@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServlet;
 //        @WebInitParam(name = "jdbc.username", value = "study"),
 //        @WebInitParam(name = "jdbc.password", value = "1111")})
 @SuppressWarnings("serial")
-@WebServlet(value = "/ex06/s4", loadOnStartup = 1)
+//@WebServlet(value = "/ex06/s4", loadOnStartup = 1)
 public class Servlet04 extends HttpServlet {
 
   //  ServletConfig config;
