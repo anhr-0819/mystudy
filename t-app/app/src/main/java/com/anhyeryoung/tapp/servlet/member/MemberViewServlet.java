@@ -20,12 +20,10 @@ public class MemberViewServlet extends HttpServlet {
     this.memberDao = (MemberDao) this.getServletContext().getAttribute("memberDao");
   }
 
-  protected void service(HttpServletRequest req, HttpServletResponse resp)
+  protected void service(HttpServletRequest req, HttpServletResponse res)
       throws ServletException, IOException {
-    super.service(req, resp);
-
-    resp.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = resp.getWriter();
+    res.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = res.getWriter();
 
     out.println("<!DOCTYPE html>");
     out.println("<html lang='en'>");
@@ -34,7 +32,7 @@ public class MemberViewServlet extends HttpServlet {
     out.println("  <title>test page</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>회원</h1>");
+    out.println("<h1>회원정보</h1>");
 
     try {
       int no = Integer.parseInt(req.getParameter("no"));
@@ -43,14 +41,15 @@ public class MemberViewServlet extends HttpServlet {
       if (member == null) {
         out.println("<p>회원 번호가 유효하지 않습니다.</p>");
         out.println("</body>");
-        out.println("<div>");
-        out.printf("  번호: <input readonly name='no' type='text' value='%d'>\n", member.getNo());
-        out.println("</div>");
         out.println("</html>");
         return;
       }
-
       out.println("<form action='/member/update'>");
+      out.println("<div>");
+      out.println("<input name='email' type='text'>");
+      out.println("</div>");
+
+      out.println("<button>저장</button>");
       out.println("</form>");
 
 

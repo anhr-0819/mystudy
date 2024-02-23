@@ -21,12 +21,10 @@ public class MemberListServlet extends HttpServlet {
     this.memberDao = (MemberDao) this.getServletContext().getAttribute("memberDao");
   }
 
-  protected void service(HttpServletRequest req, HttpServletResponse resp)
+  protected void service(HttpServletRequest req, HttpServletResponse res)
       throws ServletException, IOException {
-    super.service(req, resp);
-
-    resp.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = resp.getWriter();
+    res.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = res.getWriter();
 
     out.println("<!DOCTYPE html>");
     out.println("<html lang='en'>");
