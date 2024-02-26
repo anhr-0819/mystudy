@@ -22,7 +22,7 @@ public class MemberDaoImpl implements MemberDao {
   public void add(Member member) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "insert into t_member(name,tel,email,password,post_code,basic_addr,detail_addr,authority_no)"
+            "insert into tapp_member(name,tel,email,password,post_code,basic_addr,detail_addr,authority_no)"
                 + " values("
                 + " ?, ?, ?, sha2(?,256), ?, ?, ?, ?"
                 + " )")) {
@@ -58,7 +58,7 @@ public class MemberDaoImpl implements MemberDao {
   public List<Member> findAll() {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "select id, name, email, created_date from t_member");
+            "select id, name, email, created_date from tapp_member");
         ResultSet rs = pstmt.executeQuery();) {
 
       ArrayList<Member> list = new ArrayList<>();
@@ -83,7 +83,7 @@ public class MemberDaoImpl implements MemberDao {
   public Member findBy(int no) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "select id,name,tel,email,post_code,basic_addr,detail_addr,authority_no from t_member where id=?")) {
+            "select id,name,tel,email,post_code,basic_addr,detail_addr,authority_no from tapp_member where id=?")) {
       pstmt.setInt(1, no);
 
       try (ResultSet rs = pstmt.executeQuery()) {

@@ -21,7 +21,7 @@ public class HomeServlet extends HttpServlet {
     out.println("<html lang='en'>");
     out.println("<head>");
     out.println("  <meta charset='UTF-8'>");
-    out.println("  <title>test page</title>");
+    out.println("  <title>t-app test</title>");
     out.println("</head>");
     out.println("<body>");
     req.getRequestDispatcher("/header").include(req,resp);

@@ -5,29 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/img/default-photo.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/ErrorServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/FooterServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/HeaderServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/HomeServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/webapp/img/cat_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/dao/mysql/MemberDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/dao/mysql/MemberDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/auth/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/auth/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardDeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardDeleteServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardFileDeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardFileDeleteServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardViewServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberAddServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberListServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberUpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberUpdateServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberViewServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/img/default-photo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/b8c77892-21c9-431e-b396-6d1ae80b8db6" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/doc/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/doc/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/doc/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/doc/ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/dao/mysql/MemberDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/dao/mysql/MemberDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/ErrorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/ErrorServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/HeaderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/HeaderServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/HomeServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/auth/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/auth/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/auth/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/auth/LogoutServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberListServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberViewServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

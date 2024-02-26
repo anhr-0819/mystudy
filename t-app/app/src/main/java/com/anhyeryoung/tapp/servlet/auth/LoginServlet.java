@@ -21,9 +21,41 @@ public class LoginServlet extends HttpServlet {
   }
 
   @Override
-  protected void service(HttpServletRequest req, HttpServletResponse resp)
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
+    resp.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = resp.getWriter();
 
+    out.println("<!DOCTYPE html>");
+    out.println("<html lang='en'>");
+    out.println("<head>");
+    out.println("<meta charset='UTF-8'>");
+    out.println("<title>t-app test</title>");
+    out.println("</head>");
+    out.println("<body>");
+    req.getRequestDispatcher("/header").include(req,resp);
+    out.println("<h1>login page</h1>");
+
+    out.println("<form action='/auth/login' method='post'>");
+    out.println("<div>");
+    out.println("이메일: <input name='email' type='text'>");
+    out.println("</div>");
+    out.println("<div>");
+    out.println("암호: <input name='password' type='password'>");
+    out.println("</div>");
+    out.println("<button>로그인</button>");
+    out.println("<input name='saveEmail' type='checkbox'>");
+    out.println("</form>");
+
+    req.getRequestDispatcher("/footer").include(req,resp);
+    out.println("</body>");
+    out.println("</html>");
+  }
+
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+      throws ServletException, IOException {
+    try {
     String email = req.getParameter("email");
     String password = req.getParameter("password");
 
@@ -33,29 +65,30 @@ public class LoginServlet extends HttpServlet {
     out.println("<!DOCTYPE html>");
     out.println("<html lang='en'>");
     out.println("<head>");
-    out.println("  <meta charset='UTF-8'>");
-    out.println("  <title>t-app test</title>");
+    out.println("<meta charset='UTF-8'>");
+    out.println("<title>t-app test</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>test page</h1>");
-    out.println("<h2>Login</h2>");
-
-    try {
+    req.getRequestDispatcher("/header").include(req,resp);
+    out.println("<h1>login page</h1>");
+    
       Member member = memberDao.findByEmailAndPassword(email, password);
       if (member != null) {
         req.getSession().setAttribute("loginUser", member);
         out.printf("<p>%s 님 환영합니다.</p>\n", member.getName());
+        resp.setHeader("Refresh","1;url=/index.html");
       } else {
         out.println("<p>이메일 또는 암호가 맞지 않습니다.</p>");
+        resp.setHeader("Refresh","1;url=/index.html");
       }
-    } catch (Exception e) {
-      out.println("<p>로그인 오류!</p>");
-      out.println("<pre>");
-      e.printStackTrace(out);
-      out.println("</pre>");
-    }
+      req.getRequestDispatcher("/footer").include(req,resp);
+      out.println("</body>");
+      out.println("</html>");
 
-    out.println("</body>");
-    out.println("</html>");
+    } catch (Exception e) {
+      req.setAttribute("message","로그인 오류.");
+      req.setAttribute("exception",e);
+      req.getRequestDispatcher("/error").forward(req,resp);
+    }
   }
 }

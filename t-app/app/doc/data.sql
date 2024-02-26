@@ -1,5 +1,5 @@
 -- 회원 데이터
-insert into t_member
+insert into tapp_member
   (name,tel,email,password,post_code,basic_addr,detail_addr,authority_no)
   values
   ('admin','000-0000-0000','admin@test.com','0000','000-0000','addr','detail addr','관리자'),

@@ -24,6 +24,7 @@ public class LoginServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+
     String email = "";
     Cookie[] cookies = request.getCookies();
     if (cookies != null) {
@@ -52,13 +53,13 @@ public class LoginServlet extends HttpServlet {
 
     out.println("<form action='/auth/login' method='post'>");
     out.println("<div>");
-    out.printf("    이메일: <input name='email' type='text' value='%s'>", email);
+    out.printf("    이메일: <input name='email' type='text' value='%s'>\n", email);
     out.println("</div>");
     out.println("<div>");
     out.println("      암호: <input name='password' type='password'>");
     out.println("</div>");
     out.println("<button>로그인</button>");
-    out.println("<input name='saveEmail' type='checkbox'> 이메일 저장");
+    out.println("<input type='checkbox' name='saveEmail'> 이메일 저장");
     out.println("</form>");
 
     request.getRequestDispatcher("/footer").include(request, response);
@@ -74,16 +75,18 @@ public class LoginServlet extends HttpServlet {
     try {
       String email = request.getParameter("email");
       String password = request.getParameter("password");
+
       String saveEmail = request.getParameter("saveEmail");
       if (saveEmail != null) {
         Cookie cookie = new Cookie("email", email);
         cookie.setMaxAge(60 * 60 * 24 * 7);
-        response.addCookie(cookie); // 응답 헤더에 쿠키를 포함
+        response.addCookie(cookie);
       } else {
         Cookie cookie = new Cookie("email", "");
         cookie.setMaxAge(0);
         response.addCookie(cookie);
       }
+
       Member member = memberDao.findByEmailAndPassword(email, password);
 
       response.setContentType("text/html;charset=UTF-8");

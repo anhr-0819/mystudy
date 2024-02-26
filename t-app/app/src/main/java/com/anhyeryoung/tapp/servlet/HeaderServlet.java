@@ -18,8 +18,9 @@ public class HeaderServlet extends HttpServlet {
 
     resp.setContentType("text/html;charset=UTF-8");
     PrintWriter out = resp.getWriter();
+
     out.println("<header>");
-    out.println("  <img src='/img/cat_icon.png' width=60 height=60>");
+    out.println("  <a href='/index.html'><img src='/img/cat_icon.png' width=60 height=60></a>");
     out.println("  <a href='/member/list'>회원</a>");
 
     Member loginUser = (Member) req.getSession().getAttribute("loginUser");
