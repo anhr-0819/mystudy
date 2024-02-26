@@ -23,6 +23,7 @@ public class LoginServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
+    String email = "";
     resp.setContentType("text/html;charset=UTF-8");
     PrintWriter out = resp.getWriter();
 
@@ -32,19 +33,21 @@ public class LoginServlet extends HttpServlet {
     out.println("<meta charset='UTF-8'>");
     out.println("<title>t-app test</title>");
     out.println("</head>");
+
     out.println("<body>");
     req.getRequestDispatcher("/header").include(req,resp);
+
     out.println("<h1>login page</h1>");
 
     out.println("<form action='/auth/login' method='post'>");
     out.println("<div>");
-    out.println("이메일: <input name='email' type='text'>");
+    out.printf("이메일: <input name='email' type='text' value='%s'>",email);
     out.println("</div>");
     out.println("<div>");
     out.println("암호: <input name='password' type='password'>");
     out.println("</div>");
     out.println("<button>로그인</button>");
-    out.println("<input name='saveEmail' type='checkbox'>");
+    out.println("<input name='saveEmail' type='checkbox'> save email");
     out.println("</form>");
 
     req.getRequestDispatcher("/footer").include(req,resp);
@@ -71,7 +74,7 @@ public class LoginServlet extends HttpServlet {
     out.println("<body>");
     req.getRequestDispatcher("/header").include(req,resp);
     out.println("<h1>login page</h1>");
-    
+
       Member member = memberDao.findByEmailAndPassword(email, password);
       if (member != null) {
         req.getSession().setAttribute("loginUser", member);
