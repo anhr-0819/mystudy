@@ -21,20 +21,20 @@ public class LoginServlet extends HttpServlet {
   }
 
   @Override
-  protected void service(HttpServletRequest request, HttpServletResponse response)
+  protected void service(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
 
-    String email = request.getParameter("email");
-    String password = request.getParameter("password");
+    String email = req.getParameter("email");
+    String password = req.getParameter("password");
 
-    response.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = response.getWriter();
+    resp.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = resp.getWriter();
 
     out.println("<!DOCTYPE html>");
     out.println("<html lang='en'>");
     out.println("<head>");
     out.println("  <meta charset='UTF-8'>");
-    out.println("  <title>test page</title>");
+    out.println("  <title>t-app test</title>");
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>test page</h1>");
@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
     try {
       Member member = memberDao.findByEmailAndPassword(email, password);
       if (member != null) {
-        request.getSession().setAttribute("loginUser", member);
+        req.getSession().setAttribute("loginUser", member);
         out.printf("<p>%s 님 환영합니다.</p>\n", member.getName());
       } else {
         out.println("<p>이메일 또는 암호가 맞지 않습니다.</p>");

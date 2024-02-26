@@ -21,18 +21,19 @@ public class MemberListServlet extends HttpServlet {
     this.memberDao = (MemberDao) this.getServletContext().getAttribute("memberDao");
   }
 
-  protected void service(HttpServletRequest req, HttpServletResponse res)
+  protected void service(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
+    resp.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = resp.getWriter();
 
     out.println("<!DOCTYPE html>");
     out.println("<html lang='en'>");
     out.println("<head>");
     out.println("  <meta charset='UTF-8'>");
-    out.println("  <title>test page</title>");
+    out.println("  <title>t-app test</title>");
     out.println("</head>");
     out.println("<body>");
+    req.getRequestDispatcher("/header").include(req,resp);
     out.println("<h1>회원</h1>");
 
     out.println("<a href=''>새 회원</a>");
@@ -57,15 +58,12 @@ public class MemberListServlet extends HttpServlet {
       out.println("</table>");
 
     } catch (Exception e) {
-      out.println("<p>목록 오류!</p>");
-      out.println("<pre>");
-      e.printStackTrace(out);
-      out.println("</pre>");
+      req.setAttribute("message","목록 오류.");
+      req.setAttribute("exception",e);
+      req.getRequestDispatcher("/error").forward(req,resp);
     }
-
+    req.getRequestDispatcher("/footer").include(req,resp);
     out.println("</body>");
     out.println("</html>");
-
-
   }
 }

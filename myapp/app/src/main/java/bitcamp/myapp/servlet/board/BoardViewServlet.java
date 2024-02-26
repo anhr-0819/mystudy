@@ -78,7 +78,7 @@ public class BoardViewServlet extends HttpServlet {
         out.println("  <ul>");
         for (AttachedFile file : files) {
           out.printf(
-              "    <li> <a href='/upload/board/%1$s'>%s</a> [<a href='/board/file/delete?category=%d&no=%d'>삭제</a>]</li>\n",
+              "    <li><a href='/upload/board/%s'>%1$s</a> [<a href='/board/file/delete?category=%d&no=%d'>삭제</a>]</li>\n",
               file.getFilePath(),
               category,
               file.getNo());

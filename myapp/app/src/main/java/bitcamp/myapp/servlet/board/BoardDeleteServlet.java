@@ -25,11 +25,11 @@ public class BoardDeleteServlet extends HttpServlet {
 
   @Override
   public void init() {
-    txManager = (TransactionManager) this.getServletContext().getAttribute("txManager");
+    this.txManager = (TransactionManager) this.getServletContext().getAttribute("txManager");
     this.boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
     this.attachedFileDao = (AttachedFileDao) this.getServletContext()
         .getAttribute("attachedFileDao");
-    uploadDir = this.getServletContext().getRealPath("/upload/board");
+    this.uploadDir = this.getServletContext().getRealPath("/upload/board");
   }
 
   @Override
@@ -65,7 +65,9 @@ public class BoardDeleteServlet extends HttpServlet {
       for (AttachedFile file : files) {
         new File(this.uploadDir + "/" + file.getFilePath()).delete();
       }
+
       response.sendRedirect("/board/list?category=" + category);
+
     } catch (Exception e) {
       try {
         txManager.rollback();

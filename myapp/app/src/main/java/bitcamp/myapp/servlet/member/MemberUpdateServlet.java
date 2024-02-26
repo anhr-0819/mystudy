@@ -41,7 +41,6 @@ public class MemberUpdateServlet extends HttpServlet {
       member.setNo(old.getNo());
       member.setEmail(request.getParameter("email"));
       member.setName(request.getParameter("name"));
-      member.setPhoto(request.getParameter("photo"));
       member.setPassword(request.getParameter("password"));
       member.setCreatedDate(old.getCreatedDate());
 

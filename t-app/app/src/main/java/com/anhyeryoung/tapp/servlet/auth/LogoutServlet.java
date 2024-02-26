@@ -28,7 +28,7 @@ public class LogoutServlet extends HttpServlet {
     out.println("<html lang='en'>");
     out.println("<head>");
     out.println("  <meta charset='UTF-8'>");
-    out.println("  <title>test page</title>");
+    out.println("  <title>t-app test</title>");
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>test page</h1>");

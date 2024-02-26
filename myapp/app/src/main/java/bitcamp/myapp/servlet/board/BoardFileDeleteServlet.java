@@ -55,6 +55,7 @@ public class BoardFileDeleteServlet extends HttpServlet {
 
       attachedFileDao.delete(fileNo);
       new File(this.uploadDir + "/" + file.getFilePath()).delete();
+      
       response.sendRedirect(request.getHeader("Referer"));
 
     } catch (Exception e) {

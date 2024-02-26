@@ -20,16 +20,16 @@ public class MemberViewServlet extends HttpServlet {
     this.memberDao = (MemberDao) this.getServletContext().getAttribute("memberDao");
   }
 
-  protected void service(HttpServletRequest req, HttpServletResponse res)
+  protected void service(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
+    resp.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = resp.getWriter();
 
     out.println("<!DOCTYPE html>");
     out.println("<html lang='en'>");
     out.println("<head>");
     out.println("  <meta charset='UTF-8'>");
-    out.println("  <title>test page</title>");
+    out.println("  <title>t-app test</title>");
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>회원정보</h1>");
@@ -59,7 +59,5 @@ public class MemberViewServlet extends HttpServlet {
 
     out.println("</body>");
     out.println("</html>");
-
-
   }
 }

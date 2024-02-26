@@ -82,14 +82,14 @@ public class MemberAddServlet extends HttpServlet {
       member.setEmail(request.getParameter("email"));
       member.setName(request.getParameter("name"));
       member.setPassword(request.getParameter("password"));
+
       Part photoPart = request.getPart("photo");
       if (photoPart.getSize() > 0) {
-        // 파일을 선택해서 업로드 했다면,
         String filename = UUID.randomUUID().toString();
         member.setPhoto(filename);
         photoPart.write(this.uploadDir + "/" + filename);
-
       }
+
       memberDao.add(member);
       response.sendRedirect("list");
 

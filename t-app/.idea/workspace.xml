@@ -5,48 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/img/default-photo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/27114926-ad14-4846-9809-80b64e61c5bb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/4443fac3-d164-46f9-b0a8-71efd118b71e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/4776bb75-182f-4bb8-adf8-376f62c742db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/6e5d7b11-e835-4a2f-b701-3efe597b4665" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/742fb270-6952-4d07-8e3a-2f8e8047027a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/87063599-6253-4760-bdf5-3f0457a55c05" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/b50b9648-470d-4d7d-806d-76670d6ca820" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/b8c77892-21c9-431e-b396-6d1ae80b8db6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/2b7cf0f9-8def-4245-ae2f-3188bc83eb31" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/426d8493-d823-4b12-a245-f91ce258c35b" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/48a833ec-68a6-47ba-850e-ace066dcc04f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/4a52fd45-67c5-480c-a86e-f7064b8980bf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/e058282b-8599-4f85-9cb9-165557cef9f8" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/e21c9ea0-2051-4b7d-9217-4b118a83a6e2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/cf658cc4-b1d9-4d34-b539-c4ef392ec763" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/doc/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/doc/ddl.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/HelloServlet.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/img/default-photo.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/ErrorServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/FooterServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/HeaderServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/HomeServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/webapp/img/cat_icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/dao/mysql/MemberDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/dao/mysql/MemberDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/ErrorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/ErrorServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/HeaderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/HeaderServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentAddServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentDeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentDeleteServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentListServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentUpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentUpdateServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/assignment/AssignmentViewServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/auth/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/auth/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardAddServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardDeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardDeleteServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardFileDeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardFileDeleteServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardListServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardUpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardUpdateServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardViewServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberAddServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberDeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberDeleteServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberListServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberUpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberUpdateServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberViewServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/photo.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/img/default-photo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/b8c77892-21c9-431e-b396-6d1ae80b8db6" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/auth/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/auth/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/auth/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/auth/LogoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberListServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberViewServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,8 +112,8 @@
       <recent name="C:\Users\anhr0\git\mystudy\t-app\app\src\main\webapp\member" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.anhyeryoung.tapp.servlet.member" />
       <recent name="com.anhyeryoung.tapp.servlet" />
+      <recent name="com.anhyeryoung.tapp.servlet.member" />
       <recent name="com.anhyeryoung.tapp.servlet.auth" />
       <recent name="" />
     </key>
