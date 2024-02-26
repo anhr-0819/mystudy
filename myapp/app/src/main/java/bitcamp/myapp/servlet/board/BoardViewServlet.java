@@ -29,21 +29,22 @@ public class BoardViewServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+
     String title = "";
+
     try {
       int category = Integer.valueOf(request.getParameter("category"));
       title = category == 1 ? "게시글" : "가입인사";
 
       int no = Integer.parseInt(request.getParameter("no"));
-
       Board board = boardDao.findBy(no);
       if (board == null) {
         throw new Exception("번호가 유효하지 않습니다.");
       }
+      List<AttachedFile> files = attachedFileDao.findAllByBoardNo(no);
+
       response.setContentType("text/html;charset=UTF-8");
       PrintWriter out = response.getWriter();
-
-      List<AttachedFile> files = attachedFileDao.findAllByBoardNo(no);
 
       out.println("<!DOCTYPE html>");
       out.println("<html lang='en'>");
@@ -56,7 +57,7 @@ public class BoardViewServlet extends HttpServlet {
       request.getRequestDispatcher("/header").include(request, response);
 
       out.printf("<h1>%s</h1>\n", title);
-      out.println("<form action='/board/update' method='post'>");
+      out.println("<form action='/board/update' method='post' enctype='multipart/form-data'>");
       out.printf("<input name='category' type='hidden' value='%d'>\n", category);
       out.println("<div>");
       out.printf("  번호: <input readonly name='no' type='text' value='%d'>\n", board.getNo());
@@ -76,7 +77,8 @@ public class BoardViewServlet extends HttpServlet {
         out.println("  첨부파일: <input multiple name='files' type='file'>");
         out.println("  <ul>");
         for (AttachedFile file : files) {
-          out.printf("    <li>%s <a href='/board/file/delete?category=%d&no=%d'>삭제</a></li>\n",
+          out.printf(
+              "    <li> <a href='/upload/board/%1$s'>%s</a> [<a href='/board/file/delete?category=%d&no=%d'>삭제</a>]</li>\n",
               file.getFilePath(),
               category,
               file.getNo());
@@ -97,7 +99,7 @@ public class BoardViewServlet extends HttpServlet {
       out.println("</html>");
 
     } catch (Exception e) {
-      request.setAttribute("message", String.format("%s 조회 오류.", title));
+      request.setAttribute("message", String.format("%s 조회 오류!", title));
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error").forward(request, response);
     }

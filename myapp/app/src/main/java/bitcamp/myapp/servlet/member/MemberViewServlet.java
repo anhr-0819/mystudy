@@ -23,9 +23,9 @@ public class MemberViewServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+
     try {
       int no = Integer.parseInt(request.getParameter("no"));
-
       Member member = memberDao.findBy(no);
       if (member == null) {
         throw new Exception("회원 번호가 유효하지 않습니다.");
@@ -45,7 +45,12 @@ public class MemberViewServlet extends HttpServlet {
       request.getRequestDispatcher("/header").include(request, response);
 
       out.println("<h1>회원</h1>");
-      out.println("<form action='/member/update' method='post'>");
+      out.println("<form action='/member/update' method='post' enctype='multipart/form-data'>");
+      out.println("<div>");
+      out.printf(
+          "  사진: <a href='%s'><img src='%1$s' height='80px'></a><br> <input name='photo' type='file'>\n",
+          member.getPhoto() != null ? "/upload/" + member.getPhoto() : "/img/default-photo.jpg");
+      out.println("</div>");
       out.println("<div>");
       out.printf("  번호: <input readonly name='no' type='text' value='%d'>\n", member.getNo());
       out.println("</div>");
@@ -71,8 +76,9 @@ public class MemberViewServlet extends HttpServlet {
 
       out.println("</body>");
       out.println("</html>");
+
     } catch (Exception e) {
-      request.setAttribute("message", "조회 오류.");
+      request.setAttribute("message", "조회 오류!");
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error").forward(request, response);
     }

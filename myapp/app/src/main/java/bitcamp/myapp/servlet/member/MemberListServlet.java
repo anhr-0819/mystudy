@@ -24,7 +24,10 @@ public class MemberListServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+
     try {
+      List<Member> list = memberDao.findAll();
+
       response.setContentType("text/html;charset=UTF-8");
       PrintWriter out = response.getWriter();
 
@@ -39,21 +42,17 @@ public class MemberListServlet extends HttpServlet {
       request.getRequestDispatcher("/header").include(request, response);
 
       out.println("<h1>회원</h1>");
-
       out.println("<a href='/member/add'>새 회원</a>");
-
       out.println("<table border='1'>");
       out.println("    <thead>");
       out.println("    <tr> <th>번호</th> <th>이름</th> <th>이메일</th> <th>가입일</th> </tr>");
       out.println("    </thead>");
       out.println("    <tbody>");
-
-      List<Member> list = memberDao.findAll();
-
       for (Member member : list) {
         out.printf(
-            "<tr> <td>%d</td> <td><a href='/member/view?no=%1$d'>%s</a></td> <td>%s</td> <td>%s</td> </tr>\n",
+            "<tr> <td>%d</td> <td><img src='%s' height='20px'><a href='/member/view?no=%1$d'>%s</a></td> <td>%s</td> <td>%s</td> </tr>\n",
             member.getNo(),
+            member.getPhoto() != null ? "/upload/" + member.getPhoto() : "/img/default-photo.jpg",
             member.getName(),
             member.getEmail(),
             member.getCreatedDate());
@@ -65,8 +64,9 @@ public class MemberListServlet extends HttpServlet {
 
       out.println("</body>");
       out.println("</html>");
+
     } catch (Exception e) {
-      request.setAttribute("message", "목록 오류.");
+      request.setAttribute("message", "목록 오류!");
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error").forward(request, response);
     }

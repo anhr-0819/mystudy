@@ -42,7 +42,7 @@ public class AssignmentUpdateServlet extends HttpServlet {
       response.sendRedirect("list");
 
     } catch (Exception e) {
-      request.setAttribute("message", "변경 오류.");
+      request.setAttribute("message", "변경 오류!");
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error").forward(request, response);
     }

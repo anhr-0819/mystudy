@@ -63,7 +63,7 @@ public class AssignmentListServlet extends HttpServlet {
       out.println("</table>");
 
     } catch (Exception e) {
-      request.setAttribute("message", "목록 오류.");
+      request.setAttribute("message", "목록 오류!");
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error").forward(request, response);
     }

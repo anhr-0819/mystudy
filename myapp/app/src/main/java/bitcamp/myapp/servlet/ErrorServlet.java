@@ -29,10 +29,12 @@ public class ErrorServlet extends HttpServlet {
     request.getRequestDispatcher("/header").include(request, response);
 
     out.println("<h1>오류!</h1>");
+    
     String message = (String) request.getAttribute("message");
     if (message != null) {
       out.printf("<p>%s</p>\n", message);
     }
+
     Throwable exception = (Throwable) request.getAttribute("exception");
     if (exception != null) {
       out.println("<pre>");

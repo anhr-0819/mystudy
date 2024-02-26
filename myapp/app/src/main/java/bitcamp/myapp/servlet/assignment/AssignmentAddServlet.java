@@ -76,7 +76,7 @@ public class AssignmentAddServlet extends HttpServlet {
       response.sendRedirect("/assignment/list");
 
     } catch (Exception e) {
-      request.setAttribute("message", "등록 오류.");
+      request.setAttribute("message", "과제 등록 오류!");
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error").forward(request, response);
     }
