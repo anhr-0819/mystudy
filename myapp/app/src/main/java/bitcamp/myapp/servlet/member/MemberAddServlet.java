@@ -21,9 +21,50 @@ public class MemberAddServlet extends HttpServlet {
   }
 
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
+
+    out.println("<!DOCTYPE html>");
+    out.println("<html lang='en'>");
+    out.println("<head>");
+    out.println("  <meta charset='UTF-8'>");
+    out.println("  <title>비트캠프 데브옵스 5기</title>");
+    out.println("</head>");
+    out.println("<body>");
+
+    request.getRequestDispatcher("/header").include(request, response);
+
+    out.println("<h1>과제 관리 시스템</h1>");
+
+    out.println("<h2>회원</h2>");
+
+    out.println("<form action='/member/add' method='post'>");
+    out.println("  <div>");
+    out.println("        이메일: <input name='email' type='text'>");
+    out.println("  </div>");
+    out.println("  <div>");
+    out.println("        이름: <input name='name' type='text'>");
+    out.println("  </div>");
+    out.println("  <div>");
+    out.println("        암호: <input name='password' type='password'>");
+    out.println("  </div>");
+    out.println("  <div>");
+    out.println("    <button>등록</button>");
+    out.println("  </div>");
+    out.println("</form>");
+
+    request.getRequestDispatcher("/footer").include(request, response);
+
+    out.println("</body>");
+    out.println("</html>");
+  }
+
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
     try {
       Member member = new Member();
       member.setEmail(request.getParameter("email"));
@@ -34,25 +75,9 @@ public class MemberAddServlet extends HttpServlet {
       response.sendRedirect("list");
 
     } catch (Exception e) {
-      response.setContentType("text/html;charset=UTF-8");
-      PrintWriter out = response.getWriter();
-
-      out.println("<!DOCTYPE html>");
-      out.println("<html lang='en'>");
-      out.println("<head>");
-      out.println("  <meta charset='UTF-8'>");
-      out.println("  <title>비트캠프 데브옵스 5기</title>");
-      out.println("</head>");
-      out.println("<body>");
-      out.println("<h1>회원</h1>");
-
-      out.println("<p>회원등록 오류!</p>");
-      out.println("<pre>");
-      e.printStackTrace(out);
-      out.println("</pre>");
-
-      out.println("</body>");
-      out.println("</html>");
+      request.setAttribute("message", "등록 오류.");
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error").forward(request, response);
     }
   }
 }
