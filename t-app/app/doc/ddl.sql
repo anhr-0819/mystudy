@@ -1,6 +1,6 @@
 -- 회원
 DROP TABLE IF EXISTS tapp_member RESTRICT;
-DROP TABLE IF EXISTS member_photo RESTRICT;
+DROP TABLE IF EXISTS tapp_member_photo RESTRICT;
 
 -- 회원
 CREATE TABLE tapp_member (
@@ -28,6 +28,12 @@ ALTER TABLE tapp_member
 ALTER TABLE tapp_member
   modify column id int not null auto_increment;
 
+ALTER TABLE tapp_member
+  ADD CONSTRAINT UK_tapp_member_email
+  UNIQUE KEY (
+  email
+  );
+
 -- 회원
 ALTER TABLE tapp_member
 	ADD CONSTRAINT FK_authority_TO_tapp_member -- 권한 -> 회원
@@ -39,7 +45,7 @@ ALTER TABLE tapp_member
 	);
 
 	-- 회원사진
-  CREATE TABLE member_photo (
+  CREATE TABLE tapp_member_photo (
   	file_path VARCHAR(255) NOT NULL COMMENT '파일경로', -- 파일경로
   	id        int          NOT NULL COMMENT '회원ID', -- 회원ID
   	profile   BOOLEAN      NULL     COMMENT '프로필사진설정' -- 프로필사진설정
@@ -47,8 +53,10 @@ ALTER TABLE tapp_member
   COMMENT '회원사진';
 
   -- 회원사진
-  ALTER TABLE member_photo
-  	ADD CONSTRAINT PK_member_photo -- 회원사진 기본키
+  ALTER TABLE tapp_member_photo
+  	ADD CONSTRAINT PK_tapp_member_photo -- 회원사진 기본키
   	PRIMARY KEY (
   	file_path -- 파일경로
   	);
+
+

@@ -20,8 +20,9 @@ public class MemberViewServlet extends HttpServlet {
     this.memberDao = (MemberDao) this.getServletContext().getAttribute("memberDao");
   }
 
-  protected void service(HttpServletRequest req, HttpServletResponse resp)
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
+    try {
     resp.setContentType("text/html;charset=UTF-8");
     PrintWriter out = resp.getWriter();
 
@@ -34,7 +35,7 @@ public class MemberViewServlet extends HttpServlet {
     out.println("<body>");
     out.println("<h1>회원정보</h1>");
 
-    try {
+
       int no = Integer.parseInt(req.getParameter("no"));
 
       Member member = memberDao.findBy(no);
@@ -44,20 +45,48 @@ public class MemberViewServlet extends HttpServlet {
         out.println("</html>");
         return;
       }
-      out.println("<form action='/member/update'>");
+      out.println("<form action='/member/update' method='post'>");
       out.println("<div>");
-      out.println("<input name='email' type='text'>");
+      out.printf("<input readonly name='no' type='text' value='%d'>\n",member.getNo());
       out.println("</div>");
+      out.println("<div>");
+      out.printf("<input name='name' type='text' value='%s'>\n",member.getName());
+      out.println("</div>");
+      out.println("<div>");
+      out.printf("<input name='email' type='text' value='%s'>\n",member.getEmail());
+      out.println("</div>");
+      out.println("<div>");
+      out.println("<input name='password' type='password' value='%s'>");
+      out.println("</div>");
+      out.println("<div>");
+      out.printf("<input name='tel' type='text' value='%s'>\n",member.getTel());
+      out.println("</div>");
+      out.println("<div>");
+      out.printf("<input name='pCode' type='text' value='%s'>\n",member.getpCode());
+      out.println("</div>");
+      out.println("<div>");
+      out.printf("<input name='bAddr' type='text' value='%s'>\n",member.getbAddr());
+      out.println("</div>");
+      out.println("<div>");
+      out.printf("<input name='dAddr' type='text' value='%s'>\n",member.getdAddr());
+      out.println("</div>");
+      out.println("<div>");
+      out.printf("<input readonly name='createdDate' type='date' value='%s'>",member.getCreatedDate());
+      out.println("</div>");
+      out.println("<div>");
+      out.printf("<input readonly name='createdDate' type='text' value='%s'>",member.getAuthority());
+      out.println("</div>");
+
 
       out.println("<button>저장</button>");
       out.println("</form>");
 
-
+      out.println("</body>");
+      out.println("</html>");
     } catch (Exception e) {
-
+      req.setAttribute("message","View Error");
+      req.setAttribute("exception",e);
+      req.getRequestDispatcher("/error").forward(req,resp);
     }
-
-    out.println("</body>");
-    out.println("</html>");
   }
 }

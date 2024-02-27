@@ -45,7 +45,7 @@ public class MemberDaoImpl implements MemberDao {
   public int delete(int no) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "delete from members where member_no=?")) {
+            "delete from tapp_member where member_no=?")) {
       pstmt.setInt(1, no);
       return pstmt.executeUpdate();
 
@@ -111,10 +111,10 @@ public class MemberDaoImpl implements MemberDao {
   @Override
   public int update(Member member) {
     String sql = null;
-    if (member.getPassword().length() == 0) {
-      sql = "update members set email=?, name=? where member_no=?";
+    if (member.getPassword().isEmpty()) {
+      sql = "update tapp set email=?, name=? where member_no=?";
     } else {
-      sql = "update members set email=?, name=?, password=sha2(?,256) where member_no=?";
+      sql = "update tapp_member set email=?, name=?, password=sha2(?,256) where member_no=?";
     }
 
     try (Connection con = connectionPool.getConnection();
@@ -134,17 +134,16 @@ public class MemberDaoImpl implements MemberDao {
   public Member findByEmailAndPassword(String email, String password) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "select member_no, email, name, created_date from members where email=? and password=sha2(?,256)")) {
+            "select id, email, name from tapp_member where email=? and password=sha2(?,256)")) {
       pstmt.setString(1, email);
       pstmt.setString(2, password);
 
       try (ResultSet rs = pstmt.executeQuery()) {
         if (rs.next()) {
           Member member = new Member();
-          member.setNo(rs.getInt("member_no"));
+          member.setNo(rs.getInt("id"));
           member.setEmail(rs.getString("email"));
           member.setName(rs.getString("name"));
-          member.setCreatedDate(rs.getDate("created_date"));
           return member;
         }
         return null;
