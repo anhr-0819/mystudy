@@ -21,14 +21,14 @@ public class HeaderServlet extends HttpServlet {
 
     out.println("<header>");
     out.println("  <a href='/index.html'><img src='/img/cat_icon.png' width=60 height=60></a>");
-    out.println("  <a href='/member/list'>회원</a>");
+    out.println("  <a href='/member/list'>member</a>");
 
     Member loginUser = (Member) req.getSession().getAttribute("loginUser");
     if (loginUser == null) {
-      out.println("  <a href='/auth/login'>로그인</a>");
+      out.println("  <a href='/auth/login'>login</a>");
     } else {
-      out.printf("  <span>%s</span>\n", loginUser.getName());
-      out.println("  <a href='/auth/logout'>로그아웃</a>");
+      out.printf("  <span>welcome! %s</span>\n", loginUser.getName());
+      out.println("  <a href='/auth/logout' color='gray'>logout</a>");
     }
     out.println("</header>");
 

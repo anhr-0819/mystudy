@@ -5,8 +5,10 @@ import com.anhyeryoung.tapp.dao.MemberDao;
 import com.anhyeryoung.tapp.vo.Member;
 import com.anhyeryoung.util.DBConnectionPool;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,7 +85,7 @@ public class MemberDaoImpl implements MemberDao {
   public Member findBy(int no) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "select id,name,tel,email,post_code,basic_addr,detail_addr,authority_no from tapp_member where id=?")) {
+            "select id,name,tel,email,post_code,basic_addr,detail_addr,authority_no,created_date from tapp_member where id=?")) {
       pstmt.setInt(1, no);
 
       try (ResultSet rs = pstmt.executeQuery()) {
@@ -96,7 +98,7 @@ public class MemberDaoImpl implements MemberDao {
           member.setpCode(rs.getString("post_code"));
           member.setbAddr(rs.getString("basic_addr"));
           member.setdAddr(rs.getString("detail_addr"));
-          member.setdAddr(rs.getString("authority_no"));
+          member.setAuthority(rs.getString("authority_no"));
           member.setCreatedDate(rs.getDate("created_date"));
           return member;
         }
@@ -112,17 +114,38 @@ public class MemberDaoImpl implements MemberDao {
   public int update(Member member) {
     String sql = null;
     if (member.getPassword().isEmpty()) {
-      sql = "update tapp set email=?, name=? where member_no=?";
+      sql = "update tapp_member set name=?,tel=?,email=?,post_code=?,basic_addr=?,detail_addr=? where id=?";
     } else {
-      sql = "update tapp_member set email=?, name=?, password=sha2(?,256) where member_no=?";
+      sql = "update tapp_member set name=?,tel=?,email=?,post_code=?,basic_addr=?,detail_addr=?,password=sha2(?,256) where id=?";
     }
 
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(sql)) {
-      pstmt.setString(1, member.getEmail());
-      pstmt.setString(2, member.getName());
-      pstmt.setString(3, member.getPassword());
-      pstmt.setInt(4, member.getNo());
+      pstmt.setString(1, member.getName());
+      pstmt.setString(2, member.getTel());
+      pstmt.setString(3, member.getEmail());
+      pstmt.setString(4,member.getpCode());
+      pstmt.setString(5,member.getbAddr());
+      pstmt.setString(6,member.getdAddr());
+      if (member.getPassword().isEmpty()) {
+        pstmt.setInt(7, member.getNo());
+      } else {
+        pstmt.setString(7, member.getPassword());
+        pstmt.setInt(8, member.getNo());
+      }
+      return pstmt.executeUpdate();
+
+    } catch (Exception e) {
+      throw new DaoException("데이터 변경 오류", e);
+    }
+  }
+
+  public int update(Timestamp loginTime) {
+    String sql = "update tapp_member set last_login=? where id=?";
+
+    try (Connection con = connectionPool.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(sql)) {
+
       return pstmt.executeUpdate();
 
     } catch (Exception e) {

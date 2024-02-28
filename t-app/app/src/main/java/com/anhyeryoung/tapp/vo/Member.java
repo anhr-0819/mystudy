@@ -1,6 +1,7 @@
 package com.anhyeryoung.tapp.vo;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Member implements Serializable {
@@ -15,7 +16,7 @@ public class Member implements Serializable {
   private String bAddr; // 기본주소
   private String dAddr; // 상세주소
   private Date createdDate; // 등록일
-  private Date lastLogin; // 최종접속일
+  private Timestamp lastLogin; // 최종접속일
   private String authority; // 권한
 
   @Override
@@ -107,11 +108,11 @@ public class Member implements Serializable {
     this.createdDate = createdDate;
   }
 
-  public Date getLastLogin() {
+  public Timestamp getLastLogin() {
     return lastLogin;
   }
 
-  public void setLastLogin(Date lastLogin) {
+  public void setLastLogin(Timestamp lastLogin) {
     this.lastLogin = lastLogin;
   }
 

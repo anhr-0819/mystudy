@@ -58,7 +58,7 @@ public class MemberListServlet extends HttpServlet {
       out.println("</table>");
 
     } catch (Exception e) {
-      req.setAttribute("message","목록 오류.");
+      req.setAttribute("message","list error");
       req.setAttribute("exception",e);
       req.getRequestDispatcher("/error").forward(req,resp);
     }

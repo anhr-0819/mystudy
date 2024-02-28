@@ -5,41 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex09/Servlet01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex09/Servlet02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex09/Servlet11.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex09/Servlet12.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex10/Servlet01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex10/Servlet02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex10/Servlet11.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex10/Servlet12.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex10/Servlet21.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex10/Servlet22.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex10/Servlet23.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex10/Servlet24.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex11/Servlet01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex11/Servlet02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex11/Servlet11.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex11/Servlet12.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex11/Servlet13.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex11/Servlet14.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex11/Servlet21.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex11/Servlet22.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex11/Servlet31.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex11/Servlet32.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex11/Servlet33.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex12/Listener01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex12/Servlet01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex12/Servlet02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/java/com/eomcs/web/ex12/Servlet03.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../servlet-app/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../servlet-app/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../servlet-app/app/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../servlet-app/app/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/filter/CharacterEncodingFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberUpdateServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardAddServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardUpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/board/BoardUpdateServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberAddServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberUpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/member/MemberUpdateServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/doc/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/doc/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/doc/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/doc/ddl.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/dao/mysql/MemberDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/dao/mysql/MemberDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/HeaderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/HeaderServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/auth/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/auth/LoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberListServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/servlet/member/MemberViewServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/vo/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/anhyeryoung/tapp/vo/Member.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
