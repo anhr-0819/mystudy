@@ -36,10 +36,10 @@ public class BoardDeleteServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    String title = "";
+    String boardName = "";
     try {
       int category = Integer.valueOf(request.getParameter("category"));
-      title = category == 1 ? "게시글" : "가입인사";
+      boardName = category == 1 ? "게시글" : "가입인사";
 
       Member loginUser = (Member) request.getSession().getAttribute("loginUser");
       if (loginUser == null) {
@@ -66,16 +66,14 @@ public class BoardDeleteServlet extends HttpServlet {
         new File(this.uploadDir + "/" + file.getFilePath()).delete();
       }
 
-      response.sendRedirect("/board/list?category=" + category);
+      request.setAttribute("viewUrl", "redirect:list?category=" + category);
 
     } catch (Exception e) {
       try {
         txManager.rollback();
       } catch (Exception e2) {
       }
-      request.setAttribute("message", String.format("%s 삭제 오류!", title));
       request.setAttribute("exception", e);
-      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
   }
 }

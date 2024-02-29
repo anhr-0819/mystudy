@@ -10,22 +10,24 @@
 
 <jsp:include page="/header.jsp"></jsp:include>
 
-<h1>과제2</h1>
-<a href='/assignment/add'>새 과제</a>
+<h1>과제</h1>
+
+<a href='/app/assignment/add'>새 과제</a>
 <table border='1'>
-    <thead>
+  <thead>
     <tr> <th>번호</th> <th>과제</th> <th>제출마감일</th> </tr>
-    </thead>
-    <tbody>
+  </thead>
+  <tbody>
 
 <c:forEach items="${list}" var="assignment">
-      <tr>
-        <td>${assignment.no}</td>
-        <td><a href='/assignment/view?no=${assignment.no}'>${assignment.title}</a></td>
-        <td>${assignment.deadline}</td>
-      </tr>
+    <tr>
+      <td>${assignment.no}</td>
+      <td><a href='/app/assignment/view?no=${assignment.no}'>${assignment.title}</a></td>
+      <td>${assignment.deadline}</td>
+    </tr>
 </c:forEach>
-    </tbody>
+
+  </tbody>
 </table>
 
 <jsp:include page="/footer.jsp"></jsp:include>

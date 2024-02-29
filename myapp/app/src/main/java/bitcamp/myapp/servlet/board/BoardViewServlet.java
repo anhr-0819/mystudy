@@ -26,23 +26,29 @@ public class BoardViewServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    int category = Integer.valueOf(request.getParameter("category"));
-    String title = category == 1 ? "게시글" : "가입인사";
+
+    String boardName = "";
+
     try {
+      int category = Integer.valueOf(request.getParameter("category"));
+      boardName = category == 1 ? "게시글" : "가입인사";
+
       int no = Integer.parseInt(request.getParameter("no"));
       Board board = boardDao.findBy(no);
       if (board == null) {
         throw new Exception("번호가 유효하지 않습니다.");
       }
-      request.setAttribute("board", board);
-      request.setAttribute("attachedFiles", attachedFileDao.findAllByBoardNo(no));
-      request.getRequestDispatcher("/board/view.jsp").forward(request, response);
 
+      request.setAttribute("boardName", boardName);
+      request.setAttribute("category", category);
+      request.setAttribute("board", board);
+      if (category == 1) {
+        request.setAttribute("files", attachedFileDao.findAllByBoardNo(no));
+      }
+      request.setAttribute("viewUrl", "/board/view.jsp");
 
     } catch (Exception e) {
-      request.setAttribute("message", String.format("%s 조회 오류!", title));
       request.setAttribute("exception", e);
-      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
   }
 }

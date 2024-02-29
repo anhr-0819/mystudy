@@ -21,16 +21,17 @@ public class BoardListServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    String title = "";
-    int category = Integer.valueOf(request.getParameter("category"));
+
+    String boardName = "";
     try {
+      int category = Integer.valueOf(request.getParameter("category"));
+      request.setAttribute("boardName", category == 1 ? "게시글" : "가입인사");
       request.setAttribute("list", boardDao.findAll(category));
-      request.getRequestDispatcher("/board/list.jsp").forward(request, response);
+      request.setAttribute("category", category);
+      request.setAttribute("viewUrl", "/board/list.jsp");
+
     } catch (Exception e) {
-      title = category == 1 ? "게시글" : "가입인사";
-      request.setAttribute("message", String.format("%s 목록 오류!", title));
       request.setAttribute("exception", e);
-      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
   }
 }

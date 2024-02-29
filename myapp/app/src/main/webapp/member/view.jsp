@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang='en'>
   <head>
@@ -12,7 +11,7 @@
 <jsp:include page="/header.jsp"></jsp:include>
 
 <h1>회원</h1>
-<form action='/member/update' method='post' enctype='multipart/form-data'>
+<form action='/app/member/update' method='post' enctype='multipart/form-data'>
 <div>
     사진:
     <c:if test="${not empty member.photo}">
@@ -40,7 +39,7 @@
 </div>
 <div>
   <button>변경</button>
-  <a href='/member/delete?no=${member.no}'>[삭제]</a>
+  <a href='/app/member/delete?no=${member.no}'>[삭제]</a>
 </div>
 </form>
 

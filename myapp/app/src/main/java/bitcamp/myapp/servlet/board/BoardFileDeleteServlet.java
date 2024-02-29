@@ -31,11 +31,11 @@ public class BoardFileDeleteServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    String title = "";
+    String boardName = "";
 
     try {
       int category = Integer.valueOf(request.getParameter("category"));
-      title = category == 1 ? "게시글" : "가입인사";
+      boardName = category == 1 ? "게시글" : "가입인사";
 
       Member loginUser = (Member) request.getSession().getAttribute("loginUser");
       if (loginUser == null) {
@@ -56,12 +56,11 @@ public class BoardFileDeleteServlet extends HttpServlet {
       attachedFileDao.delete(fileNo);
       new File(this.uploadDir + "/" + file.getFilePath()).delete();
 
-      response.sendRedirect(request.getHeader("Referer"));
+      request.setAttribute("viewUrl",
+          "redirect:../view?category=" + category + "&no=" + file.getBoardNo());
 
     } catch (Exception e) {
-      request.setAttribute("message", String.format("%s 첨부파일 삭제 오류!", title));
       request.setAttribute("exception", e);
-      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
   }
 }
