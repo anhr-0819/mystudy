@@ -22,7 +22,7 @@ public class AssignmentListServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     try {
-      request.setAttribute("assignment", assignmentDao.findAll());
+      request.setAttribute("list", assignmentDao.findAll());
       request.getRequestDispatcher("/assignment/list.jsp").forward(request, response);
     } catch (Exception e) {
       request.setAttribute("message", "목록 오류!");

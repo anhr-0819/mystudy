@@ -24,7 +24,7 @@ public class BoardListServlet extends HttpServlet {
     String title = "";
     int category = Integer.valueOf(request.getParameter("category"));
     try {
-      request.setAttribute("board", boardDao.findAll(category));
+      request.setAttribute("list", boardDao.findAll(category));
       request.getRequestDispatcher("/board/list.jsp").forward(request, response);
     } catch (Exception e) {
       title = category == 1 ? "게시글" : "가입인사";
