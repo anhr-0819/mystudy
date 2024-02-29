@@ -21,9 +21,11 @@ public class CharacterEncodingFilter implements Filter {
   }
 
   @Override
-  public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
-      throws IOException, ServletException {
+  public void doFilter(ServletRequest request, ServletResponse response,
+      FilterChain filterChain) throws IOException, ServletException {
+
     request.setCharacterEncoding(encoding);
+
     filterChain.doFilter(request, response);
   }
 }

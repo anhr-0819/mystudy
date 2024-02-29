@@ -140,12 +140,12 @@ public class MemberDaoImpl implements MemberDao {
     }
   }
 
-  public int update(Timestamp loginTime) {
+  public int updateLoginTime(String format) {
     String sql = "update tapp_member set last_login=? where id=?";
 
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(sql)) {
-
+      pstmt.setString(1,format);
       return pstmt.executeUpdate();
 
     } catch (Exception e) {

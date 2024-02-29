@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet {
       Member member = memberDao.findByEmailAndPassword(email, password);
       if (member != null) {
         req.getSession().setAttribute("loginUser", member);
-        memberDao.update(new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Timestamp(System.currentTimeMillis())));
+        memberDao.updateLoginTime(new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Timestamp(System.currentTimeMillis())));
         out.printf("<p>%s 님 환영합니다.</p>\n", member.getName());
         resp.setHeader("Refresh","1;url=/index.html");
       } else {

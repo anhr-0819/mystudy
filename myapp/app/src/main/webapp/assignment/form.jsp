@@ -11,20 +11,17 @@
 
 <h1>과제 관리 시스템</h1>
 
-<h2>회원</h2>
+<h2>과제</h2>
 
-<form action='/member/add' method='post' enctype='multipart/form-data'>
+<form action='/assignment/add' method='post'>
   <div>
-        이메일: <input name='email' type='text'>
+        과제: <input name='title' type='text'>
   </div>
   <div>
-        이름: <input name='name' type='text'>
+        내용: <textarea name='content'></textarea>
   </div>
   <div>
-        암호: <input name='password' type='password'>
-  </div>
-  <div>
-        사진: <input name='photo' type='file'>
+        제출 마감일: <input name='deadline' type='date'>
   </div>
   <div>
     <button>등록</button>

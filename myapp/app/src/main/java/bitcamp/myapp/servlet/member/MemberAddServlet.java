@@ -28,8 +28,9 @@ public class MemberAddServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+
     request.getRequestDispatcher("/member/form.jsp").forward(request, response);
-    // JSP가 아닌 다른 기술을 사용하여 화면출력할때, 교체하기 쉽게 하기 위하여 모든 요청을 서블릿에서 받는다.
+
   }
 
   @Override
@@ -55,7 +56,7 @@ public class MemberAddServlet extends HttpServlet {
     } catch (Exception e) {
       request.setAttribute("message", "등록 오류!");
       request.setAttribute("exception", e);
-      request.getRequestDispatcher("/error").forward(request, response);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
   }
 }

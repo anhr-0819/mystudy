@@ -16,4 +16,6 @@ public interface MemberDao {
   public int update(Member member);
 
   public Member findByEmailAndPassword(String email, String password);
+
+  public int updateLoginTime(String format);
 }
