@@ -1,5 +1,6 @@
 package com.anhyeryoung.tapp.servlet;
 
+import com.anhyeryoung.tapp.controller.HomeController;
 import com.anhyeryoung.tapp.controller.PageController;
 import com.anhyeryoung.tapp.dao.MemberDao;
 import com.anhyeryoung.util.TransactionManager;
@@ -28,7 +29,7 @@ public class DispatcherServlet extends HttpServlet {
     MemberDao memberDao = (MemberDao) ctx.getAttribute("memberDao");
     TransactionManager txManager = (TransactionManager) ctx.getAttribute("txManager");
 
-    controllerMap.put("/home",null);
+    controllerMap.put("/home",new HomeController());
   }
 
   @Override

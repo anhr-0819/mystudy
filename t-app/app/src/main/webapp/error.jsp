@@ -1,16 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
+
 <!DOCTYPE html>
 <html lang='en'>
-<head>
-  <meta charset='UTF-8'>
-  <title>비트캠프 데브옵스 5기</title>
-</head>
+  <head>
+    <meta charset='UTF-8'>
+    <title>t-app test</title>
+  </head>
 <body>
 
 <jsp:include page="/header.jsp"></jsp:include>
 
-<h1>과제 관리 시스템</h1>
-<p>환영합니다! 교육 센터 과제 관리 시스템입니다.</p>
+<h1>오류!</h1>
+<c:if test="${not empty message}">
+  <p>${message}</p>
+</c:if>
+<c:if test="${not empty detail}">
+  <pre>${detail}</pre>
+</c:if>
 
 <jsp:include page="/footer.jsp"></jsp:include>
 
