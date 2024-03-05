@@ -5,30 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/AssignmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/PageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/RequestMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/RequestMapping.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/assignment/AssignmentAddController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/assignment/AssignmentDeleteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/assignment/AssignmentListController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/assignment/AssignmentUpdateController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/assignment/AssignmentViewController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/auth/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/auth/LogoutController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/board/BoardAddController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/board/BoardDeleteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/board/BoardFileDeleteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/board/BoardListController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/board/BoardUpdateController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/board/BoardViewController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/member/MemberAddController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/member/MemberDeleteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/member/MemberListController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/member/MemberUpdateController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/member/MemberViewController.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/DispatcherServlet0.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/RequestHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/DispatcherServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/servlet/DispatcherServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
