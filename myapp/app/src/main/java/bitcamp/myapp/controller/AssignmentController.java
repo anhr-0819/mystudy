@@ -51,9 +51,11 @@ public class AssignmentController {
   }
 
   @RequestMapping("/assignment/update")
-  public String update(HttpServletRequest request) throws Exception {
-
-    int no = Integer.parseInt(request.getParameter("no"));
+  public String update(
+      @RequestParam("no") int no,
+      @RequestParam("title") String title,
+      @RequestParam("content") String content,
+      @RequestParam("deadline") Date deadline) throws Exception {
 
     Assignment old = assignmentDao.findBy(no);
     if (old == null) {
@@ -62,17 +64,16 @@ public class AssignmentController {
 
     Assignment assignment = new Assignment();
     assignment.setNo(old.getNo());
-    assignment.setTitle(request.getParameter("title"));
-    assignment.setContent(request.getParameter("content"));
-    assignment.setDeadline(Date.valueOf(request.getParameter("deadline")));
+    assignment.setTitle(title);
+    assignment.setContent(content);
+    assignment.setDeadline(deadline);
 
     assignmentDao.update(assignment);
     return "redirect:list";
   }
 
   @RequestMapping("/assignment/delete")
-  public String delete(HttpServletRequest request) throws Exception {
-    int no = Integer.parseInt(request.getParameter("no"));
+  public String delete(@RequestParam("no") int no) throws Exception {
     if (assignmentDao.delete(no) == 0) {
       throw new Exception("과제 번호가 유효하지 않습니다.");
     }
