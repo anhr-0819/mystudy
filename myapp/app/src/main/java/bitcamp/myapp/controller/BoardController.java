@@ -102,13 +102,13 @@ public class BoardController {
   @RequestMapping("/board/view")
   public String view(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+    int category = Integer.valueOf(request.getParameter("category"));
     int no = Integer.parseInt(request.getParameter("no"));
     Board board = boardDao.findBy(no);
     if (board == null) {
       throw new Exception("번호가 유효하지 않습니다.");
     }
 
-    int category = Integer.valueOf(request.getParameter("category"));
     request.setAttribute("boardName", category == 1 ? "게시글" : "가입인사");
     request.setAttribute("list", boardDao.findAll(category));
 
