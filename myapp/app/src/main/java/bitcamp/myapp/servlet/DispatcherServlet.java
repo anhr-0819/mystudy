@@ -1,7 +1,7 @@
 package bitcamp.myapp.servlet;
 
 import bitcamp.myapp.controller.HomeController;
-import bitcamp.myapp.controller.PageController;
+import bitcamp.myapp.controller.RequestMapping;
 import bitcamp.myapp.controller.assignment.AssignmentAddController;
 import bitcamp.myapp.controller.assignment.AssignmentDeleteController;
 import bitcamp.myapp.controller.assignment.AssignmentListController;
@@ -28,6 +28,7 @@ import bitcamp.util.TransactionManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletContext;
@@ -42,7 +43,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/app/*")
 public class DispatcherServlet extends HttpServlet {
 
-  private Map<String, PageController> controllerMap = new HashMap<>();
+  private Map<String, Object> controllerMap = new HashMap<>();
 
   @Override
   public void init() throws ServletException {
@@ -89,12 +90,18 @@ public class DispatcherServlet extends HttpServlet {
       throws ServletException, IOException {
 
     // URL에서 요청한 페이지 컨트롤러를 실행한다.
-    PageController controller = controllerMap.get(request.getPathInfo());
+    Object controller = controllerMap.get(request.getPathInfo()); // 컨트롤러 객체 가져오기
     if (controller == null) {
       throw new ServletException(request.getPathInfo() + " 요청 페이지를 찾을 수 없습니다.");
     }
     try {
-      String viewUrl = controller.execute(request, response);
+      Method requestHandler = findRequestHandler(controller);
+
+      if (requestHandler == null) {
+        throw new Exception(request.getPathInfo() + " 요청 페이지를 찾을 수 없습니다.");
+      }
+
+      String viewUrl = (String) requestHandler.invoke(controller, request, response);
 
       // 페이지 컨트롤러가 알려준 JSP로 포워딩 한다.
       if (viewUrl.startsWith("redirect:")) {
@@ -114,5 +121,17 @@ public class DispatcherServlet extends HttpServlet {
 
       request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
+  }
+
+  private Method findRequestHandler(Object controller) {
+    Method[] methods = controller.getClass()
+        .getDeclaredMethods(); // 컨트롤러 객체에서 클래스 정보를 알아내고, 클래스에 선언된 메서드를 가져온다.
+    for (Method m : methods) { // RequestMapping 애노테이션이 붙은 메서드를 찾아서 있다면 리턴
+      RequestMapping requestMapping = m.getAnnotation(RequestMapping.class);
+      if (requestMapping != null) {
+        return m;
+      }
+    }
+    return null; // RequestMapping 애노테이션이 붙은 메서드를 찾지 못했다면 null 리턴
   }
 }
