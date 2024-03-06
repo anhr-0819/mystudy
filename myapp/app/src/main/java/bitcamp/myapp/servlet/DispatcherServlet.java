@@ -3,6 +3,7 @@ package bitcamp.myapp.servlet;
 import bitcamp.myapp.controller.AssignmentController;
 import bitcamp.myapp.controller.AuthController;
 import bitcamp.myapp.controller.BoardController;
+import bitcamp.myapp.controller.CookieValue;
 import bitcamp.myapp.controller.HomeController;
 import bitcamp.myapp.controller.MemberController;
 import bitcamp.myapp.controller.RequestMapping;
@@ -20,18 +21,23 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 @MultipartConfig(maxFileSize = 1024 * 1024 * 10)
 @WebServlet("/app/*")
@@ -43,11 +49,11 @@ public class DispatcherServlet extends HttpServlet {
   @Override
   public void init() throws ServletException {
     ServletContext ctx = this.getServletContext();
+    TransactionManager txManager = (TransactionManager) ctx.getAttribute("txManager");
     BoardDao boardDao = (BoardDao) ctx.getAttribute("boardDao");
     MemberDao memberDao = (MemberDao) ctx.getAttribute("memberDao");
     AssignmentDao assignmentDao = (AssignmentDao) ctx.getAttribute("assignmentDao");
     AttachedFileDao attachedFileDao = (AttachedFileDao) ctx.getAttribute("attachedFileDao");
-    TransactionManager txManager = (TransactionManager) ctx.getAttribute("txManager");
 
     controllers.add(new HomeController());
     controllers.add(new AssignmentController(assignmentDao));
@@ -60,12 +66,12 @@ public class DispatcherServlet extends HttpServlet {
     controllers.add(new MemberController(memberDao, memberUploadDir));
 
     prepareRequestHandlers(controllers);
-
   }
 
   @Override
   protected void service(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+
     try {
       // URL 요청을 처리할 request handler를 찾는다.
       RequestHandler requestHandler = requestHandlerMap.get(request.getPathInfo());
@@ -73,11 +79,18 @@ public class DispatcherServlet extends HttpServlet {
         throw new Exception(request.getPathInfo() + " 요청 페이지를 찾을 수 없습니다.");
       }
 
-      Object[] args = prepareRequestHandlerArguments(requestHandler.handler, request, response);
+      // 페이지 컨트롤러가 작업한 결과를 담을 보관소를 준비한다.
+      Map<String, Object> map = new HashMap<>();
+      Object[] args = prepareRequestHandlerArguments(requestHandler.handler, request, response,
+          map);
 
       String viewUrl = (String) requestHandler.handler.invoke(requestHandler.controller, args);
-      // invoke(인스턴스주소,메서드에 넘겨줄 값) <- 주어진 메서드 정보를 가지고 해당 클래스에서 메서드를 호출하는 역할을 한다.
-      // 메서드를 호출할때는 인스턴스 주소가 필요하므로 전달한다.
+
+      // 페이지 컨트롤러의 작업이 끝난후 map 객체에 보관된 값을 JSP가 사용할 수 있도록
+      // ServileRequest 보관소로 옮긴다.
+      for (Entry<String, Object> entry : map.entrySet()) {
+        request.setAttribute(entry.getKey(), entry.getValue());
+      }
 
       // 페이지 컨트롤러가 알려준 JSP로 포워딩 한다.
       if (viewUrl.startsWith("redirect:")) {
@@ -99,8 +112,7 @@ public class DispatcherServlet extends HttpServlet {
     }
   }
 
-  private void prepareRequestHandlers(
-      List<Object> controllers) { // 컨트롤러 배열에서 하나의 컨트롤러를 꺼내서 클래스 정보로 메소드 목록을 알아내어, 애노테이션이 붙은 메서드를 찾아서 컨트롤러 객체와 함께 보관한다.
+  private void prepareRequestHandlers(List<Object> controllers) {
     for (Object controller : controllers) {
       Method[] methods = controller.getClass().getDeclaredMethods();
       for (Method m : methods) {
@@ -112,43 +124,79 @@ public class DispatcherServlet extends HttpServlet {
     }
   }
 
-  // 메서드를 호출할때 넘겨주는 파라미터를 준비하는 메서드
   private Object[] prepareRequestHandlerArguments(
       Method handler,
       HttpServletRequest request,
-      HttpServletResponse response) throws Exception {
+      HttpServletResponse response,
+      Map<String, Object> map) throws Exception {
 
     // 요청 핸들러의 파라미터 정보를 알아낸다.
-    Parameter[] parameters = handler.getParameters();
+    Parameter[] methodParams = handler.getParameters();
 
     // 파라미터에 전달할 값을 담을 배열을 준비한다.
-    Object[] args = new Object[parameters.length]; // 전달할 값을 배열에 담아 가변 파라미터 자리에 넘겨줄 수 있다.
+    Object[] args = new Object[methodParams.length];
 
     // 파라미터를 분석하여 각 파라미터에 맞는 값을 배열에 담는다.
     for (int i = 0; i < args.length; i++) {
-      Parameter methodParam = parameters[i];
+      Parameter methodParam = methodParams[i];
       if (methodParam.getType() == HttpServletRequest.class
           || methodParam.getType() == ServletRequest.class) {
         args[i] = request;
       } else if (methodParam.getType() == HttpServletResponse.class
           || methodParam.getType() == ServletResponse.class) {
         args[i] = response;
+      } else if (methodParam.getType() == Map.class) {
+        args[i] = map;
+      } else if (methodParam.getType() == HttpSession.class) {
+        args[i] = request.getSession();
       } else {
+        CookieValue cookieValueAnno = methodParam.getAnnotation(CookieValue.class);
+        if (cookieValueAnno != null) {
+          String value = getCookieValue(cookieValueAnno.value(), request);
+          if (value != null) {
+            args[i] = valueOf(value, methodParam.getType());
+          }
+          continue;// 다음 파라미터로 간다.
+        }
+
         RequestParam requestParam = methodParam.getAnnotation(RequestParam.class);
         if (requestParam != null) {
           // 클라이언트가 보낸 요청 파라미터 값을 원한다면
           // 그 값을 메서드의 파라미터 타입으로 변환한 후 저장한다.
           String requestParameterName = requestParam.value();
-          String requestParameterValue = request.getParameter(requestParameterName);
-          args[i] = valueOf(requestParameterValue, methodParam.getType());
 
-        } else {
-          // 파라미터 타입이 도메인 클래스일 경우 해당 클래스의 객체를 준비하여
-          // 그 객체의 요청 파라미터 값들을 담은 다음에 저장한다.
-          args[i] = createValueObject(methodParam.getType(), request);
+          if (methodParam.getType() == Part[].class) {
+            Collection<Part> parts = request.getParts();
+            List<Part> filesParts = new ArrayList<>(); // 첨부파일만 따로 담기위한 리스트
+            for (Part part : parts) {
+              // 전체파일중에서 requestParameterName 이름의 파일만 리스트에 저장
+              if (part.getName().equals(requestParameterName)) {
+                filesParts.add(part);
+              }
+            }
+            args[i] = filesParts.toArray(new Part[0]);
+
+          } else if (methodParam.getType() == Part.class) {
+            Collection<Part> parts = request.getParts();
+            for (Part part : parts) {
+              if (part.getName().equals(requestParameterName)) {
+                args[i] = part;
+                break;
+              }
+            }
+
+          } else {
+            String requestParameterValue = request.getParameter(requestParameterName);
+            args[i] = valueOf(requestParameterValue, methodParam.getType());
+          }
+          continue;
         }
+        // 파라미터 타입이 도메인 클래스일 경우 해당 클래스의 객체를 준비하여
+        // 그 객체에 요청 파라미터 값들을 담은 다음에 저장한다..
+        args[i] = createValueObject(methodParam.getType(), request);
       }
     }
+
     return args;
   }
 
@@ -188,7 +236,7 @@ public class DispatcherServlet extends HttpServlet {
     Object obj = constructor.newInstance();
 
     // 3) 도메인 클래스의 메서드 목록을 가져옴
-    Method[] methods = type.getClass().getDeclaredMethods();
+    Method[] methods = type.getDeclaredMethods();
 
     // 4) 메서드 중에서 셋터 메서드를 알아냄
     for (Method setter : methods) {
@@ -208,6 +256,7 @@ public class DispatcherServlet extends HttpServlet {
       if (requestParamValue != null) {
         // 셋터 메서드의 파라미터 타입을 알아낸다.
         Class<?> setterParameterType = setter.getParameters()[0].getType();
+
         // 셋터를 호출한다.
         // 예) setFirstName("길동");
         setter.invoke(obj, valueOf(requestParamValue, setterParameterType));
@@ -216,4 +265,15 @@ public class DispatcherServlet extends HttpServlet {
     return obj;
   }
 
+  private String getCookieValue(String name, HttpServletRequest request) {
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null) {
+      for (Cookie cookie : cookies) {
+        if (cookie.getName().equals(name)) {
+          return cookie.getValue();
+        }
+      }
+    }
+    return null;
+  }
 }

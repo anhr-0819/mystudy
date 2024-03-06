@@ -23,6 +23,7 @@ public class MemberController {
     if (request.getMethod().equals("GET")) {
       return "/member/form.jsp";
     }
+
     Member member = new Member();
     member.setEmail(request.getParameter("email"));
     member.setName(request.getParameter("name"));
@@ -59,7 +60,6 @@ public class MemberController {
 
   @RequestMapping("/member/update")
   public String update(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
     int no = Integer.parseInt(request.getParameter("no"));
     Member old = memberDao.findBy(no);
     if (old == null) {
@@ -89,7 +89,6 @@ public class MemberController {
 
   @RequestMapping("/member/delete")
   public String delete(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
     int no = Integer.parseInt(request.getParameter("no"));
     Member member = memberDao.findBy(no);
     if (member == null) {
