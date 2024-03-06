@@ -33,6 +33,7 @@ public class BoardController {
   public String form(
       @RequestParam("category") int category,
       Map<String, Object> map) throws Exception {
+
     map.put("boardName", category == 1 ? "게시글" : "가입인사");
     map.put("category", category);
     return "/board/form.jsp";
@@ -57,7 +58,6 @@ public class BoardController {
       board.setWriter(loginUser);
 
       ArrayList<AttachedFile> attachedFiles = new ArrayList<>();
-
       if (category == 1) {
         for (Part file : files) {
           if (file.getSize() == 0) {
@@ -72,7 +72,6 @@ public class BoardController {
       txManager.startTransaction();
 
       boardDao.add(board);
-
       if (attachedFiles.size() > 0) {
         for (AttachedFile attachedFile : attachedFiles) {
           attachedFile.setBoardNo(board.getNo());
@@ -98,8 +97,8 @@ public class BoardController {
       Map<String, Object> map) throws Exception {
 
     map.put("boardName", category == 1 ? "게시글" : "가입인사");
-    map.put("list", boardDao.findAll(category));
     map.put("category", category);
+    map.put("list", boardDao.findAll(category));
     return "/board/list.jsp";
   }
 
@@ -222,8 +221,7 @@ public class BoardController {
   public String fileDelete(
       @RequestParam("category") int category,
       @RequestParam("no") int fileNo,
-      HttpSession session)
-      throws Exception {
+      HttpSession session) throws Exception {
 
     Member loginUser = (Member) session.getAttribute("loginUser");
     if (loginUser == null) {
