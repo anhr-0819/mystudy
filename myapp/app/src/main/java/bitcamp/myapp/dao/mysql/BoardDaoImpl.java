@@ -4,13 +4,13 @@ import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.dao.DaoException;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Member;
-import bitcamp.util.Component;
 import bitcamp.util.DBConnectionPool;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
 @Component
 public class BoardDaoImpl implements BoardDao {
@@ -18,6 +18,7 @@ public class BoardDaoImpl implements BoardDao {
   DBConnectionPool connectionPool;
 
   public BoardDaoImpl(DBConnectionPool connectionPool) {
+    System.out.println("BoardDaoImpl() 호출됨!");
     this.connectionPool = connectionPool;
   }
 

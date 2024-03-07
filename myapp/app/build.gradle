@@ -22,10 +22,12 @@ dependencies {
     // 임베디드 Tomcat 서버
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.85'
 
+    // Spring IoC 컨테이너
+    implementation group: 'org.springframework', name: 'spring-context', version: '5.3.32'
+
     // JSTL 라이브러리
     // https://mvnrepository.com/artifact/javax.servlet/jstl
     implementation 'javax.servlet:jstl:1.2'
-
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

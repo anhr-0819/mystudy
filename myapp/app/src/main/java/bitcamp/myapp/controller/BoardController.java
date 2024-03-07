@@ -13,7 +13,9 @@ import java.util.Map;
 import java.util.UUID;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+import org.springframework.stereotype.Component;
 
+@Component
 public class BoardController {
 
   private TransactionManager txManager;
@@ -25,7 +27,7 @@ public class BoardController {
       TransactionManager txManager,
       BoardDao boardDao,
       AttachedFileDao attachedFileDao) {
-
+    System.out.println("BoardController() 호출됨!");
     this.txManager = txManager;
     this.boardDao = boardDao;
     this.attachedFileDao = attachedFileDao;
