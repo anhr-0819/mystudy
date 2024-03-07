@@ -1,5 +1,6 @@
 package bitcamp.myapp.servlet;
 
+import bitcamp.context.ApplicationContext;
 import bitcamp.myapp.controller.CookieValue;
 import bitcamp.myapp.controller.RequestMapping;
 import bitcamp.myapp.controller.RequestParam;
@@ -36,7 +37,7 @@ public class DispatcherServlet extends HttpServlet {
 
   private Map<String, RequestHandler> requestHandlerMap = new HashMap<>();
   private List<Object> controllers = new ArrayList<>();
-  private Map<String, Object> beanMap;
+  private ApplicationContext applicationContext;
 
   @Override
   public void init() throws ServletException {
@@ -44,16 +45,11 @@ public class DispatcherServlet extends HttpServlet {
       System.setProperty("board.upload.dir", this.getServletContext().getRealPath("/upload/board"));
       System.setProperty("member.upload.dir", this.getServletContext().getRealPath("/upload"));
 
-      beanMap = (Map<String, Object>) this.getServletContext().getAttribute("beanMap");
+      applicationContext = new ApplicationContext(
+          (ApplicationContext) this.getServletContext().getAttribute("applicationContext"),
+          "bitcamp.myapp.controller");
 
-//      controllers.add(new HomeController());
-//      controllers.add(new AssignmentController(assignmentDao));
-//      controllers.add(new AuthController(memberDao));
-//      controllers.add(new BoardController(txManager, boardDao, attachedFileDao));
-//      controllers.add(new MemberController(memberDao));
-
-      preparePageControllers();
-      prepareRequestHandlers(controllers);
+      prepareRequestHandlers(applicationContext.getBeans());
 
     } catch (Exception e) {
       throw new ServletException(e);
@@ -145,7 +141,7 @@ public class DispatcherServlet extends HttpServlet {
   }
 
   private Object findBean(Class<?> type) {
-    Collection<Object> objs = beanMap.values();
+    Collection<Object> objs = applicationContext.values();
     for (Object obj : objs) {
       if (type.isInstance(obj)) {
         //System.out.printf("%s ==> %s\n", type.getName(), obj.getClass().getName());
@@ -155,7 +151,7 @@ public class DispatcherServlet extends HttpServlet {
     return null;
   }
 
-  private void prepareRequestHandlers(List<Object> controllers) {
+  private void prepareRequestHandlers(Collection<Object> controllers) {
     for (Object controller : controllers) {
       Method[] methods = controller.getClass().getDeclaredMethods();
       for (Method m : methods) {
