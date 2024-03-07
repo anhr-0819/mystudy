@@ -3,11 +3,11 @@ package bitcamp.myapp.controller;
 import bitcamp.util.Component;
 
 @Component
-public class HomeController {
+public class AboutController {
 
-  @RequestMapping("/home")
-  public String home()
+  @RequestMapping("/about")
+  public String about()
       throws Exception {
-    return "/home.jsp";
+    return "/about.jsp";
   }
 }
