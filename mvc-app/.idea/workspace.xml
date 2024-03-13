@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e98cb3ea-9923-4462-b860-152bda8cb0ed" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/app-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/webapp/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/bitcamp/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/lang/ex04/Exam0510.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/lang/ex04/Exam0510.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/lang/ex05/Exam0141.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/lang/ex05/Exam0141.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/lang/ex05/Exam0480.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/lang/ex05/Exam0480.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/lang/ex05/Exam0481.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/lang/ex05/Exam0481.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/SpringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/SpringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex01/a/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex01/a/application-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex01/g/Exam01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex01/g/Exam01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex02/a/Exam01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex02/a/Exam01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex02/a/Exam02.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex02/a/Exam02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex04/e/Exam01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex04/e/Exam01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex05/b/Exam01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex05/b/Exam01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex05/c/Exam01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex05/c/Exam01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex06/d/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex06/d/application-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex06/e/CarFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex06/e/CarFactoryBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex07/a/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex07/a/application-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex07/d/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex07/d/application-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/b/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/b/application-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/c1/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/c1/application-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/c2/A.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/c2/A.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/c2/B.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/c2/B.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/c2/C.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/c2/C.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/d/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/d/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/e/Exam01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/e/Exam01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/e/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/e/application-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/f/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/f/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/f/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/f/application-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/g/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex08/g/application-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex09/a/Exam01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex09/a/Exam01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex09/a/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex09/a/application-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex10/b/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex10/b/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex11/Exam01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-basic/app/src/main/java/com/eomcs/spring/ioc/ex11/Exam01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../t-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../t-app/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="mvc-app" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="mvc-app" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="mvc-app" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="mvc-app" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2dcF9vSNdqkquLL1KzGbOmwezjW" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.mvc-app:app [:app:App.main()].executor": "Run",
+    "Gradle.mvc-app:app [run].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/anhr0/git/mystudy/mvc-app"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF" />
+      <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\config" />
+      <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="mvc-app:app [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.mvc-app:app [run]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-20.0.2-corretto-20.0.2.1-8336523bb0d9-e34d2934" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-8336523bb0d9-657b72ed" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="e98cb3ea-9923-4462-b860-152bda8cb0ed" name="변경" comment="" />
+      <created>1710299311389</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710299311389</updated>
+    </task>
+    <servers />
+  </component>
+</project>

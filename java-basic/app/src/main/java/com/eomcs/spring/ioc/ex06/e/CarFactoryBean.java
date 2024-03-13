@@ -7,7 +7,7 @@ import com.eomcs.spring.ioc.ex06.Car;
 // 클래스 이름 뒤에 접미사로 FactoryBean을 붙여
 // 다른 개발자가 쉽게 알아보도록 만든다.
 //
-public class CarFactoryBean implements FactoryBean<Car> { // Car 객체를 만들어주는 공장
+public class CarFactoryBean implements FactoryBean<Car> {
   String model;
 
   public CarFactoryBean() {

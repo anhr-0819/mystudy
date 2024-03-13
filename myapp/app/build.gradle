@@ -23,7 +23,7 @@ dependencies {
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.85'
 
     // Spring IoC 컨테이너
-    implementation group: 'org.springframework', name: 'spring-context', version: '5.3.32'
+    //implementation group: 'org.springframework', name: 'spring-context', version: '5.3.32'
 
     // Spring webmvc 라이브러리
     implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.32'
