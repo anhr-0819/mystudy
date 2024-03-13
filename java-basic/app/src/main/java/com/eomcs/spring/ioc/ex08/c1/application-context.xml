@@ -17,7 +17,7 @@
     -->
     <bean class="com.eomcs.spring.ioc.ex08.c1.MyBeanPostProcessor"/>
     
-    <bean id="c1" class="com.eomcs.spring.ioc.ex08.c1.Car" init-method="init">
+    <bean id="c1" class="com.eomcs.spring.ioc.ex08.c1.Car">
         <property name="model" value="티코"/>
         <property name="maker" value="비트자동차"/>
         <property name="cc" value="890"/>

@@ -15,7 +15,7 @@
          다음 객체를 등록해야 한다.
          AutowiredAnnotationBeanPostProcessor
     -->
-
+    
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
      
@@ -31,6 +31,7 @@
         <property name="valve" value="16"/>
         <property name="cylinder" value="4"/>
     </bean>
+
     
 </beans>
 

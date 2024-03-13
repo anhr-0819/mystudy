@@ -14,6 +14,9 @@ public class Exam01 {
     System.out.println(iocContainer.getBean("c2"));
   }
 
+
+  // 여러 개의 의존객체를 담을 때 배열을 쓰나 리스트를 쓰나 상관없다.
+
 }
 
 

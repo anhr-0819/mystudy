@@ -13,6 +13,8 @@ public class Exam01 {
     System.out.println(iocContainer.getBean("c1"));
   }
 
+  // 프로퍼티 타입이 맵인경우 xml에 맵 태그로 맵객체를 만들어 설정한다.
+
 }
 
 

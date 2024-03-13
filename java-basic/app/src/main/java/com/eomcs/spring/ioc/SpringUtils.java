@@ -10,19 +10,17 @@ public class SpringUtils {
     // 자바 객체 생성 규칙에 따라 만든 인스턴스를 부르는 말이었다.
     // 그러나 일반적으로 객체를 부를 때도 '빈'이라는 용어를 사용한다.
     System.out.println("--------------------------------");
-    int count = iocContainer.getBeanDefinitionCount();
+    int count = iocContainer.getBeanDefinitionCount(); // 현재 컨테이너에 들어있는 빈 개수를 리턴
     System.out.printf("빈 개수: %d\n", count);
 
-    String[] beanNames = iocContainer.getBeanDefinitionNames();
+    String[] beanNames = iocContainer.getBeanDefinitionNames(); // 빈을 저장할 때 사용한 이름을 배열로 리턴
     for (String name : beanNames) {
-      System.out.printf("%s = %s\n",
-          name, iocContainer.getBean(name).getClass().getName());
+      System.out.printf("%s = %s\n", name, iocContainer.getBean(name).getClass().getName());
     }
     System.out.println("--------------------------------");
   }
 
-  public static void printBeanAliases(
-      ApplicationContext iocContainer, String beanName) {
+  public static void printBeanAliases(ApplicationContext iocContainer, String beanName) {
     System.out.printf("['%s' 빈의 별명 목록]\n", beanName);
     String[] aliases = iocContainer.getAliases(beanName);
     for (String alias : aliases) {
@@ -39,10 +37,5 @@ public class SpringUtils {
     System.out.println("-----------------------------------");
   }
 }
-
-
-
-
-
 
 
