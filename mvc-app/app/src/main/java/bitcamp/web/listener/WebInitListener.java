@@ -1,6 +1,8 @@
 package bitcamp.web.listener;
 
+import bitcamp.config.AdminConfig;
 import bitcamp.config.AppConfig;
+import bitcamp.config.RootConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -23,13 +25,31 @@ public class WebInitListener implements ServletContextListener {
     log.debug("contextInitialized() 호출됨!");
 
     ServletContext sc = sce.getServletContext();
+
+    AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
+    rootContext.register(RootConfig.class);
+    rootContext.refresh();
+
+
     AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
+    appContext.setParent(rootContext);
     appContext.register(AppConfig.class);
+    appContext.refresh();
+
     Dynamic 서블릿설정 = sc.addServlet("app", new DispatcherServlet(appContext));
     // 설정할 수 있는 javax.servlet.ServletRegistration.Dynamic 을 리턴(서블릿 설정 정보를 다루는 객체)
     서블릿설정.addMapping("/app/*");
     서블릿설정.setLoadOnStartup(1);
 
-    
+    AnnotationConfigWebApplicationContext adminContext = new AnnotationConfigWebApplicationContext();
+    adminContext.setParent(rootContext);
+    adminContext.register(AdminConfig.class);
+    adminContext.refresh();
+
+    Dynamic 서블릿설정2 = sc.addServlet("admin", new DispatcherServlet(adminContext));
+    // 설정할 수 있는 javax.servlet.ServletRegistration.Dynamic 을 리턴(서블릿 설정 정보를 다루는 객체)
+    서블릿설정2.addMapping("/admin/*");
+    서블릿설정2.setLoadOnStartup(1);
+
   }
 }
