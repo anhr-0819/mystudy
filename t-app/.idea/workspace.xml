@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/../mvc-app/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mvc-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/webapp/WEB-INF/app-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/webapp/WEB-INF/app-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/webapp/WEB-INF/admin-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/webapp/WEB-INF/app-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/webapp/WEB-INF/config/application-context.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>

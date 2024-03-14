@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e98cb3ea-9923-4462-b860-152bda8cb0ed" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/app-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/app-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/config/RootConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/config/RootConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/admin-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/app-servlet.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../t-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../t-app/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -105,6 +105,9 @@
       <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF" />
       <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\config" />
       <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="bitcamp.config" />
     </key>
   </component>
   <component name="RunManager">
