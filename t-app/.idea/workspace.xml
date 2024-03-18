@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/app1/Controller01_1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/app1/Controller01_2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/app1/Controller01_3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/app1/Controller02_1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/app1/Controller02_2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/App1WebApplicationInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/App2WebApplicationInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mvc-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/AdminConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/App2Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/AdminWebApplicationInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/AppWebApplicationInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/RootConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/App1Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/dao/BoardDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/vo/Board.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/web/admin/BoardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/web/app/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/app1/Controller03_4.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/app1/Controller03_4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/App1Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/App1Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/App1WebApplicationInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/App1WebApplicationInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
