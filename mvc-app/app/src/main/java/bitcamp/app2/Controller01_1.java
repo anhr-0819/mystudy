@@ -1,5 +1,6 @@
 package bitcamp.app2;
 
+import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,5 +53,34 @@ public class Controller01_1 {
     // => 따라서 ViewResolver가 계산한 최종 URL은
     // /WEB-INF/jsp2/c01_1/h2.jsp
     //
+  }
+
+  @GetMapping("h3")
+  public String handler3(Map<String, Object> map) {
+
+    map.put("name", "홍길동3");
+    map.put("age", 40);
+
+    return "/WEB-INF/jsp/c01_1.jsp";
+    // MVC 모델에서는 JSP는 뷰 콤포넌트로서 출력이라는 역할을 담당한다.
+    // 출력할 데이터를 준비하는 일은 페이지 컨트롤러가 담당한다.
+    // 그래서 JSP를 실행할 때는 항상 페이지 컨트롤러를 통해 실행해야 한다.
+    // 페이지 컨트롤러가 하는 일이 없어도 프로그래밍의 일관성을 위해
+    // 직접 JSP을 요청하지 않고, 페이지 컨트롤러를 통해 요청해야 한다.
+    //
+    // 그런데 웹 디렉토리에 JSP를 두면 클라이언트에서 JSP를 직접 요청할 수 있다.
+    // 페이지 컨트롤러를 경유하지 않은 상태에서 실행해봐야 소용없지만,
+    // 그래도 요청은 할 수 있다.
+    // 이런 의미 없는 요청을 막는 방법으로,
+    // JSP 파일을 /WEB-INF 폴더 아래에 두는 것을 권장한다.
+    //
+    // 웹 브라우저에서 다음 URL의 JSP를 요청해보라!
+    // 1) http://localhost:8888/bitcamp-java-spring-webmvc/jsp/c01_1.jsp
+    // => 클라이언트가 요청할 수 있다.
+    // 2) http://localhost:8888/bitcamp-java-spring-webmvc/WEB-INF/jsp/c01_1.jsp
+    // => 클라이언트가 요청할 수 없다.
+    // => /WEB-INF 폴더에 있는 자원들은 클라이언트에서 직접 요청할 수 없다.
+    // => 그래서 잘못된 요청을 막을 수 있다.
+    // 실무에서는 이 방법을 사용한다.
   }
 }
