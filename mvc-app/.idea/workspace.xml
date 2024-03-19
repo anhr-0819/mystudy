@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e98cb3ea-9923-4462-b860-152bda8cb0ed" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../t-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../t-app/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,13 +88,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/anhr0/git/mystudy/mvc-app/app/src/main/webapp/WEB-INF/config"
+    "last_opened_file_path": "C:/Users/anhr0/git/mystudy/mvc-app/app/src/main/webapp/WEB-INF"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF\config" />
       <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF" />
+      <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF\config" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF" />
