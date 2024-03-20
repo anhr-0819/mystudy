@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e98cb3ea-9923-4462-b860-152bda8cb0ed" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/config/App2Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/config/App2Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../t-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../t-app/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,6 +97,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF\jsp" />
+      <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF\jsp\c06_1" />
       <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF\jsp\c01_2" />
       <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF" />
       <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF\config" />
