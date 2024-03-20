@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e98cb3ea-9923-4462-b860-152bda8cb0ed" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/app2/Controller01_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/app2/Controller01_1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/config/App2Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/config/App2Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../t-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../t-app/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -83,21 +82,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.mvc-app:app [:app:App.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.mvc-app:app [run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/anhr0/git/mystudy/mvc-app/app/src/main/webapp/WEB-INF/jsp/c01_2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.mvc-app:app [:app:App.main()].executor": "Run",
+    "Gradle.mvc-app:app [run].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/anhr0/git/mystudy/mvc-app/app/src/main/webapp/WEB-INF/jsp"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF\jsp\c01_2" />
       <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF\jsp" />
+      <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF\jsp\c01_2" />
       <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF" />
       <recent name="C:\Users\anhr0\git\mystudy\mvc-app\app\src\main\webapp\WEB-INF\config" />
     </key>
@@ -159,5 +158,16 @@
       <updated>1710299311389</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/bitcamp/app2/Controller03_2.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

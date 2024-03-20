@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/../mvc-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/app2/Controller01_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/app2/Controller01_1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/App2Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/java/bitcamp/config/App2Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
