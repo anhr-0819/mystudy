@@ -10,7 +10,7 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource({
     "classpath:config/jdbc.properties"
 })
-public class RootConfig {
+public class RootConfig { // 컨텍스트 로더리스너가 사용할 IoC 컨테이너
 
   public RootConfig() {
     System.out.println("RootConfig() 호출됨");

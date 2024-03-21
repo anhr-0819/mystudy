@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 
 @ComponentScan(value = {
-    "bitcamp.myapp.controller.*"
+    "bitcamp.myapp.controller"
 }) // AppConfig controller 객체를 생성하도록함
 public class AppConfig { // 디스패쳐서블릿이 사용할 IoC 컨테이너 설정
 
