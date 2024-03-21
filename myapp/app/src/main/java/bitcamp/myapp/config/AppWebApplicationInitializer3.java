@@ -16,7 +16,7 @@ public class AppWebApplicationInitializer3 /*extends AbstractDispatcherServletIn
   AnnotationConfigWebApplicationContext rootContext;
 
   protected WebApplicationContext createRootApplicationContext() {
-    this.rootContext = new AnnotationConfigWebApplicationContext();
+    rootContext = new AnnotationConfigWebApplicationContext();
     rootContext.register(RootConfig.class);
     rootContext.refresh();
     return rootContext;
@@ -37,7 +37,7 @@ public class AppWebApplicationInitializer3 /*extends AbstractDispatcherServletIn
 
   protected void customizeRegistration(Dynamic registration) {
     registration.setMultipartConfig(new MultipartConfigElement(
-        new File("./temp").getAbsolutePath(), // 클라이언트가 올린 파일을 임시보관할 폴더
+        new File("./temp").getAbsolutePath(),
         //new File(System.getProperty("java.io.tmpdir")).getAbsolutePath(),
         1024 * 1024 * 10,
         1024 * 1024 * 100,

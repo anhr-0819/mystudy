@@ -3,7 +3,6 @@ package bitcamp.myapp.dao;
 import bitcamp.myapp.vo.AttachedFile;
 import java.util.List;
 
-
 public interface AttachedFileDao {
 
   void add(AttachedFile file);
