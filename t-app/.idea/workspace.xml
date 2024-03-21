@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8c44212-f042-4f5d-b8c9-3b44de822685" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/config/RootConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mvc-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc-app/app/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc-app/app/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
