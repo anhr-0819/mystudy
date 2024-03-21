@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e98cb3ea-9923-4462-b860-152bda8cb0ed" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/config/AppWebApplicationInitializer1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/config/AppWebApplicationInitializer2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/config/AppWebApplicationInitializer3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/config/AppWebApplicationInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/config/AppWebApplicationInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/config/RootConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/config/RootConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

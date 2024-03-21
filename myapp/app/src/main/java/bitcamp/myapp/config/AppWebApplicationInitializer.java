@@ -3,36 +3,25 @@ package bitcamp.myapp.config;
 import java.io.File;
 import javax.servlet.Filter;
 import javax.servlet.MultipartConfigElement;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration.Dynamic;
-import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
-import org.springframework.web.servlet.support.AbstractDispatcherServletInitializer;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class AppWebApplicationInitializer extends AbstractDispatcherServletInitializer {
+public class AppWebApplicationInitializer extends
+    AbstractAnnotationConfigDispatcherServletInitializer {
 
-  ServletContext servletContext;
   AnnotationConfigWebApplicationContext rootContext;
 
   @Override
-  protected WebApplicationContext createRootApplicationContext() {
-    this.rootContext = new AnnotationConfigWebApplicationContext();
-    rootContext.register(RootConfig.class);
-    rootContext.refresh();
-    return rootContext;
-  }
+  protected Class<?>[] getRootConfigClasses() {
+    return new Class[]{RootConfig.class};
+  } // 컨텍스트로더리스너의 IoC 컨테이너를 직접 만들필요없이 설정클래스만 알려주면된다.
 
   @Override
-  protected WebApplicationContext createServletApplicationContext() {
-    AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
-    appContext.register(AppConfig.class);
-    appContext.setParent(this.rootContext);
-    appContext.setServletContext(this.servletContext);
-    appContext.refresh();
-    return appContext;
-  }
+  protected Class<?>[] getServletConfigClasses() {
+    return new Class[]{AppConfig.class};
+  } // 디스패처서블릿의 IoC 컨테이너를 직접 만들필요없이 설정클래스만 알려주면된다.
 
   @Override
   protected String[] getServletMappings() {
@@ -40,7 +29,7 @@ public class AppWebApplicationInitializer extends AbstractDispatcherServletIniti
   }
 
   @Override
-  protected void customizeRegistration(Dynamic registration) {
+  protected void customizeRegistration(Dynamic registration) { // 디스패처서블릿의 추가정보
     registration.setMultipartConfig(new MultipartConfigElement(
         new File("./temp").getAbsolutePath(), // 클라이언트가 올린 파일을 임시보관할 폴더
         //new File(System.getProperty("java.io.tmpdir")).getAbsolutePath(),
@@ -53,11 +42,5 @@ public class AppWebApplicationInitializer extends AbstractDispatcherServletIniti
   @Override
   protected Filter[] getServletFilters() {
     return new Filter[]{new CharacterEncodingFilter("UTF-8")};
-  }
-
-  @Override
-  public void onStartup(ServletContext servletContext) throws ServletException {
-    this.servletContext = servletContext;
-    super.onStartup(servletContext);
   }
 }
