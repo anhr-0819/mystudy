@@ -2,7 +2,6 @@ package bitcamp.myapp.dao.mysql;
 
 import bitcamp.myapp.dao.AttachedFileDao;
 import bitcamp.myapp.vo.AttachedFile;
-import bitcamp.util.DBConnectionPool;
 import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -16,7 +15,7 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   private final Log log = LogFactory.getLog(this.getClass());
   SqlSessionFactory sqlSessionFactory;
 
-  public AttachedFileDaoImpl(DBConnectionPool connectionPool, SqlSessionFactory sqlSessionFactory) {
+  public AttachedFileDaoImpl(SqlSessionFactory sqlSessionFactory) {
     log.debug("AttachedFileDaoImpl() 호출됨!");
     this.sqlSessionFactory = sqlSessionFactory;
   }
@@ -24,7 +23,7 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   @Override
   public void add(AttachedFile file) {
     try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
-      sqlSession.insert("AttachedFileDao.add");
+      sqlSession.insert("AttachedFileDao.add", file);
     }
   }
 
@@ -51,15 +50,14 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
 
   @Override
   public List<AttachedFile> findAllByBoardNo(int boardNo) {
-    try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.selectList("AttachedFileDao.findAllByBoardNo", boardNo);
     }
   }
 
-
   @Override
   public AttachedFile findByNo(int no) {
-    try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.selectOne("AttachedFileDao.findByNo", no);
     }
   }
