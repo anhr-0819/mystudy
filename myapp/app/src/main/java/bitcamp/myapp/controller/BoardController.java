@@ -9,7 +9,6 @@ import bitcamp.util.TransactionManager;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -45,11 +44,9 @@ public class BoardController {
   }
 
   @GetMapping("form")
-  public void form(
-      int category,
-      Map<String, Object> map) throws Exception {
-    map.put("boardName", category == 1 ? "게시글" : "가입인사");
-    map.put("category", category);
+  public void form(int category, Model model) throws Exception {
+    model.addAttribute("boardName", category == 1 ? "게시글" : "가입인사");
+    model.addAttribute("category", category);
   }
 
   @PostMapping("add")

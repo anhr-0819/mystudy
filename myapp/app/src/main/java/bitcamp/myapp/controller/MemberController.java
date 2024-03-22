@@ -50,7 +50,6 @@ public class MemberController {
 
   @GetMapping("view")
   public void view(int no, Model model) throws Exception {
-
     Member member = memberDao.findBy(no);
     if (member == null) {
       throw new Exception("회원 번호가 유효하지 않습니다.");
