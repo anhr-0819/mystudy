@@ -14,14 +14,11 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.PlatformTransactionManager;
 
-@ComponentScan(value = {
-    "bitcamp.myapp.dao",
-    "bitcamp.util"
-})
+@ComponentScan(value = {"bitcamp.myapp.dao"})
 @PropertySource({
     "classpath:config/jdbc.properties"
 })
-public class RootConfig {
+public class RootConfig { // 컨텍스트로더리스너의 IoC컨테이너 설정
 
   private final Log log = LogFactory.getLog(this.getClass());
 
