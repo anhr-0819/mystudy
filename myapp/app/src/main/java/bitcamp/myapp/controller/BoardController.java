@@ -151,7 +151,7 @@ public class BoardController {
 
   }
 
-  @Transactionalgit
+  @Transactional
   @GetMapping("delete")
   public String delete(int category, int no, HttpSession session) throws Exception {
 
