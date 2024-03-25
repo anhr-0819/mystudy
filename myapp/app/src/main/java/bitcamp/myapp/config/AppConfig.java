@@ -4,16 +4,12 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@EnableTransactionManagement // @Transactional을 처리할객체를 등록하도록 설정
-@ComponentScan(value = {
-    "bitcamp.myapp.controller"
-})
+@ComponentScan(value = {"bitcamp.myapp.controller"})
 public class AppConfig {
 
   private final Log log = LogFactory.getLog(this.getClass());
