@@ -41,12 +41,6 @@ public class BoardController {
   public void form(int category, Model model) throws Exception {
     model.addAttribute("boardName", category == 1 ? "게시글" : "가입인사");
     model.addAttribute("category", category);
-
-//    //IoC 컨테이너에 들어 있는 객체들
-//    String[] beanNames = ctx.getBeanDefinitionNames();
-//    for (String beanName : beanNames) {
-//      log.debug(ctx.getBean(beanName).getClass().getSimpleName());
-//    }
   }
 
   @PostMapping("add")
@@ -135,8 +129,8 @@ public class BoardController {
         files.add(new AttachedFile().filePath(filename));
       }
     }
-
     board.setFiles(files);
+
     boardService.update(board);
 
     return "redirect:list";
@@ -160,6 +154,7 @@ public class BoardController {
     }
 
     List<AttachedFile> files = boardService.getAttachedFiles(no);
+
     boardService.delete(no);
 
     for (AttachedFile file : files) {
@@ -188,6 +183,7 @@ public class BoardController {
     }
 
     boardService.deleteAttachedFile(no);
+
     new File(this.uploadDir + "/" + file.getFilePath()).delete();
 
     return "redirect:../view?category=" + category + "&no=" + file.getBoardNo();
