@@ -5,16 +5,13 @@ import bitcamp.myapp.service.MemberService;
 import bitcamp.myapp.vo.Member;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor // fianl 필드값(필수 필드값)을 받는 생성자를 자동 생성
 @Service
 public class DefaultMemberService implements MemberService {
 
-  private static final Log log = LogFactory.getLog(DefaultMemberService.class);
-  private final MemberDao memberDao;
+  private final MemberDao memberDao; // final<- 의존 객체를 함부로 바꾸지 못하게 제약을 검. 생성자로 받는다.
 
   @Override
   public void add(Member member) {

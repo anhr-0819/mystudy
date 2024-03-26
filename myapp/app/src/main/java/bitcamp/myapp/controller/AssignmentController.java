@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/assignment")
 public class AssignmentController {
 
-  private static final Log log = LogFactory.getLog(AssignmentController.class);
+  private final Log log = LogFactory.getLog(
+      AssignmentController.class); // 인스턴스 필드값이 초기화 되어있는경우 생성자에서 받지 않는다
   private final AssignmentService assignmentService;
 
   @GetMapping("form")

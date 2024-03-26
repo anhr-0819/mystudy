@@ -10,9 +10,10 @@ import java.util.List;
 import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.context.ApplicationContext;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,20 +21,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/board")
-public class BoardController {
+public class BoardController implements InitializingBean {
 
   private static final Log log = LogFactory.getLog(BoardController.class);
   private final BoardService boardService;
+  private final ServletContext servletContext;
   private String uploadDir;
-  private ApplicationContext ctx;
 
-  public BoardController(ApplicationContext ctx, BoardService boardService, ServletContext sc) {
-    log.debug("BoardController() 호출됨!");
-    this.ctx = ctx;
-    this.boardService = boardService;
-    this.uploadDir = sc.getRealPath("/upload/board");
+  @Override
+  public void afterPropertiesSet() throws Exception { // 생성자 생성, 셋터 호출 후 실행할 코드를 작성
+    this.uploadDir = servletContext.getRealPath("/upload/board");
+    // servletContext <- 웹 어플리케이션 루트폴더에서 실제 경로를 알아내기 위해 필요
   }
 
   @GetMapping("form")
@@ -68,7 +69,9 @@ public class BoardController {
         files.add(AttachedFile.builder().filePath(filename).build());
       }
     }
-    board.setFiles(files);
+    if (files.size() > 0) {
+      board.setFiles(files);
+    }
 
     boardService.add(board);
 
@@ -125,13 +128,12 @@ public class BoardController {
         }
         String filename = UUID.randomUUID().toString();
         file.transferTo(new File(this.uploadDir + "/" + filename));
-        AttachedFile attachedFile = AttachedFile.builder()
-            .filePath(filename)
-            .build(); // new AttachedFile()
-        files.add(attachedFile);
+        files.add(AttachedFile.builder().filePath(filename).build());
       }
     }
-    board.setFiles(files);
+    if (files.size() > 0) {
+      board.setFiles(files);
+    }
 
     boardService.update(board);
 
