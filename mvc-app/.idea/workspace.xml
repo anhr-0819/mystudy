@@ -6,35 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e98cb3ea-9923-4462-b860-152bda8cb0ed" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/AboutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/AssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/AssignmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/service/impl/DefaultAssignmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/service/impl/DefaultAssignmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/service/impl/DefaultBoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/service/impl/DefaultBoardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/service/impl/DefaultMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/service/impl/DefaultMemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/Assignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/AttachedFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/AttachedFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/WEB-INF/jsp/board/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/webapp/WEB-INF/jsp/board/view.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/1edf58f2-af1d-4dab-9d4f-ea95028ed2ac" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/342f9018-6691-444e-9167-fb707f3fb6f5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/47a3036a-c630-4c2e-891a-78109cabdcc4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/4bddcf08-d467-4330-868a-5249109d33d3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/555d0010-62cd-4abc-b1ea-8efcd41f5c15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/73ba1690-88f1-454d-a64f-cb240ed6ca7d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/79bec11d-7243-41c5-ba74-1af636e731a1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/80b56c5e-5f9b-42d3-8bda-4d66ba3cb8e9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/95621b03-bdaf-49a5-b2bc-190358a1d2bb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/af706a8e-e0b5-4427-8887-dff3a94ded40" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/afae7b6b-75f0-47e6-8ee1-b32e83cf6e4d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/ba6c0b81-8439-4621-b41c-f3b49c7f9d65" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/cf3c222e-5c05-454e-9584-3751ed924c27" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/d74a8b57-eba0-4224-bd70-94784e4c80d6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/efff05af-d458-4408-ad3b-5ae25ccec2ce" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/webapp/upload/board/f0d4e264-829f-455f-8a02-5aaf0c5709ab" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
