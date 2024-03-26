@@ -21,7 +21,7 @@ public class DefaultBoardService implements BoardService {
   @Override
   public void add(Board board) {
     boardDao.add(board);
-    if (board.getFiles() != null) {
+    if (board.getFiles() != null && board.getFiles().size() > 0) {
       for (AttachedFile attachedFile : board.getFiles()) {
         attachedFile.setBoardNo(board.getNo());
       }

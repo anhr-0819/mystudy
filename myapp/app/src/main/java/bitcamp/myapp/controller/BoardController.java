@@ -32,9 +32,8 @@ public class BoardController implements InitializingBean {
   private String uploadDir;
 
   @Override
-  public void afterPropertiesSet() throws Exception { // 생성자 생성, 셋터 호출 후 실행할 코드를 작성
+  public void afterPropertiesSet() throws Exception {
     this.uploadDir = servletContext.getRealPath("/upload/board");
-    // servletContext <- 웹 어플리케이션 루트폴더에서 실제 경로를 알아내기 위해 필요
   }
 
   @GetMapping("form")
