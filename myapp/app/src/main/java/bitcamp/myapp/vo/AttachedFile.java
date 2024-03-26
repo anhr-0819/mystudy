@@ -1,42 +1,13 @@
 package bitcamp.myapp.vo;
 
+import lombok.Builder;
+import lombok.Data;
+
+@Builder // 이 객체는 반드시 Builder을 통해서 만들어야 한다는 뜻
+@Data
 public class AttachedFile {
 
   private int no;
   private String filePath;
   private int boardNo;
-
-  public int getNo() {
-    return no;
-  }
-
-  public void setNo(int no) {
-    this.no = no;
-  }
-
-  public String getFilePath() {
-    return filePath;
-  }
-
-  public void setFilePath(String filePath) {
-    this.filePath = filePath;
-  }
-
-  public int getBoardNo() {
-    return boardNo;
-  }
-
-  public void setBoardNo(int boardNo) {
-    this.boardNo = boardNo;
-  }
-
-  public AttachedFile filePath(String filePath) {
-    this.filePath = filePath;
-    return this;
-  }
-
-  public AttachedFile boardNo(int boardNo) {
-    this.boardNo = boardNo;
-    return this;
-  }
 }

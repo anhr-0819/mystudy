@@ -2,7 +2,11 @@ package bitcamp.myapp.vo;
 
 import java.io.Serializable;
 import java.sql.Date;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor // 기본생성자
+@Data // ToString();
 public class Assignment implements Serializable {
 
   private static final long serialVersionUID = 100L;
@@ -11,46 +15,7 @@ public class Assignment implements Serializable {
   private String title;
   private String content;
   private Date deadline;
-
-  @Override
-  public String toString() {
-    return "Assignment{" +
-        "no=" + no +
-        ", title='" + title + '\'' +
-        ", content='" + content + '\'' +
-        ", deadline=" + deadline +
-        '}';
-  }
-
-  public int getNo() {
-    return no;
-  }
-
-  public void setNo(int no) {
-    this.no = no;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getContent() {
-    return content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public Date getDeadline() {
-    return deadline;
-  }
-
-  public void setDeadline(Date deadline) {
-    this.deadline = deadline;
-  }
 }
+
+// final은 인스턴스를 생성할때 반드시 값이 주어져야한다.
+// 생성자가 호출될 때 final 값을 받는 생성자를 만들어야한다!

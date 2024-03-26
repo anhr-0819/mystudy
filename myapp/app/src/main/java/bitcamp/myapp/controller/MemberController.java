@@ -18,8 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/member")
 public class MemberController {
 
-  private final Log log = LogFactory.getLog(this.getClass());
-  private MemberService memberService;
+  private static final Log log = LogFactory.getLog(Member.class);
+  private final MemberService memberService;
   private String uploadDir;
 
   public MemberController(MemberService memberService, ServletContext sc) {
@@ -40,7 +40,6 @@ public class MemberController {
       file.transferTo(new File(this.uploadDir + "/" + filename));
     }
     memberService.add(member);
-
     return "redirect:list";
   }
 
@@ -88,6 +87,7 @@ public class MemberController {
     }
 
     memberService.delete(no);
+
     String filename = member.getPhoto();
     if (filename != null) {
       new File(this.uploadDir + "/" + filename).delete();

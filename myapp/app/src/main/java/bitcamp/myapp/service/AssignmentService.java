@@ -14,5 +14,4 @@ public interface AssignmentService {
   int update(Assignment assignment);
 
   int delete(int no);
-
 }
