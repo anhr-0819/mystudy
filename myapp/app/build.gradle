@@ -48,6 +48,9 @@ dependencies {
     // https://mvnrepository.com/artifact/javax.servlet/jstl
     implementation 'javax.servlet:jstl:1.2'
 
+    // Thymeleaf 라이브러리
+    implementation 'org.thymeleaf:thymeleaf-testing-spring5:3.1.0.M2'
+
     // Lombok 라이브러리
     // => 컴파일 할 때만 이 라이브러리를 사용한다.
     //    컴파일이 완료된 후에는 이 라이브러리가 필요없다.
