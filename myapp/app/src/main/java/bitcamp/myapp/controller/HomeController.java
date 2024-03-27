@@ -12,19 +12,16 @@ public class HomeController {
 
   @GetMapping("/home")
   public void home() {
-    // ThymeleafViewResolver가 처리한다
-    // => return "home";
+    // return "home"; // ==> ThymeleafViewResolver가 처리한다.
+  }
+
+  @GetMapping("/home1")
+  public String home1() {
+    return "home.jsp"; // ==> InternalResourceViewResolver가 처리한다.
   }
 
   @GetMapping("/home2")
   public String home2() {
-    // InternalResourceViewResolver가 처리한다
-    return "home.html";
-  }
-
-  @GetMapping("/home3")
-  public String home3() {
-    // InternalResourceViewResolver가 처리한다
-    return "home.jsp";
+    return "home.html"; // ==> ThymeleafViewResolver가 처리한다.
   }
 }

@@ -35,7 +35,7 @@ public class AppConfig {
   public ViewResolver viewResolver() {
     InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
     viewResolver.setPrefix("/WEB-INF/jsp/");
-    //viewResolver.setSuffix(".jsp"); // 뷰이름끝에 .jsp가 있어도 붙인다
+    //viewResolver.setSuffix(".jsp");
     viewResolver.setViewNames("*.jsp");
     viewResolver.setOrder(1);
     return viewResolver;
@@ -66,15 +66,16 @@ public class AppConfig {
     //    템플릿 파일을 한 번 컴파일하면 캐시에 보관해 둔다.
     //    실행할 때마다 캐시에 보관된 것을 사용하여 화면을 생성한다.
     //    실행할 때마다 매번 컴파일하지 않기 때문에 실행 속도가 빠르다.
-    //    개발하는 동안에는 불편하다.
+    //    단 개발하는 동안에는 불편하다.
     //    왜? 개발하는 동안에는 템플릿 파일의 내용을 자주 바꾸기 때문이다.
     //    바꾼 템플릿 파일을 적용하려면 서버를 다시 실행해야 한다.
     // => cacheable = false
     //    템플릿 파일의 컴파일 결과를 캐시에 보관하지 않는다.
     //    매번 실행할 때마다 다시 템플릿 파일을 컴파일 한다.
-    //    개발하는 동안에 필요한 설정이다.
-    //    개발을 완료하면 캐시를 사용하는 것이 성능에 좋다.
+    //    개발하는 동안에 필요한 설정한다.
+    ///   개발을 완료하면 캐시를 사용하는 것이 성능에 좋다.
     templateResolver.setCacheable(false);
+    
     return templateResolver;
   }
 
