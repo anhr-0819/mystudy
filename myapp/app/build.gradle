@@ -6,8 +6,8 @@ repositories {
     mavenCentral()
 }
 dependencies {
-//    // VO 객체와 DAO 인터페이스
-//    implementation project(':app-common')
+    // AWS S3 API 라이브러리
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.12.688'
 
     // MySQL JDBC Driver
     implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.3.0'
