@@ -21,6 +21,28 @@ insert into boards(board_no,title,content,writer,category)
   values(4, '제목4','내용4',104,2);
 insert into boards(board_no,title,content,writer,category)
   values(5, '제목5','내용5',104,2);
+insert into boards(board_no,title,content,writer,category)
+  values(6, '제목6','내용6',101,1);
+insert into boards(board_no,title,content,writer,category)
+  values(7, '제목7','내용7',101,1);
+insert into boards(board_no,title,content,writer,category)
+  values(8, '제목8','내용8',101,1);
+insert into boards(board_no,title,content,writer,category)
+  values(9, '제목9','내용9',101,1);
+insert into boards(board_no,title,content,writer,category)
+  values(10, '제목10','내용10',101,1);
+insert into boards(board_no,title,content,writer,category)
+  values(11, '제목11','내용11',101,1);
+insert into boards(board_no,title,content,writer,category)
+  values(12, '제목12','내용12',101,1);
+insert into boards(board_no,title,content,writer,category)
+  values(13, '제목13','내용13',101,1);
+insert into boards(board_no,title,content,writer,category)
+  values(14, '제목14','내용14',101,1);
+insert into boards(board_no,title,content,writer,category)
+  values(15, '제목15','내용15',101,1);
+insert into boards(board_no,title,content,writer,category)
+  values(16, '제목16','내용16',101,1);
 
 -- boards_files 테이블 데이터
 
