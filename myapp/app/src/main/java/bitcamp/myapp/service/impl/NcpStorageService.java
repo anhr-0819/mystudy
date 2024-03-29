@@ -18,18 +18,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-@Service // Spring IoC 컨테이너에 관리 대상으로 등록
+@Service
 public class NcpStorageService implements StorageService, InitializingBean {
 
   private static Log log = LogFactory.getLog(NcpStorageService.class);
 
   final String endPoint;
   final String regionName;
-
   final String accessKey;
-
   final String secretKey;
-
   final AmazonS3 s3;
 
   public NcpStorageService(
@@ -37,6 +34,7 @@ public class NcpStorageService implements StorageService, InitializingBean {
       @Value("${ncp.ss.regionname}") String regionName,
       @Value("${ncp.accesskey}") String accessKey,
       @Value("${ncp.secretkey}") String secretKey) {
+
     this.endPoint = endPoint;
     this.regionName = regionName;
     this.accessKey = accessKey;
@@ -60,15 +58,21 @@ public class NcpStorageService implements StorageService, InitializingBean {
   @Override
   public String upload(String bucketName, String path, MultipartFile multipartFile)
       throws Exception {
+
     try (InputStream fileIn = multipartFile.getInputStream()) {
+
       String filename = UUID.randomUUID().toString();
-      String objectName = path + filename; // 특정 디렉토리 밑에 저장할 것이므로...
+      String objectName = path + filename;
 
       // 서버에 업로드할 파일의 정보를 준비
       ObjectMetadata objectMetadata = new ObjectMetadata();
       objectMetadata.setContentType(multipartFile.getContentType());
 
-      // 서버 업로드 요청 정보 생성
+      log.info(String.format("%s(%s)",
+          multipartFile.getOriginalFilename(),
+          multipartFile.getContentType()));
+
+      // 서버에 업로드 요청 정보 생성
       PutObjectRequest putObjectRequest = new PutObjectRequest(
           bucketName,
           objectName,
@@ -88,7 +92,7 @@ public class NcpStorageService implements StorageService, InitializingBean {
   @Override
   public void delete(String bucketName, String path, String objectName) throws Exception {
     s3.deleteObject(bucketName, path + objectName);
-
+    
     log.debug(String.format("Object %s has been deleted.\n", objectName));
   }
 }

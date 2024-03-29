@@ -31,6 +31,7 @@
       created_date
     from
       members
+    limit #{rowCount} offset #{offset}
   </select>
 
   <select id="findBy" resultMap="MemberMap" parameterType="int">
@@ -70,4 +71,9 @@
       email= #{email}
       and password=sha2(#{password},256)
   </select>
+
+  <select id="countAll" resultType="int">
+    select count(*) from members
+  </select>
+
 </mapper>
