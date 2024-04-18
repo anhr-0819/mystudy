@@ -72,7 +72,7 @@
       and password=sha2(#{password},256)
   </select>
 
-  <select id="countAll" resultType="int">
+  <select id="countAll" resultType="int" parameterType="int">
     select count(*) from members
   </select>
 
